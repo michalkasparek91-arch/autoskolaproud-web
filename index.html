@@ -406,12 +406,12 @@ button { font: inherit; cursor: pointer; }
   will-change: transform;
 }
 .annbar .ann-lead { color: var(--muted); margin: 0 26px 0 0; }
-.annbar .ann-item { display: inline-flex; align-items: center; gap: 9px; margin-right: 26px; }
+.annbar .ann-item { display: inline-flex; align-items: center; gap: 6px; margin-right: 40px; }
 .annbar .ann-item b { font-weight: 500; letter-spacing: 0.04em; }
 .annbar .ann-item .sep { color: var(--muted); }
 .annbar .ann-item .ann-note { color: var(--volt); }
 .annbar .ann-item .dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--volt);
+  width: 5px; height: 5px; border-radius: 50%; background: var(--volt);
   box-shadow: 0 0 8px 0 var(--volt-glow);
 }
 @keyframes annflow {
@@ -565,29 +565,7 @@ section { padding: 120px 0; position: relative; }
 .spots .bars span { width: 16px; height: 6px; border-radius: 1px; background: var(--line); }
 .spots .bars span.fill { background: var(--volt); }
 
-/* training cards (B2B) */
-.training-grid {
-  margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-}
-@media (max-width: 920px) { .training-grid { grid-template-columns: 1fr; } }
-.training-card {
-  border: 1px solid var(--line); border-radius: var(--r-lg);
-  padding: 36px; background: var(--bg-2);
-}
-.training-card h4 {
-  font-family: var(--display); font-weight: 500; font-size: 24px;
-  letter-spacing: -0.02em; line-height: 1.15; color: var(--paper); margin: 0 0 16px;
-}
-.training-card p {
-  font-size: 14px; line-height: 1.6; color: var(--paper); opacity: 0.82;
-  margin: 0 0 14px;
-}
-.training-card p a { color: var(--volt); text-decoration: underline; }
-.training-card .tc-price {
-  font-family: var(--display); font-weight: 500; font-size: 30px;
-  letter-spacing: -0.03em; color: var(--volt); margin: 8px 0 16px;
-}
-.training-card .tc-price .cur { font-size: 13px; color: var(--muted); font-weight: 400; margin-left: 8px; letter-spacing: normal; }
+.course-meta.single { grid-template-columns: 1fr; }
 
 /* ---------- routes ---------- */
 .routes { background: var(--paper); color: var(--ink); }
@@ -1038,19 +1016,44 @@ const COURSES = [
     spotsLeft: 1,
     features: [
       "28 h jízdy v Hyundai Ioniq",
+      "3-4 jízdy týdně (za měsíc máš odježděno)",
       "7.5 h teorie naživo, tzv. samostudiem",
       "2 h první dvě jízdy na cvičišti, kde se vše v klidu vyzkoušíš",
       "Závěrečná zkouška na Magistrátu Ostrava",
       "Učebnice a online testy v ceně",
     ],
     accent: "var(--volt)",
+    metaCells: "full",
+  },
+  {
+    id: "b-en",
+    code: "B",
+    name: "Group B",
+    sub: "passenger car · fully electric",
+    blurb: "A standard driving licence for a passenger car with an automatic transmission. And only with us is it taught purely in an electric car — the Hyundai Ioniq. And only with us is the fast-track course the standard.",
+    hours: { drive: 28, theory: 7.5, sim: 2 },
+    price: 21900,
+    duration: "4 weeks",
+    cohorts: 4,
+    spotsLeft: 1,
+    features: [
+      "28 hours of driving in a Hyundai Ioniq",
+      "3–4 lessons a week (done within a month)",
+      "7.5 hours of theory — live classes, then self-study",
+      "2 hours for your first two lessons on a practice ground, so you can get comfortable",
+      "Final exam at Ostrava City Hall (Magistrát)",
+      "Textbook and online practice tests included",
+    ],
+    accent: "var(--volt)",
+    metaCells: "full",
+    lang: "en",
   },
   {
     id: "kondicni",
     code: "K",
     name: "Kondiční jízdy",
     sub: "už řídíš, ale chceš si sednout do elektriky",
-    blurb: "Máš řidičák, ale poprvé sedáš za volant EV. Naučíme tě rekuperovat, plánovat nabíjení a parkovat couvací kamerou.",
+    blurb: "Máš řidičák, ale dlouho jsi neřídil nebo poprvé sedáš za volant elektromobilu. Naučíme tě rekuperovat, plánovat nabíjení a parkovat couvací kamerou.",
     hours: { drive: 0.75, theory: 0, sim: 0 },
     price: 500,
     duration: "45 min",
@@ -1063,19 +1066,59 @@ const COURSES = [
       "Cena za 45 minut 500 Kč",
     ],
     accent: "var(--paper)",
+    metaCells: "duration",
+  },
+  {
+    id: "referenti",
+    code: "",
+    name: "Školení řidičů referentů",
+    sub: "pro firmy · zákonné proškolení i individuální program",
+    blurb: (
+      <React.Fragment>
+        Chcete-li pouze splnit zákonnou povinnost a mít zaměstnance proškolené podle zákona, využijte libovolný online kurz, např. <a href="https://www.skolenibozp.cz/skoleni-ridicu/" target="_blank" rel="noopener noreferrer" className="how-link">online školení řidičů BOZP-SYSTEM</a>. Pokud však chcete mít za volantem zkušené kvalitní řidiče a řešit minimum dopravních nehod ve svém dopravním parku, napište si o individuální nabídku.
+      </React.Fragment>
+    ),
+    features: [
+      "Splnění zákonné povinnosti proškolení řidičů referentů",
+      "Individuální program pro firmy s vlastním vozovým parkem",
+      "Méně dopravních nehod ve firemní flotile",
+    ],
+    accent: "var(--paper)",
+    metaCells: "none",
+    bookable: false,
+    priceLabel: "Individuální nabídka",
+    ctaLabel: "Napsat si o nabídku",
+  },
+  {
+    id: "pravidelne",
+    code: "",
+    name: "Pravidelné školení řidičů",
+    sub: "pro firmy · školení dle zákona č. 247/2000 Sb.",
+    blurb: "Nabízíme pravidelné školení řidičů podle zákona č. 247/2000 Sb. od lektora se zkušenostmi z velkého dopravního podniku. Nemusíte zaměstnance nikam posílat, přijedeme k vám do firmy. Školíme i o víkendech.",
+    features: [
+      "Školení přímo u vás ve firmě",
+      "Lektor se zkušenostmi z velkého dopravního podniku",
+      "Možnost termínu i o víkendu",
+    ],
+    accent: "var(--paper)",
+    metaCells: "none",
+    bookable: false,
+    price: 1000,
+    priceSuffix: "Kč / osoba",
+    ctaLabel: "Objednat školení",
   },
 ];
 
 const INSTRUCTORS = [
   {
     nm: "Martin Samec",
-    role: "Instruktor · zakladatel · majitel",
-    bio: "15 let za volantem, posledních 6 let výhradně na elektrice. Bývalý servisák Tesly. Učí klidně, jezdí předvídavě, na nikoho nekřičí — i když uděláš stejnou chybu potřetí. Mluví česky, anglicky a trochu polsky.",
+    role: "Instruktor · zakladatel",
+    bio: "15 let za volantem, se zkušenostmi s malými i velkými vozidly. Nadšenec do elektromobility. Učí klidně a předvídavě, na nikoho nekřičí a přesto z Vás vytáhne maximální výkon — i když uděláš stejnou chybu potřetí. Mluví česky, anglicky a trochu polsky.",
     longBio: "Proud je celý on. Sám tě vyzvedne, sám tě naučí, sám s tebou pojede ke zkoušce. Žádná štafeta mezi pěti instruktory, žádné „toho neznám\u201c ráno před zkouškou. Jeden člověk, jedno auto, jeden plán.",
     spec: ["Skupina B · automat", "Teorie", "Kondiční jízdy", "CZ / EN / PL"],
     region: "Celá Ostrava + okolí",
     stats: [
-      { n: "847", l: "absolventů" },
+      { n: "stovky", l: "absolventů" },
       { n: "15 let", l: "za volantem" },
       { n: "4,9 ★", l: "google reviews" },
     ],
@@ -1282,7 +1325,7 @@ function Ticker() {
 function WhyElectric() {
   const [ref, cls] = useReveal();
   const cells = [
-    { n: "01", t: "Moderní elektromobil. Automat.", b: "Jezdíš v čistém elektromobilu Hyundai Ioniq — tedy s automatem. Žádné trápení se spojkou, hlídání otáček ani odvádění pozornosti řadicí pákou. Plně se věnuješ provozu a posloucháš učitele. Přes 70 % nových a poprvé i přes 50 % ojetých aut v ČR má dnes automat — a čísla rostou." },
+    { n: "01", t: "Moderní elektromobil. Automat.", b: "Jezdíš v čistém elektromobilu Hyundai Ioniq — tedy s automatem. Žádné trápení se spojkou, hlídání otáček ani odvádění pozornosti řadicí pákou. Plně se věnuješ provozu a posloucháš učitele. Přes 70 % nových a letos nově i většina ojetých vozidel v ČR má dnes automat — a tyto čísla půjdou nahoru. Garantujeme Vám, že řízení v Ioniqu si zamilujete! Je totiž silně návykové :-)" },
     { n: "02", t: "Jeden instruktor. Osobní přístup.", b: "Celou dobu jezdíš jen s jedním učitelem — od teorie až po zkoušku. Žádná štafeta, žádné „toho neznám“ ráno před jízdou. Zkušení a trpěliví profíci vysvětlí situaci tolikrát, kolikrát potřebuješ. Držíme maximálně 5 uchazečů na jednoho učitele — máš dost prostoru i jistotu odpočatého instruktora." },
     { n: "03", t: "V samém centru Ostravy.", b: "Učebna sídlí na Havlíčkově nábřeží 2728/38 u řeky Ostravice, hned vedle zastávky Most Pionýrů. Jízdy startují z parkoviště před budovou, zkušební místnost je 3 minuty chůze. Podél řeky vede cyklostezka — na teorii klidně přijeď na kole, autobusem nebo trolejbusem." },
   ];
@@ -1294,7 +1337,7 @@ function WhyElectric() {
           <div>
             <h2>Auto bez výfuku.<br />Řidič bez stresu.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
-              Z mnoha důvodů. Moderní a čistý elektromobil, jeden zkušený instruktor po celou dobu a učebna v samém centru Ostravy. Tak neváhej a jezdi s&nbsp;PROUDEM.
+              Z mnoha důvodů. Moderní a čistý elektromobil, jeden zkušený instruktor po celou dobu a učebna v samém centru Ostravy. Tak neváhej a jezdi v&nbsp;PROUDU.
             </p>
           </div>
         </div>
@@ -1332,13 +1375,19 @@ function Courses({ onPickCourse }) {
     ? Array.from({ length: course.cohorts || 4 }, (_, i) => i < course.spotsLeft)
     : null;
 
+  const LABELS = {
+    cs: { hoursDrive: "Hodin jízdy", theory: "Teorie", duration: "Délka", sim: "Cvičiště", signup: "Přihlásit se na", spots: (n, c) => `zbývá ${n} z ${c}` },
+    en: { hoursDrive: "Hours of driving", theory: "Theory", duration: "Duration", sim: "Practice ground", signup: "Sign up for", spots: (n, c) => `${n} of ${c} spots left` },
+  };
+  const L = LABELS[course.lang || "cs"];
+
   return (
     <section className="courses" id="courses" ref={ref}>
       <div className={`wrap ${cls}`}>
         <div className="section-head">
           <div className="kicker"><span className="n">03</span> Kurzy & ceny</div>
           <div>
-            <h2>Čtyři způsoby, jak se k nám dostat.</h2>
+            <h2>Nabídka našich kurzů</h2>
             <p className="lead" style={{ marginTop: 24 }}>
               Klasický kurz, ve kterém je rychlokurz standardem. Kondiční jízdy pro ty, co řidičák už mají. A dvě školení pro firmy, co chtějí mít na silnici klid.
             </p>
@@ -1352,83 +1401,77 @@ function Courses({ onPickCourse }) {
               className={`course-tab ${c.id === active ? "active" : ""}`}
               onClick={() => setActive(c.id)}
             >
-              {c.code} · {c.name}
+              {c.code ? `${c.code} · ${c.name}` : c.name}
             </button>
           ))}
         </div>
 
         <div className="course-card">
-          <div className="code-badge">{course.code}</div>
+          {course.code && <div className="code-badge">{course.code}</div>}
           <div>
             <h3>{course.name}</h3>
-            <div className="sub">{course.sub}</div>
+            {course.sub && <div className="sub">{course.sub}</div>}
             <p className="blurb">{course.blurb}</p>
             <ul>
               {course.features.map((f, i) => <li key={i}>{f}</li>)}
             </ul>
-            <button className="btn btn-volt lg" onClick={() => onPickCourse(course.id)}>
-              Přihlásit se na {course.code} <span className="arrow">→</span>
-            </button>
+            {course.bookable === false ? (
+              <a href="#contact" className="btn btn-volt lg">{course.ctaLabel} <span className="arrow">→</span></a>
+            ) : (
+              <button className="btn btn-volt lg" onClick={() => onPickCourse(course.id)}>
+                {L.signup} {course.code} <span className="arrow">→</span>
+              </button>
+            )}
           </div>
 
           <div>
-            <div className="course-meta">
-              <div className="cell">
-                <div className="l">Hodin jízdy</div>
-                <div className="v">{course.hours.drive}<span className="small">h</span></div>
+            {course.metaCells === "full" && (
+              <div className="course-meta">
+                <div className="cell">
+                  <div className="l">{L.hoursDrive}</div>
+                  <div className="v">{course.hours.drive}<span className="small">h</span></div>
+                </div>
+                <div className="cell">
+                  <div className="l">{L.theory}</div>
+                  <div className="v">{course.hours.theory}<span className="small">h</span></div>
+                </div>
+                <div className="cell">
+                  <div className="l">{L.duration}</div>
+                  <div className="v" style={{ fontSize: 18 }}>{course.duration}</div>
+                </div>
+                <div className="cell">
+                  <div className="l">{L.sim}</div>
+                  <div className="v">{course.hours.sim}<span className="small">h</span></div>
+                </div>
               </div>
-              <div className="cell">
-                <div className="l">Teorie</div>
-                <div className="v">{course.hours.theory}<span className="small">h</span></div>
+            )}
+            {course.metaCells === "duration" && (
+              <div className="course-meta single">
+                <div className="cell">
+                  <div className="l">{L.duration}</div>
+                  <div className="v" style={{ fontSize: 18 }}>{course.duration}</div>
+                </div>
               </div>
-              <div className="cell">
-                <div className="l">Délka</div>
-                <div className="v" style={{ fontSize: 18 }}>{course.duration}</div>
-              </div>
-              <div className="cell">
-                <div className="l">Cvičiště</div>
-                <div className="v">{course.hours.sim}<span className="small">h</span></div>
-              </div>
-            </div>
+            )}
 
             <div className="price-block">
               <div>
                 {course.priceOld && <div className="price-old">{course.priceOld.toLocaleString("cs-CZ")} Kč</div>}
-                <div className="price">{course.price.toLocaleString("cs-CZ")}<span className="cur">Kč</span></div>
+                {course.priceLabel ? (
+                  <div className="price" style={{ fontSize: 28 }}>{course.priceLabel}</div>
+                ) : (
+                  <div className="price">{course.price.toLocaleString("cs-CZ")}<span className="cur">{course.priceSuffix || "Kč"}</span></div>
+                )}
               </div>
               {bars && (
                 <div className="spots">
                   <div className="bars">
                     {bars.map((on, i) => <span key={i} className={on ? "fill" : ""}></span>)}
                   </div>
-                  <span>zbývá {course.spotsLeft} z {course.cohorts}</span>
+                  <span>{L.spots(course.spotsLeft, course.cohorts)}</span>
                 </div>
               )}
             </div>
-          </div>
-        </div>
-
-        <div className="training-grid">
-          <div className="training-card">
-            <h4>Školení řidičů referentů</h4>
-            <p>
-              Chcete-li pouze splnit zákonnou povinnost a mít zaměstnance proškolené podle zákona, využijte libovolný online kurz.
-              Např. <a href="https://www.skolenibozp.cz/skoleni-ridicu/" target="_blank" rel="noopener noreferrer">online školení řidičů — BOZP-SYSTEM</a>.
-            </p>
-            <p>
-              Pokud však chcete mít za volantem zkušené kvalitní řidiče a řešit minimum dopravních nehod ve svém dopravním parku, napište si o individuální nabídku.
-            </p>
-            <a href="#contact" className="btn btn-volt lg">Napsat si o nabídku <span className="arrow">→</span></a>
-          </div>
-
-          <div className="training-card">
-            <h4>Pravidelné školení řidičů</h4>
-            <p>
-              Nabízíme pravidelné školení řidičů podle zákona č. 247/2000 Sb. od lektora se zkušenostmi z velkého dopravního podniku. Nemusíte zaměstnance nikam posílat, přijedeme k vám do firmy.
-            </p>
-            <div className="tc-price">1 000<span className="cur">Kč / osoba</span></div>
-            <BoltMark size={28} />
-            <a href="#contact" className="btn btn-volt lg" style={{ marginTop: 20 }}>Objednat školení <span className="arrow">→</span></a>
           </div>
         </div>
       </div>
@@ -1543,7 +1586,7 @@ function Instructors() {
             </div>
 
             <blockquote className="inst-quote">
-              „Když to umí jet samo, není co řadit. Soustřeď se na silnici, ne na převodovku."
+              „Plynule, pohodlně a bezpečně."
             </blockquote>
           </div>
         </article>
@@ -1559,7 +1602,7 @@ function HowToStart({ onBook }) {
     { n: "01", t: "Potvrzení od lékaře", b: (<React.Fragment>Vytiskni si <a href="#" className="how-link">Potvrzení od lékaře</a>. Doma vyplň jméno, adresu atd. a zbytek nech na svém praktickém lékaři. Objednej se k němu a nezapomeň se zeptat, kolik si za potvrzení účtuje (většinou kolem 500 Kč).</React.Fragment>) },
     { n: "02", t: "Online přihláška", b: "Mezitím si tady vyplň online přihlášku. Zabere ti to dvě minuty — vybereš město, termín a necháš na sebe kontakt." },
     { n: "03", t: "Osobní schůzka", b: "S podepsaným potvrzením přijď na pobočku v otevírací době, nebo napiš či zavolej (viz Kontakty) a domluv si osobní schůzku, kde se dozvíš všechny informace o tom, co tě čeká nemine." },
-    { n: "04", t: "Začátek kurzu", b: "Pak už jen počkáš na začátek nejbližšího kurzu. Tak neváhej a jezdi s PROUDEM!" },
+    { n: "04", t: "Začátek kurzu", b: "Pak už jen počkáš na začátek nejbližšího kurzu. Tak neváhej a jezdi v PROUDU!" },
   ];
   return (
     <section className="how" id="how" ref={ref} data-screen-label="Jak začít">
@@ -1569,7 +1612,7 @@ function HowToStart({ onBook }) {
           <div>
             <h2>Začít je jednoduché.<br />Čtyři kroky a jedeš.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
-              Žádná byrokratická noční můra. Provedeme tě celým procesem osobně — ty se staráš jen o to, abys přišel na jízdy.
+              Bez byrokracie tě osobně provedeme vším potřebným — ty se staráš jen o to, abys přišel na jízdy.
             </p>
           </div>
         </div>
@@ -1584,7 +1627,7 @@ function HowToStart({ onBook }) {
           ))}
         </div>
         <div className="how-cta">
-          <span>Tak neváhej a jezdi s PROUDEM!</span>
+          <span>Tak neváhej a jezdi v PROUDU!</span>
           <button className="btn btn-volt lg" onClick={onBook}>Spustit přihlášku <span className="arrow">→</span></button>
         </div>
       </div>
@@ -1617,7 +1660,7 @@ function TheoryTests() {
             className={`course-tab ${tab === "technika" ? "active" : ""}`}
             onClick={() => setTab("technika")}
           >
-            Technika · pro všechny skupiny C, D, E
+            Technika · pro skupiny C, D, E
           </button>
         </div>
 
@@ -1921,9 +1964,9 @@ function BookingModal({ open, onClose, initialCourse }) {
 
             {step === 0 && (
               <div className="pick-grid">
-                {COURSES.map((c) => (
+                {COURSES.filter((c) => c.bookable !== false).map((c) => (
                   <button key={c.id} className={`pick ${form.course === c.id ? "selected" : ""}`} onClick={() => setForm({ ...form, course: c.id })}>
-                    <div className="nm">{c.code} · {c.name}</div>
+                    <div className="nm">{c.code ? `${c.code} · ${c.name}` : c.name}</div>
                     <div className="pr">{c.price.toLocaleString("cs-CZ")} Kč · {c.duration}</div>
                   </button>
                 ))}
