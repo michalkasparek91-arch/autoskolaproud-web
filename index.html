@@ -565,6 +565,30 @@ section { padding: 120px 0; position: relative; }
 .spots .bars span { width: 16px; height: 6px; border-radius: 1px; background: var(--line); }
 .spots .bars span.fill { background: var(--volt); }
 
+/* training cards (B2B) */
+.training-grid {
+  margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+@media (max-width: 920px) { .training-grid { grid-template-columns: 1fr; } }
+.training-card {
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: 36px; background: var(--bg-2);
+}
+.training-card h4 {
+  font-family: var(--display); font-weight: 500; font-size: 24px;
+  letter-spacing: -0.02em; line-height: 1.15; color: var(--paper); margin: 0 0 16px;
+}
+.training-card p {
+  font-size: 14px; line-height: 1.6; color: var(--paper); opacity: 0.82;
+  margin: 0 0 14px;
+}
+.training-card p a { color: var(--volt); text-decoration: underline; }
+.training-card .tc-price {
+  font-family: var(--display); font-weight: 500; font-size: 30px;
+  letter-spacing: -0.03em; color: var(--volt); margin: 8px 0 16px;
+}
+.training-card .tc-price .cur { font-size: 13px; color: var(--muted); font-weight: 400; margin-left: 8px; letter-spacing: normal; }
+
 /* ---------- routes ---------- */
 .routes { background: var(--paper); color: var(--ink); }
 .routes .section-head h2 { color: var(--ink); }
@@ -811,24 +835,12 @@ footer {
 .theory .section-head h2 { color: var(--ink); }
 .theory .section-head .kicker { color: #888; }
 .theory .section-head .kicker .n { color: var(--volt-deep); }
-.theory-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; }
-@media (max-width: 920px) { .theory-grid { grid-template-columns: 1fr; } }
-.theory-board { background: var(--ink); border-radius: var(--r-lg); padding: 36px; color: var(--paper); }
-.theory-board-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; gap: 16px; flex-wrap: wrap; }
-.theory-board-head .tb-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.theory-board-head .tb-v { font-family: var(--display); font-weight: 500; font-size: 56px; letter-spacing: -0.04em; line-height: 1; color: var(--volt); }
-.theory-board-head .tb-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
-.theory-row { padding: 14px 0; border-top: 1px solid var(--line); }
-.theory-row-top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px; }
-.theory-row-top span:first-child { font-family: var(--display); font-weight: 500; letter-spacing: -0.012em; }
-.theory-row-top .tr-q { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
-.theory-bar { height: 6px; background: var(--bg-2); border-radius: 3px; overflow: hidden; }
-.theory-bar span { display: block; height: 100%; background: var(--volt); border-radius: 3px; transition: width 0.6s ease; }
-.theory-side { display: flex; flex-direction: column; gap: 12px; }
-.theory-card { background: var(--paper-2); border: 1px solid var(--line-paper); border-radius: var(--r-md); padding: 24px; }
-.theory-card .tc-big { font-family: var(--display); font-weight: 500; font-size: 48px; letter-spacing: -0.04em; line-height: 1; color: var(--ink); }
-.theory-card .tc-big .tc-min { font-size: 18px; color: var(--muted); margin-left: 4px; }
-.theory-card .tc-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #888; margin-top: 10px; }
+.theory-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 32px 0 28px; }
+.theory-tabs .course-tab { color: var(--ink-2); border-color: var(--line-paper); }
+.theory-tabs .course-tab:hover { border-color: var(--ink-2); }
+.theory-tabs .course-tab.active { background: var(--volt); border-color: var(--volt); color: var(--ink); }
+.theory-panel { max-width: 64ch; }
+.theory-panel .lead { margin: 0 0 28px; }
 
 /* ---------- fleet ---------- */
 .fleet { background: var(--bg); }
@@ -1017,57 +1029,38 @@ const COURSES = [
     code: "B",
     name: "Skupina B",
     sub: "osobní auto · plně elektrické",
-    blurb: "Standardní řidičák na osobní auto. U nás od první jízdy v elektromobilu — automat, regenerativní brzda, plánování dojezdu.",
-    hours: { drive: 28, theory: 8, sim: 2 },
+    blurb: "Standardní řidičák na osobní auto s automatickou převodovkou. A jedině u nás pouze s elektromobilem - Hyundai Ioniq. A jedině u nás je tzv. rychlokurz standardem.",
+    hours: { drive: 28, theory: 7.5, sim: 2 },
     price: 19900,
     priceOld: 22500,
-    duration: "10–14 týdnů",
+    duration: "4 týdny",
     cohorts: 4,
     spotsLeft: 1,
     features: [
       "28 h jízdy v Hyundai Ioniq",
-      "8 h teorie naživo, ne přes Zoom",
-      "2 h simulátor — krizové situace, mlha, náledí",
+      "7.5 h teorie naživo, tzv. samostudiem",
+      "2 h první dvě jízdy na cvičišti, kde se vše v klidu vyzkoušíš",
       "Závěrečná zkouška na Magistrátu Ostrava",
       "Učebnice a online testy v ceně",
     ],
     accent: "var(--volt)",
   },
   {
-    id: "b-intenziv",
-    code: "B+",
-    name: "Skupina B · Intenziv",
-    sub: "rychlý kurz · 4 týdny",
-    blurb: "Pro netrpělivé. Tři jízdy týdně, soustředěná teorie po blocích. Vhodné pro studenty o prázdninách a lidi, co potřebují řidičák na včera.",
-    hours: { drive: 28, theory: 8, sim: 2 },
-    price: 23900,
-    duration: "4 týdny",
-    cohorts: 2,
-    spotsLeft: 3,
-    features: [
-      "Garantovaná zkouška do 5 týdnů od přihlášky",
-      "Jízdy ráno, odpoledne i večer",
-      "Stejný instruktor po celou dobu",
-      "Vše ostatní jako u základního kurzu B",
-    ],
-    accent: "var(--ion)",
-  },
-  {
     id: "kondicni",
     code: "K",
     name: "Kondiční jízdy",
     sub: "už řídíš, ale chceš si sednout do elektriky",
-    blurb: "Máš řidičák, ale poprvé sedáš za volant EV. Naučíme tě rekuperovat, plánovat nabíjení a parkovat couvací kamerou. 90 minut, žádné testy.",
-    hours: { drive: 1.5, theory: 0, sim: 0 },
-    price: 1490,
-    duration: "90 min",
+    blurb: "Máš řidičák, ale poprvé sedáš za volant EV. Naučíme tě rekuperovat, plánovat nabíjení a parkovat couvací kamerou.",
+    hours: { drive: 0.75, theory: 0, sim: 0 },
+    price: 500,
+    duration: "45 min",
     cohorts: null,
     spotsLeft: null,
     features: [
       "Plánování nabíjení v reálné trase",
       "Rekuperace, one-pedal driving",
       "Couvací kamera, asistenční systémy",
-      "Možnost balíčku 5× za 6 900 Kč",
+      "Cena za 45 minut 500 Kč",
     ],
     accent: "var(--paper)",
   },
@@ -1345,9 +1338,9 @@ function Courses({ onPickCourse }) {
         <div className="section-head">
           <div className="kicker"><span className="n">03</span> Kurzy & ceny</div>
           <div>
-            <h2>Tři způsoby, jak se sem dostat.</h2>
+            <h2>Čtyři způsoby, jak se k nám dostat.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
-              Klasický kurz pro mladé. Intenzivní pro nedočkavé. Kondiční pro ty, co už řidičák mají, ale s elektrikou nikdy nejeli.
+              Klasický kurz, ve kterém je rychlokurz standardem. Kondiční jízdy pro ty, co řidičák už mají. A dvě školení pro firmy, co chtějí mít na silnici klid.
             </p>
           </div>
         </div>
@@ -1393,7 +1386,7 @@ function Courses({ onPickCourse }) {
                 <div className="v" style={{ fontSize: 18 }}>{course.duration}</div>
               </div>
               <div className="cell">
-                <div className="l">Simulátor</div>
+                <div className="l">Cvičiště</div>
                 <div className="v">{course.hours.sim}<span className="small">h</span></div>
               </div>
             </div>
@@ -1412,6 +1405,30 @@ function Courses({ onPickCourse }) {
                 </div>
               )}
             </div>
+          </div>
+        </div>
+
+        <div className="training-grid">
+          <div className="training-card">
+            <h4>Školení řidičů referentů</h4>
+            <p>
+              Chcete-li pouze splnit zákonnou povinnost a mít zaměstnance proškolené podle zákona, využijte libovolný online kurz.
+              Např. <a href="https://www.skolenibozp.cz/skoleni-ridicu/" target="_blank" rel="noopener noreferrer">online školení řidičů — BOZP-SYSTEM</a>.
+            </p>
+            <p>
+              Pokud však chcete mít za volantem zkušené kvalitní řidiče a řešit minimum dopravních nehod ve svém dopravním parku, napište si o individuální nabídku.
+            </p>
+            <a href="#contact" className="btn btn-volt lg">Napsat si o nabídku <span className="arrow">→</span></a>
+          </div>
+
+          <div className="training-card">
+            <h4>Pravidelné školení řidičů</h4>
+            <p>
+              Nabízíme pravidelné školení řidičů podle zákona č. 247/2000 Sb. od lektora se zkušenostmi z velkého dopravního podniku. Nemusíte zaměstnance nikam posílat, přijedeme k vám do firmy.
+            </p>
+            <div className="tc-price">1 000<span className="cur">Kč / osoba</span></div>
+            <BoltMark size={28} />
+            <a href="#contact" className="btn btn-volt lg" style={{ marginTop: 20 }}>Objednat školení <span className="arrow">→</span></a>
           </div>
         </div>
       </div>
@@ -1578,14 +1595,7 @@ function HowToStart({ onBook }) {
 /* ---------- Theory & tests ---------- */
 function TheoryTests() {
   const [ref, cls] = useReveal();
-  const cats = [
-    { nm: "Pravidla provozu", q: 220, done: 88 },
-    { nm: "Dopravní značky", q: 140, done: 64 },
-    { nm: "Zásady bezpečné jízdy", q: 95, done: 40 },
-    { nm: "Konstrukce vozidla", q: 60, done: 22 },
-    { nm: "Předpisy o podmínkách", q: 75, done: 12 },
-    { nm: "Zdravotnická příprava", q: 45, done: 0 },
-  ];
+  const [tab, setTab] = useState("testy");
   return (
     <section className="theory" id="theory" ref={ref} data-screen-label="Testy a teorie">
       <div className={`wrap ${cls}`}>
@@ -1593,49 +1603,45 @@ function TheoryTests() {
           <div className="kicker"><span className="n">04</span> Testy a teorie</div>
           <div>
             <h2>Procvičuj testy<br />kdykoliv a kdekoliv.</h2>
-            <p className="lead" style={{ marginTop: 24, color: "var(--ink-2)" }}>
-              Stejné otázky jako u státní zkoušky. Online přístup dostaneš hned po přihlášce — trénuj v tramvaji, na gauči, kdykoliv máš pět minut.
-            </p>
           </div>
         </div>
 
-        <div className="theory-grid">
-          <div className="theory-board">
-            <div className="theory-board-head">
-              <div>
-                <div className="tb-l">Tvůj postup</div>
-                <div className="tb-v">38 %</div>
-              </div>
-              <div className="tb-meta">635 otázek · 6 okruhů</div>
-            </div>
-            {cats.map((c) => (
-              <div key={c.nm} className="theory-row">
-                <div className="theory-row-top">
-                  <span>{c.nm}</span>
-                  <span className="tr-q">{c.done}/{c.q}</span>
-                </div>
-                <div className="theory-bar"><span style={{ width: `${Math.round((c.done / c.q) * 100)}%` }}></span></div>
-              </div>
-            ))}
-          </div>
+        <div className="theory-tabs">
+          <button
+            className={`course-tab ${tab === "testy" ? "active" : ""}`}
+            onClick={() => setTab("testy")}
+          >
+            Testy · pro všechny skupiny ŘP
+          </button>
+          <button
+            className={`course-tab ${tab === "technika" ? "active" : ""}`}
+            onClick={() => setTab("technika")}
+          >
+            Technika · pro všechny skupiny C, D, E
+          </button>
+        </div>
 
-          <div className="theory-side">
-            <div className="theory-card">
-              <div className="tc-big">25</div>
-              <div className="tc-l">otázek v ostrém testu</div>
-            </div>
-            <div className="theory-card">
-              <div className="tc-big">50<span className="tc-min">min</span></div>
-              <div className="tc-l">časový limit</div>
-            </div>
-            <div className="theory-card">
-              <div className="tc-big">43<span className="tc-min">/50</span></div>
-              <div className="tc-l">bodů na úspěch</div>
-            </div>
-            <a href="#" className="btn btn-ink lg" style={{ justifyContent: "center" }}>
-              Otevřít cvičné testy <span className="arrow">→</span>
-            </a>
-          </div>
+        <div className="theory-panel">
+          {tab === "testy" && (
+            <React.Fragment>
+              <p className="lead" style={{ color: "var(--ink-2)" }}>
+                Stejné otázky jako u státní zkoušky. Na hodinách teorie si ukážeme a vysvětlíme jak testy fungují tak abyste si je mohli kdykoliv a kdekoliv zkoušet — trénuj v tramvaji, na gauči, kdykoliv máš pět minut.
+              </p>
+              <a href="https://etesty.md.gov.cz/" target="_blank" rel="noopener noreferrer" className="btn btn-ink lg" style={{ justifyContent: "center" }}>
+                Otevřít cvičné testy <span className="arrow">→</span>
+              </a>
+            </React.Fragment>
+          )}
+          {tab === "technika" && (
+            <React.Fragment>
+              <p className="lead" style={{ color: "var(--ink-2)" }}>
+                Tohle jinde nenajdete! Pro všechny žadatele o skupiny C, D, C+E a D+E, které čeká mimo jiné ústní zkouška z ovládání a údržby vozidla (OÚV), máme zjednodušená skripta ke stažení zcela zdarma!
+              </p>
+              <a href="#" className="btn btn-ink lg" style={{ justifyContent: "center" }}>
+                Stáhnout PDF <span className="arrow">→</span>
+              </a>
+            </React.Fragment>
+          )}
         </div>
       </div>
     </section>
