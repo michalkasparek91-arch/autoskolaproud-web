@@ -22,8 +22,8 @@
   --line-paper: #D9D6CB;
   /* electric current — sodium lime */
   --volt: #D7F23A;
-  --volt-deep: #B8D421;
-  --volt-glow: rgba(215, 242, 58, 0.35);
+  --volt-deep: color-mix(in srgb, var(--volt) 82%, #000);
+  --volt-glow: color-mix(in srgb, var(--volt) 35%, transparent);
   /* secondary cool */
   --ion: #6BC5FF;
 
@@ -218,7 +218,7 @@ button { font: inherit; cursor: pointer; }
 }
 .btn:hover { transform: translateY(-1px); }
 .btn-volt { background: var(--volt); color: var(--ink); }
-.btn-volt:hover { background: #E4FF4D; }
+.btn-volt:hover { background: color-mix(in srgb, var(--volt) 80%, #fff); }
 .btn-ghost { background: transparent; color: var(--paper); border-color: rgba(244, 242, 236, 0.18); }
 .btn-ghost:hover { border-color: rgba(244, 242, 236, 0.4); }
 .btn-ink { background: var(--ink); color: var(--paper); }
@@ -333,8 +333,8 @@ button { font: inherit; cursor: pointer; }
   animation: pulse 1.8s ease-out infinite;
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(215, 242, 58, 0.5); }
-  100% { box-shadow: 0 0 0 14px rgba(215, 242, 58, 0); }
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--volt) 50%, transparent); }
+  100% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--volt) 0%, transparent); }
 }
 
 .hero-aside {
@@ -361,11 +361,11 @@ button { font: inherit; cursor: pointer; }
 .hero-promo {
   display: flex; align-items: center; gap: 14px;
   border: 1px solid var(--volt); border-radius: var(--r-md);
-  background: rgba(215, 242, 58, 0.06);
+  background: color-mix(in srgb, var(--volt) 6%, transparent);
   padding: 16px 18px; margin-top: 4px;
   transition: background 0.2s, transform 0.15s;
 }
-.hero-promo:hover { background: rgba(215, 242, 58, 0.12); transform: translateY(-1px); }
+.hero-promo:hover { background: color-mix(in srgb, var(--volt) 12%, transparent); transform: translateY(-1px); }
 .hero-promo .hp-tag {
   flex: 0 0 auto;
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -379,7 +379,7 @@ button { font: inherit; cursor: pointer; }
 .hero-bg {
   position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(ellipse 100% 60% at 80% 100%, rgba(215, 242, 58, 0.12), transparent 60%),
+    radial-gradient(ellipse 100% 60% at 80% 100%, color-mix(in srgb, var(--volt) 12%, transparent), transparent 60%),
     radial-gradient(ellipse 60% 40% at 0% 0%, rgba(107, 197, 255, 0.05), transparent 70%);
 }
 .hero-current {
@@ -709,14 +709,14 @@ section { padding: 120px 0; position: relative; }
   text-align: left;
   color: var(--paper);
 }
-.pick:hover { border-color: rgba(215, 242, 58, 0.4); }
-.pick.selected { border-color: var(--volt); background: rgba(215, 242, 58, 0.06); }
+.pick:hover { border-color: color-mix(in srgb, var(--volt) 40%, transparent); }
+.pick.selected { border-color: var(--volt); background: color-mix(in srgb, var(--volt) 6%, transparent); }
 .pick .nm { font-family: var(--display); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 4px; }
 .pick .pr { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--muted); }
 
 .summary {
   border: 1px solid var(--volt); border-radius: var(--r-md); padding: 24px;
-  margin-top: 24px; background: rgba(215, 242, 58, 0.04);
+  margin-top: 24px; background: color-mix(in srgb, var(--volt) 4%, transparent);
 }
 .summary .row { display: flex; justify-content: space-between; padding: 8px 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
 .summary .row b { color: var(--paper); font-weight: 500; }
@@ -800,7 +800,7 @@ footer {
 .how-step h3 { font-family: var(--display); font-weight: 500; font-size: 22px; line-height: 1.1; letter-spacing: -0.025em; margin: 0 0 12px; }
 .how-step p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
 .how-link { color: var(--volt); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.how-link:hover { color: #E4FF4D; }
+.how-link:hover { color: color-mix(in srgb, var(--volt) 80%, #fff); }
 .how-cta {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line);
@@ -873,7 +873,7 @@ footer {
 }
 .map-pin { position: absolute; left: 44%; top: 40%; transform: translate(-50%, -100%); text-align: center; }
 .map-pin-head { background: var(--volt); color: var(--ink); font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; white-space: nowrap; }
-.map-pin-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--volt); margin: 8px auto 0; box-shadow: 0 0 0 4px rgba(215,242,58,0.2); }
+.map-pin-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--volt); margin: 8px auto 0; box-shadow: 0 0 0 4px color-mix(in srgb, var(--volt) 20%, transparent); }
 .map-cta { position: absolute; bottom: 20px; right: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: rgba(10,11,10,0.6); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); }
 
 /* ---------- reveal animation ---------- */
@@ -893,8 +893,8 @@ footer {
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 <rect width="100" height="100" fill="#0A0B0A"/>
-<path d="M 18 60 Q 32 40 46 60 T 74 60 T 90 52" stroke="#D7F23A" stroke-width="3" fill="none" stroke-linecap="round"/>
-<circle cx="90" cy="50" r="4" fill="#D7F23A"/>
+<path d="M 18 60 Q 32 40 46 60 T 74 60 T 90 52" stroke="var(--volt)" stroke-width="3" fill="none" stroke-linecap="round"/>
+<circle cx="90" cy="50" r="4" fill="var(--volt)"/>
 <text x="50" y="46" font-family="sans-serif" font-size="15" font-weight="700" fill="#F4F2EC" text-anchor="middle" letter-spacing="-0.5">proud</text>
 </svg>
 </template>
@@ -1251,9 +1251,9 @@ function Hero({ onBook }) {
       <svg className="hero-current" viewBox="0 0 1440 220" preserveAspectRatio="none">
         <defs>
           <linearGradient id="cg" x1="0" x2="1">
-            <stop offset="0" stopColor="rgba(215, 242, 58, 0)" />
-            <stop offset="0.5" stopColor="rgba(215, 242, 58, 0.5)" />
-            <stop offset="1" stopColor="rgba(215, 242, 58, 0)" />
+            <stop offset="0" stopColor="var(--volt)" stopOpacity="0" />
+            <stop offset="0.5" stopColor="var(--volt)" stopOpacity="0.5" />
+            <stop offset="1" stopColor="var(--volt)" stopOpacity="0" />
           </linearGradient>
         </defs>
         <path d="M 0 110 Q 90 30 180 110 T 360 110 T 540 110 T 720 110 T 900 110 T 1080 110 T 1260 110 T 1440 110" stroke="url(#cg)" strokeWidth="1.5" fill="none" />
@@ -1983,7 +1983,7 @@ function BookingModal({ open, onClose, initialCourse }) {
                     </button>
                   ))}
                 </div>
-                <div style={{ marginTop: 20, padding: 16, border: "1px solid var(--line)", borderRadius: "var(--r-md)", background: "rgba(215, 242, 58, 0.04)", display: "flex", gap: 12, alignItems: "flex-start" }}>
+                <div style={{ marginTop: 20, padding: 16, border: "1px solid var(--line)", borderRadius: "var(--r-md)", background: "color-mix(in srgb, var(--volt) 4%, transparent)", display: "flex", gap: 12, alignItems: "flex-start" }}>
                   <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--volt)", color: "var(--ink)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, flexShrink: 0 }}>i</div>
                   <div>
                     <div style={{ fontFamily: "var(--display)", fontWeight: 500, fontSize: 15 }}>Jezdí se pouze s automatem.</div>
@@ -2104,6 +2104,180 @@ function BookingCTA({ onBook }) {
   );
 }
 
+/* ---------- Color Slider Widget (Working Dev Tool) ---------- */
+function hslToHex(h, s, l) {
+  l /= 100;
+  const a = s * Math.min(l, 1 - l) / 100;
+  const f = n => {
+    const k = (n + h / 30) % 12;
+    const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+    return Math.round(255 * color).toString(16).padStart(2, '0');
+  };
+  return `#${f(0)}${f(8)}${f(4)}`.toUpperCase();
+}
+
+function ColorSliderWidget() {
+  const [hue, setHue] = React.useState(66);
+  const [copied, setCopied] = React.useState(false);
+  const [minimized, setMinimized] = React.useState(false);
+
+  const sat = 88;
+  const light = hue > 180 ? 60 : 59;
+  const hexColor = React.useMemo(() => hslToHex(hue, sat, light), [hue, sat, light]);
+
+  React.useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty('--volt', `hsl(${hue}, ${sat}%, ${light}%)`);
+  }, [hue, sat, light]);
+
+  const handleCopy = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(hexColor);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    }
+  };
+
+  if (minimized) {
+    return (
+      <div
+        onClick={() => setMinimized(false)}
+        style={{
+          position: "fixed",
+          bottom: 20,
+          right: 20,
+          zIndex: 9999,
+          background: "rgba(15, 17, 16, 0.92)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          border: "1px solid rgba(244, 242, 236, 0.2)",
+          borderRadius: 999,
+          padding: "10px 16px",
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          cursor: "pointer",
+          boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
+          color: "#F4F2EC",
+          fontFamily: "var(--mono)",
+          fontSize: 12,
+        }}
+      >
+        <span style={{ width: 14, height: 14, borderRadius: "50%", background: hexColor, display: "inline-block", boxShadow: `0 0 10px ${hexColor}` }} />
+        <span>🎨 Změna barvy ({hexColor})</span>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{
+      position: "fixed",
+      bottom: 20,
+      right: 20,
+      zIndex: 9999,
+      width: 320,
+      background: "rgba(15, 17, 16, 0.94)",
+      backdropFilter: "blur(16px)",
+      WebkitBackdropFilter: "blur(16px)",
+      border: "1px solid rgba(244, 242, 236, 0.18)",
+      borderRadius: 18,
+      padding: "18px 20px",
+      boxShadow: "0 12px 36px rgba(0,0,0,0.6)",
+      color: "#F4F2EC",
+      fontFamily: "var(--body)",
+    }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <span style={{ width: 16, height: 16, borderRadius: "50%", background: hexColor, boxShadow: `0 0 12px ${hexColor}`, transition: "background 0.2s" }} />
+          <span style={{ fontWeight: 600, fontSize: 14, fontFamily: "var(--display)" }}>Pracovní úprava barvy</span>
+        </div>
+        <button
+          onClick={() => setMinimized(true)}
+          style={{ background: "transparent", border: "none", color: "#6E6F6A", cursor: "pointer", fontSize: 16, lineHeight: 1 }}
+          title="Minimalizovat"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div style={{ marginBottom: 12 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "#A0A09C", marginBottom: 6, fontFamily: "var(--mono)" }}>
+          <span>Fresh Green (66°)</span>
+          <span>Blue (220°)</span>
+        </div>
+        <input
+          type="range"
+          min="66"
+          max="220"
+          value={hue}
+          onChange={(e) => setHue(Number(e.target.value))}
+          style={{
+            width: "100%",
+            height: 8,
+            borderRadius: 4,
+            appearance: "none",
+            outline: "none",
+            background: "linear-gradient(to right, #D7F23A, #10B981, #06B6D4, #3B82F6)",
+            cursor: "pointer",
+          }}
+        />
+      </div>
+
+      <div style={{ display: "flex", gap: 6, marginBottom: 14, flexWrap: "wrap" }}>
+        {[
+          { label: "Svěží zelená", h: 66 },
+          { label: "Smaragd", h: 145 },
+          { label: "Tyrkys", h: 185 },
+          { label: "Zářivě modrá", h: 215 },
+        ].map((p) => (
+          <button
+            key={p.label}
+            onClick={() => setHue(p.h)}
+            style={{
+              flex: 1,
+              padding: "5px 8px",
+              borderRadius: 6,
+              border: hue === p.h ? `1px solid ${hexColor}` : "1px solid rgba(244,242,236,0.12)",
+              background: hue === p.h ? "rgba(255,255,255,0.1)" : "rgba(255,255,255,0.03)",
+              color: "#F4F2EC",
+              fontSize: 11,
+              fontFamily: "var(--mono)",
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {p.label}
+          </button>
+        ))}
+      </div>
+
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(0,0,0,0.4)", padding: "8px 12px", borderRadius: 8, border: "1px solid rgba(244,242,236,0.08)" }}>
+        <div>
+          <div style={{ fontSize: 10, color: "#888", textTransform: "uppercase", letterSpacing: "0.05em" }}>Kód barvy (HEX)</div>
+          <div style={{ fontSize: 14, fontWeight: 600, fontFamily: "var(--mono)", color: hexColor }}>{hexColor}</div>
+        </div>
+        <button
+          onClick={handleCopy}
+          style={{
+            padding: "6px 12px",
+            borderRadius: 6,
+            background: copied ? hexColor : "rgba(244, 242, 236, 0.12)",
+            color: copied ? "#0A0B0A" : "#F4F2EC",
+            border: "none",
+            fontSize: 11,
+            fontWeight: 600,
+            fontFamily: "var(--mono)",
+            cursor: "pointer",
+            transition: "all 0.2s",
+          }}
+        >
+          {copied ? "Zkopírováno ✓" : "Kopírovat"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 /* ---------- App ---------- */
 function App() {
   const [bookingOpen, setBookingOpen] = useStateApp(false);
@@ -2131,6 +2305,7 @@ function App() {
       <FAQ />
       <Footer />
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} initialCourse={initialCourse} />
+      <ColorSliderWidget />
     </React.Fragment>
   );
 }
