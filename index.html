@@ -1317,22 +1317,11 @@ function Hero({ onBook }) {
         </div>
         <aside className="hero-aside">
           <div className="kicker">
-            <CurrentMark size={36} color="var(--volt)" stroke={3.2} />
             první čistě elektronická autoškola v ČR
           </div>
           <p>
             Učíme řídit pouze v elektromobilu <b style={{ color: "var(--volt)" }}>Hyundai Ioniq</b>. Manuály jsou na ústupu — už žádné řazení, trhané rozjezdy v křižovatkách, řev otáček a smrad z výfuku. Jen ticho, plná koncentrace na provoz a v hlavě klid.
           </p>
-          <a 
-            href="#courses" 
-            className="hero-promo"
-            onClick={() => {
-              window.dispatchEvent(new CustomEvent('select-course-tab', { detail: { courseId: 'akce' } }));
-            }}
-          >
-            <span className="hp-tag">Akce</span>
-            <span className="hp-body">Přiveď kamaráda a získej slevu! <span className="hp-more">Zjisti více <span className="arrow">→</span></span></span>
-          </a>
         </aside>
       </div>
     </header>
