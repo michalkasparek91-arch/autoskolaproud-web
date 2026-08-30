@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8" />
-<title>autoškola proud · Ostrava · elektrická autoškola</title>
+<title>autoškola proud · Ostrava · elektronická autoškola</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="První ostravská autoškola jezdící výhradně na elektřinu. Hyundai Ioniq. Jen automat. Klidnější jízda, žádný stres z řazení." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -322,10 +322,10 @@ button { font: inherit; cursor: pointer; }
   font-family: var(--mono);
   font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--muted);
-  display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+  display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
   margin-bottom: 32px;
 }
-.hero-meta .hm-sep { color: var(--line); }
+.hero-meta .hm-sep { color: var(--line); margin: 0 16px; font-size: 16px; }
 @media (max-width: 600px) { .hero-meta .hm-sep { display: none; } }
 .hero-meta .pulse {
   width: 8px; height: 8px; border-radius: 50%; background: var(--volt);
@@ -1220,9 +1220,9 @@ function Nav({ onBook }) {
             {links.map(([t, h]) => <a key={h} href={h}>{t}</a>)}
           </div>
           <div className="nav-cta">
-            <a href="tel:+420777123456" className="btn btn-ghost sm">+420 777 123 456</a>
+            <a href="tel:+420603213178" className="btn btn-ghost sm">+420 603 213 178</a>
             <button className="btn btn-volt sm" onClick={onBook}>
-              Přihlásit se <span className="arrow">→</span>
+              Online přihláška <span className="arrow">→</span>
             </button>
             <button className="nav-burger burger-btn" onClick={() => setOpen(true)}>Menu</button>
           </div>
@@ -1236,7 +1236,7 @@ function Nav({ onBook }) {
           ))}
         </div>
         <button className="btn btn-volt" onClick={() => { setOpen(false); onBook(); }}>
-          Přihlásit se <span className="arrow">→</span>
+          Online přihláška <span className="arrow">→</span>
         </button>
       </div>
     </React.Fragment>
@@ -1263,7 +1263,7 @@ function Hero({ onBook }) {
         <div>
           <div className="hero-meta">
             <span className="pulse"></span>
-            <span>První čistě elektrická autoškola v ČR</span>
+            <span>První čistě elektronická autoškola v ČR</span>
             <span className="hm-sep">·</span>
             <span>Ostrava · Opava · Frýdek-Místek</span>
           </div>
@@ -1276,7 +1276,7 @@ function Hero({ onBook }) {
         <aside className="hero-aside">
           <div className="kicker">
             <CurrentMark size={36} color="var(--volt)" stroke={3.2} />
-            první čistě elektrická autoškola v ČR
+            první čistě elektronická autoškola v ČR
           </div>
           <p>
             Učíme řídit pouze v elektromobilu <b style={{ color: "var(--volt)" }}>Hyundai Ioniq</b>. Manuály jsou na ústupu — už žádné řazení, trhané rozjezdy v křižovatkách, řev otáček a smrad z výfuku. Jen ticho, plná koncentrace na provoz a v hlavě klid.
@@ -1294,13 +1294,12 @@ function Hero({ onBook }) {
 /* ---------- Announcement bar (top, looping) ---------- */
 function Ticker() {
   const cohorts = [
-    { city: "Ostrava", date: "2. 9. 2026", note: "zbývá 5 míst" },
-    { city: "Opava", date: "bude upřesněno", note: null },
-    { city: "Frýdek-Místek", date: "bude upřesněno", note: null },
+    { city: "OSTRAVA", date: "začátek 29. 9. 2026", note: null },
+    { city: "OPAVA a FRÝDEK-MÍSTEK", date: "místo bude upřesněno", note: "info již brzy" },
   ];
   const unit = (
     <React.Fragment>
-      <span className="ann-lead">Příští kurz — zahájení</span>
+      <span className="ann-lead">Příští kurzy</span>
       {cohorts.map((c, i) => (
         <span key={i} className="ann-item">
           <span className="dot"></span>
@@ -1803,7 +1802,7 @@ function HowToStart({ onBook }) {
 
                   <div className="field">
                     <label>Telefon *</label>
-                    <input type="tel" name="telefon" required value={formData.telefon} onChange={handleChange} placeholder="+420 777 123 456" />
+                    <input type="tel" name="telefon" required value={formData.telefon} onChange={handleChange} placeholder="+420 603 213 178" />
                   </div>
 
                   <div className="field">
@@ -1982,9 +1981,9 @@ function Contact({ onBook }) {
 
         <div className="contact-grid">
           <div className="contact-cards">
-            <a href="tel:+420777123456" className="contact-card">
+            <a href="tel:+420603213178" className="contact-card">
               <div className="cc-l">Telefon</div>
-              <div className="cc-v">+420 777 123 456</div>
+              <div className="cc-v">+420 603 213 178</div>
               <div className="cc-note">Po–Pá 8:00–19:00 · So 9:00–13:00</div>
             </a>
             <a href="mailto:ahoj@autoskolaproud.cz" className="contact-card">
@@ -2073,7 +2072,7 @@ function Footer() {
           </div>
           <div className="foot-col">
             <h4>Kontakt</h4>
-            <a href="tel:+420777123456">+420 777 123 456</a>
+            <a href="tel:+420603213178">+420 603 213 178</a>
             <a href="mailto:ahoj@autoskolaproud.cz">ahoj@autoskolaproud.cz</a>
             <p style={{ color: "var(--muted)", marginTop: 8 }}>Havlíčkovo nábřeží 2728/38<br />702 00 Ostrava<br />u zastávky Most Pionýrů</p>
           </div>
@@ -2129,9 +2128,9 @@ function BookingModal({ open, onClose, initialCourse }) {
 
   const course = COURSES.find((c) => c.id === form.course);
   const cohorts = [
-    { id: 0, label: "Ostrava",       date: "začátek 2. 9. 2026 · zbývá 5 míst" },
-    { id: 1, label: "Opava",         date: "termín bude upřesněn" },
-    { id: 2, label: "Frýdek-Místek", date: "termín bude upřesněn" },
+    { id: 0, label: "Ostrava",       date: "začátek 29. 9. 2026 · zbývá 1 místo" },
+    { id: 1, label: "Opava",         date: "místo bude upřesněno · info již brzy" },
+    { id: 2, label: "Frýdek-Místek", date: "místo bude upřesněno · info již brzy" },
   ];
   const totalBase = course.price;
   const total = totalBase;
@@ -2243,7 +2242,7 @@ function BookingModal({ open, onClose, initialCourse }) {
                 </div>
                 <div className="field">
                   <label>Telefon</label>
-                  <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+420 777 ..." />
+                  <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+420 603 213 178" />
                 </div>
                 <div className="field">
                   <label>Forma platby</label>
@@ -2317,7 +2316,7 @@ function BookingCTA({ onBook }) {
         <div className="section-head">
           <div className="kicker"><span className="n">→</span> Přihláška</div>
           <div>
-            <h2>Příští kurz<br />startuje 15. září.</h2>
+            <h2>Příští kurz<br />startuje 29. září.</h2>
             <p className="lead" style={{ marginTop: 24, color: "var(--ink-2)" }}>
               Zbývá <b>1 místo</b> z původních čtyř. Online přihláška ti zabere dvě minuty, do 24 hodin se ti ozve Martin a domluvíte první jízdu.
             </p>
@@ -2327,8 +2326,8 @@ function BookingCTA({ onBook }) {
           <button className="btn btn-ink lg" onClick={() => onBook()}>
             Spustit přihlášku <span className="arrow">→</span>
           </button>
-          <a href="tel:+420777123456" className="btn lg" style={{ background: "transparent", border: "1px solid rgba(0,0,0,0.2)", color: "var(--ink)" }}>
-            Nebo zavolej · +420 777 123 456
+          <a href="tel:+420603213178" className="btn lg" style={{ background: "transparent", border: "1px solid rgba(0,0,0,0.2)", color: "var(--ink)" }}>
+            Nebo zavolej · +420 603 213 178
           </a>
         </div>
       </div>
