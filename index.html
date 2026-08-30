@@ -204,6 +204,29 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; }
 
+/* ---------- custom sleek scrollbars ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 11, 10, 0.5);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 242, 236, 0.22);
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--volt);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(244, 242, 236, 0.25) transparent;
+}
+
 /* ---------- layout ---------- */
 .wrap { width: 100%; max-width: 1360px; margin: 0 auto; padding: 0 32px; }
 @media (max-width: 720px) { .wrap { padding: 0 20px; } }
@@ -1028,7 +1051,7 @@ const COURSES = [
   {
     id: "b-en",
     code: "B",
-    name: "Group B",
+    name: "Group B (driving course in english)",
     sub: "passenger car · fully electric",
     blurb: "A standard driving licence for a passenger car with an automatic transmission. And only with us is it taught purely in an electric car — the Hyundai Ioniq. And only with us is the fast-track course the standard.",
     hours: { drive: 28, theory: 7.5, sim: 2 },
@@ -1289,24 +1312,35 @@ function Hero({ onBook }) {
 
 /* ---------- Announcement bar (top, looping) ---------- */
 function Ticker() {
-  const cohorts = [
-    { city: "OSTRAVA", date: "začátek 29. 9. 2026", note: null },
-    { city: "OPAVA a FRÝDEK-MÍSTEK", date: "místo bude upřesněno", note: "info již brzy" },
-  ];
-  const unit = (
-    <React.Fragment>
-      <span className="ann-lead">Příští kurzy</span>
-      {cohorts.map((c, i) => (
-        <span key={i} className="ann-item">
-          <span className="dot"></span>
-          <b>{c.city}</b>
-          <span className="sep">·</span>
-          <span>{c.date}</span>
-          {c.note && <React.Fragment><span className="sep">·</span><span className="ann-note">{c.note}</span></React.Fragment>}
-        </span>
-      ))}
-    </React.Fragment>
+  const GreenDot = () => (
+    <span style={{
+      display: "inline-block", width: 6, height: 6, borderRadius: "50%",
+      background: "var(--volt)", boxShadow: "0 0 8px var(--volt-glow)", margin: "0 12px", flexShrink: 0
+    }} />
   );
+  const GreyDot = () => (
+    <span style={{ color: "var(--muted)", opacity: 0.6, margin: "0 6px" }}>·</span>
+  );
+
+  const unit = (
+    <div style={{ display: "inline-flex", alignItems: "center" }}>
+      <span style={{ color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>Nejbližší kurzy</span>
+      <GreenDot />
+      <span><b>Ostrava</b></span>
+      <GreyDot />
+      <span style={{ color: "var(--paper)" }}>začátek 29. 9. 2026</span>
+      <GreenDot />
+      <span><b>Opava</b></span>
+      <GreyDot />
+      <span style={{ color: "var(--paper-2)" }}>info brzy</span>
+      <GreenDot />
+      <span><b>Frýdek-Místek</b></span>
+      <GreyDot />
+      <span style={{ color: "var(--paper-2)" }}>info brzy</span>
+      <GreenDot />
+    </div>
+  );
+
   return (
     <div className="annbar">
       <div className="annbar-track">
@@ -1383,9 +1417,6 @@ function Courses({ onPickCourse }) {
           <div className="kicker"><span className="n">03</span> Kurzy & ceny</div>
           <div>
             <h2>Nabídka našich kurzů</h2>
-            <p className="lead" style={{ marginTop: 24 }}>
-              Klasický kurz, ve kterém je rychlokurz standardem. Kondiční jízdy pro ty, co řidičák už mají. A dvě školení pro firmy, co chtějí mít na silnici klid.
-            </p>
           </div>
         </div>
 
