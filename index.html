@@ -1873,35 +1873,15 @@ function HowToStart({ onBook }) {
                       <label>Pobočka (Město) *</label>
                       <select name="pobocka" value={formData.pobocka} onChange={handleChange}>
                         <option value="Ostrava">Ostrava (začátek 29. 9. 2026)</option>
-                        <option value="Opava">Opava (místo bude upřesněno)</option>
-                        <option value="Frýdek-Místek">Frýdek-Místek (místo bude upřesněno)</option>
                       </select>
                     </div>
 
                     <div className="field">
                       <label>Vybraný kurz *</label>
                       <select name="kurz" value={formData.kurz} onChange={handleChange}>
-                        <option value="Standardní kurz B (22 900 Kč)">Standardní kurz B — Automat (22 900 Kč)</option>
-                        <option value="Rychlokurz B (28 900 Kč)">Rychlokurz B — Expresní výcvik (28 900 Kč)</option>
-                        <option value="Kondiční jízdy (850 Kč/hod)">Kondiční jízdy (850 Kč / hod.)</option>
-                      </select>
-                    </div>
-
-                    <div className="field">
-                      <label>Forma platby *</label>
-                      <select name="platba" value={formData.platba} onChange={handleChange}>
-                        <option value="Jednorázově (sleva 500 Kč)">Jednorázově (sleva 500 Kč)</option>
-                        <option value="6 splátek (0 % navýšení)">6 splátek (0 % navýšení)</option>
-                        <option value="12 splátek (0 % navýšení)">12 splátek (0 % navýšení)</option>
-                      </select>
-                    </div>
-
-                    <div className="field">
-                      <label>Lékařský posudek *</label>
-                      <select name="posudekStav" value={formData.posudekStav} onChange={handleChange}>
-                        <option value="Stáhnu si formulář z webu autoškoly">Stáhnu si formulář z webu autoškoly</option>
-                        <option value="Mám již potvrzený posudek od lékaře">Mám již potvrzený posudek od lékaře</option>
-                        <option value="Vyřizuji u svého praktického lékaře">Vyřizuji u svého praktického lékaře</option>
+                        <option value="Skupina B (19 900 Kč)">Skupina B (19 900 Kč)</option>
+                        <option value="Group B - in English (21 900 Kč)">Group B - in English (21 900 Kč)</option>
+                        <option value="Skupina B - AKCE (18 900 Kč)">Skupina B - AKCE (18 900 Kč)</option>
                       </select>
                     </div>
 
@@ -2147,9 +2127,9 @@ function Contact({ onBook }) {
               <div className="cc-l">Telefon</div>
               <div className="cc-v">+420 603 213 178</div>
             </a>
-            <a href="mailto:ahoj@autoskolaproud.cz" className="contact-card">
+            <a href="mailto:info@autoskolaproud.cz" className="contact-card">
               <div className="cc-l">E-mail</div>
-              <div className="cc-v">ahoj@autoskolaproud.cz</div>
+              <div className="cc-v">info@autoskolaproud.cz</div>
             </a>
             <div className="contact-card">
               <div className="cc-l">Učebna & zázemí</div>
@@ -2218,7 +2198,7 @@ function Career() {
               <div>✓ Flexibilní plánování vlastních jízd</div>
               <div>✓ Férové a nadstandardní finanční ohodnocení</div>
             </div>
-            <a href="mailto:ahoj@autoskolaproud.cz?subject=Kariéra v PROUDU" className="btn btn-volt sm" style={{ marginTop: 8 }}>
+            <a href="mailto:info@autoskolaproud.cz?subject=Kariéra v PROUDU" className="btn btn-volt sm" style={{ marginTop: 8 }}>
               Napiš nám na e-mail <span className="arrow">→</span>
             </a>
           </div>
@@ -2279,7 +2259,7 @@ function Footer() {
           <div className="foot-col">
             <h4>Kontakt</h4>
             <a href="tel:+420603213178">+420 603 213 178</a>
-            <a href="mailto:ahoj@autoskolaproud.cz">ahoj@autoskolaproud.cz</a>
+            <a href="mailto:info@autoskolaproud.cz">info@autoskolaproud.cz</a>
             <p style={{ color: "var(--muted)", marginTop: 8 }}>Havlíčkovo nábřeží 2728/38<br />702 00 Ostrava</p>
           </div>
           <div className="foot-col">
