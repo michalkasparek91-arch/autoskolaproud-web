@@ -866,7 +866,7 @@ footer {
 @media (max-width: 720px) { .fleet-specs { grid-template-columns: 1fr 1fr; gap: 28px; } }
 .fleet-spec .fs-v { font-family: var(--display); font-weight: 500; font-size: clamp(40px, 5vw, 60px); letter-spacing: -0.04em; line-height: 1; }
 .fleet-spec .fs-v .fs-u { font-size: 20px; color: var(--muted); margin-left: 6px; letter-spacing: 0; }
-.fleet-spec .fs-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+.fleet-spec .fs-l { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--volt); margin-bottom: 8px; }
 
 /* ---------- contact ---------- */
 .contact { background: var(--bg); }
@@ -2060,9 +2060,9 @@ function TheoryTests() {
 function Fleet({ onBook }) {
   const [ref, cls] = useReveal();
   const specs = [
-    { l: "Dojezd", v: "311", u: "km" },
-    { l: "Výkon", v: "100", u: "kW" },
-    { l: "Baterie", v: "38,3", u: "kWh" },
+    { l: "Dojezd", v: "240", u: "km" },
+    { l: "Výkon", v: "88", u: "kW" },
+    { l: "Baterie", v: "28", u: "kWh" },
     { l: "0–100", v: "9,7", u: "s" },
   ];
   return (
@@ -2073,7 +2073,7 @@ function Fleet({ onBook }) {
           <div>
             <h2>Jedno auto.<br />A je to elektromobil.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
-              Hyundai Ioniq Electric. Automat, couvací kamera, asistenti do pruhu i parkování. Po celou dobu kurzu jezdíš v jednom voze — žádné překvapení u zkoušky.
+              Hyundai Ioniq Electric. Automat, parkovací kamera, asistenti jízdních pruhů i rekuperace. Po celou dobu kurzu jezdíš v jednom voze — žádné překvapení u zkoušky.
             </p>
           </div>
         </div>
@@ -2081,14 +2081,13 @@ function Fleet({ onBook }) {
         <div className="fleet-feature">
           <img src={window.MARTIN_IMG} alt="Hyundai Ioniq Electric autoškoly proud, Dolní oblast Vítkovic" />
           <div className="fleet-plate">EL3 010N</div>
-          <div className="fleet-tag">Hyundai Ioniq Electric · 2022</div>
         </div>
 
         <div className="fleet-specs">
           {specs.map((s) => (
             <div key={s.l} className="fleet-spec">
-              <div className="fs-v">{s.v}<span className="fs-u">{s.u}</span></div>
               <div className="fs-l">{s.l}</div>
+              <div className="fs-v">{s.v}<span className="fs-u">{s.u}</span></div>
             </div>
           ))}
         </div>
