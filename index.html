@@ -479,17 +479,18 @@ section { padding: 120px 0; position: relative; }
 @media (max-width: 920px) { .why-grid-3 { grid-template-columns: 1fr; } }
 .why-cell {
   background: var(--bg); padding: 36px 28px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  min-height: 260px; transition: background 0.2s;
+  display: flex; flex-direction: column;
+  transition: background 0.2s;
 }
 .why-cell:hover { background: var(--bg-2); }
 .why-cell .num {
   font-family: var(--mono); font-size: 11px; color: var(--volt);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.06em; margin-bottom: 20px;
 }
 .why-cell h3 {
   font-family: var(--display); font-weight: 500; font-size: 26px;
-  line-height: 1.1; letter-spacing: -0.025em; margin: 18px 0 12px;
+  line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 16px;
+  min-height: 60px; display: flex; align-items: flex-start;
 }
 .why-cell p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
 
@@ -1403,18 +1404,8 @@ function WhyElectric() {
           {cells.map((c) => (
             <div key={c.n} className="why-cell">
               <div className="num">{c.n}</div>
-              <div>
-                <h3>{c.t}</h3>
-                <p>{c.b}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="stats">
-          {STATS.map((s) => (
-            <div key={s.l} className="stat">
-              <div className="n">{s.n.includes(" ") || s.n.includes("%") || s.n.includes(",") ? <span className="v">{s.n}</span> : <span>{s.n}</span>}</div>
-              <div className="l">{s.l}</div>
+              <h3>{c.t}</h3>
+              <p>{c.b}</p>
             </div>
           ))}
         </div>
@@ -1544,64 +1535,111 @@ function Courses({ onPickCourse }) {
   );
 }
 
-/* ---------- Routes (light section) ---------- */
+/* ---------- Routes (Cities & Branches) ---------- */
 function Routes() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = React.useState(0);
   const [ref, cls] = useReveal();
-  // hand-positioned pins on the abstract map
-  const pins = [
-    { ...ROUTES[0], x: 22, y: 30 },
-    { ...ROUTES[1], x: 48, y: 52 },
-    { ...ROUTES[2], x: 30, y: 70 },
-    { ...ROUTES[3], x: 68, y: 65 },
-    { ...ROUTES[4], x: 84, y: 78 },
+
+  const CITIES = [
+    {
+      id: "ostrava",
+      name: "Ostrava",
+      status: "Kurz začíná 29. 9. 2026",
+      badge: "Výuka & Jízdy probíhají",
+      address: "Havlíčkovo nábřeží 2728/38, 702 00 Ostrava (u zastávky Most Pionýrů)",
+      desc: "Jízdy probíhají všude tam, kudy zkušební komisaři rádi vedou studenty během zkoušky. Centrum, Vítkovice, Slezská. Podíváme se i na Rudnou a na dálnici. Zajedeme do Karoliny, ať si vyzkoušíš parkování v úzkých prostorách.",
+      highlights: [
+        "Jízdy v trasách zkušebních komisařů (Centrum, Vítkovice, Slezská)",
+        "Trénink na Rudné, dálnici i v parkovacím domě Karolina",
+        "Start jízd z parkoviště před učebnou na Havlíčkově nábřeží",
+        "Magistrát a zkušební komisař 3 minuty chůze"
+      ]
+    },
+    {
+      id: "opava",
+      name: "Opava",
+      status: "Info brzy",
+      badge: "Pobočka v přípravě · Info brzy",
+      address: "Místo bude upřesněno · Info brzy",
+      desc: "Připravujeme otevření plnohodnotné výuky a výcviku přímo v Opavě. Všechny informace o přesném místě a termínu zveřejníme již brzy.",
+      highlights: [
+        "Výcvik výhradně v elektromobilu Hyundai Ioniq s automatem",
+        "Stejný osobní přístup jednoho instruktora po celou dobu",
+        "Možnost předběžné přihlášky a rezervace volného místa",
+        "Veškeré podrobnosti zveřejníme již brzy"
+      ]
+    },
+    {
+      id: "frydek-mistek",
+      name: "Frýdek-Místek",
+      status: "Info brzy",
+      badge: "Pobočka v přípravě · Info brzy",
+      address: "Místo bude upřesněno · Info brzy",
+      desc: "Rozšiřujeme výuku a výcvik také pro zájemce z Frýdku-Místku a okolí. Všechny informace o přesném místě a termínu zveřejníme již brzy.",
+      highlights: [
+        "Výcvik v elektromobilu s automatickou převodovkou",
+        "Klidný a profesionální přístup instruktora",
+        "Možnost předběžné přihlášky a rezervace volného místa",
+        "Veškeré podrobnosti zveřejníme již brzy"
+      ]
+    }
   ];
-  const cur = pins[active];
+
+  const city = CITIES[active];
 
   return (
-    <section className="routes" id="routes" ref={ref}>
+    <section className="routes" id="routes" ref={ref} data-screen-label="Kde jezdíme">
       <div className={`wrap ${cls}`}>
         <div className="section-head">
           <div className="kicker"><span className="n">07</span> Kde jezdíme</div>
           <div>
-            <h2>Ostrava od centra<br />až po Beskydy.</h2>
-            <p className="lead" style={{ marginTop: 24, color: "var(--ink-2)" }}>
-              Vyzvedneme tě z domova. Naučíš se zvládat každý typ provozu, který tě v životě potká — od obytné zóny v Porubě po horské serpentiny na Pustevnách.
-            </p>
+            <h2>Naše pobočky & města</h2>
           </div>
         </div>
 
-        <div className="routes-map">
-          <div className="grid"></div>
-          {/* abstract Ostrava silhouette */}
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
-            <path d="M 10 35 Q 18 28 28 30 Q 38 24 50 30 Q 62 26 70 36 Q 82 40 88 56 Q 92 70 84 80 Q 70 86 60 80 Q 48 88 36 82 Q 24 84 18 72 Q 8 60 10 35 Z"
-                  fill="rgba(0,0,0,0.04)" stroke="rgba(0,0,0,0.15)" strokeWidth="0.2" strokeDasharray="0.6 0.6" />
-            {/* river */}
-            <path d="M 5 45 Q 25 50 40 60 Q 60 70 80 65 Q 95 60 100 70"
-                  fill="none" stroke="rgba(107, 197, 255, 0.5)" strokeWidth="0.8" />
-            {/* route line between pins */}
-            <path d={`M ${pins[0].x} ${pins[0].y} Q ${pins[1].x} ${pins[1].y - 5}, ${pins[1].x} ${pins[1].y} T ${pins[2].x} ${pins[2].y} T ${pins[3].x} ${pins[3].y} T ${pins[4].x} ${pins[4].y}`}
-                  fill="none" stroke="var(--volt-deep)" strokeWidth="0.4" strokeDasharray="1.2 0.8" />
-          </svg>
-          {pins.map((p, i) => (
+        <div className="course-tabs" style={{ marginBottom: 32 }}>
+          {CITIES.map((c, i) => (
             <button
-              key={p.nm}
+              key={c.id}
+              className={`course-tab ${i === active ? "active" : ""}`}
               onClick={() => setActive(i)}
-              className={`route-pin ${i === active ? "active" : ""}`}
-              style={{ left: `${p.x}%`, top: `${p.y}%`, background: "transparent", border: "none" }}
             >
-              <div className="head">{p.nm}</div>
-              <div className="stem"></div>
-              <div className="dot"></div>
+              {c.name}
             </button>
           ))}
-          <div className="route-info">
+        </div>
+
+        <div className="course-card" style={{ background: "var(--paper-2)", color: "var(--ink)", borderColor: "var(--line-paper)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 16, marginBottom: 20 }}>
             <div>
-              <div className="nm">{cur.nm}</div>
-              <div className="note" style={{ marginTop: 4 }}>{cur.note}</div>
+              <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--volt-deep)", marginBottom: 4 }}>
+                {city.badge}
+              </div>
+              <h3 style={{ fontFamily: "var(--display)", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 600, color: "var(--ink)", margin: 0 }}>
+                {city.name}
+              </h3>
             </div>
-            <div className="note">trasa {String(active + 1).padStart(2, "0")} / 05</div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 12, padding: "6px 14px", borderRadius: 999, background: "var(--volt-glow)", color: "var(--ink)", fontWeight: 600 }}>
+              {city.status}
+            </div>
+          </div>
+
+          <p className="blurb" style={{ color: "var(--ink-2)", fontSize: 16, lineHeight: 1.6, marginBottom: 24 }}>
+            {city.desc}
+          </p>
+
+          <div style={{ background: "rgba(0,0,0,0.03)", border: "1px solid var(--line-paper)", borderRadius: "var(--r-md)", padding: 20, marginBottom: 24 }}>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 6 }}>Adresa / Zázemí</div>
+            <div style={{ fontFamily: "var(--display)", fontWeight: 500, fontSize: 15, color: "var(--ink)" }}>{city.address}</div>
+          </div>
+
+          <div className="features" style={{ borderTop: "1px solid var(--line-paper)", paddingTop: 20 }}>
+            {city.highlights.map((h, idx) => (
+              <div key={idx} className="feat" style={{ color: "var(--ink)" }}>
+                <span className="chk" style={{ color: "var(--volt-deep)", fontWeight: 700 }}>✓</span>
+                <span>{h}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -2063,7 +2101,7 @@ function Fleet({ onBook }) {
     { l: "Dojezd", v: "240", u: "km" },
     { l: "Výkon", v: "88", u: "kW" },
     { l: "Baterie", v: "28", u: "kWh" },
-    { l: "0–100", v: "9,7", u: "s" },
+    { l: "0–100", v: "9,2", u: "s" },
   ];
   return (
     <section className="fleet" id="fleet" ref={ref} data-screen-label="Vozový park">
