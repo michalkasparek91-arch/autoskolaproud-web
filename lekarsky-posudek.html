@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Lékařský posudek o zdravotní způsobilosti k řízení motorových vozidel</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 15mm 20mm;
+  }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    line-height: 1.3;
+    color: #000;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  .print-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #131412;
+    color: #fff;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+  .btn-print {
+    background: #D7F23A;
+    color: #0A0B0A;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  .btn-print:hover {
+    background: #e4ff4d;
+  }
+  .page-content {
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 70px auto 30px auto;
+    background: #fff;
+    padding: 20mm;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+  }
+  @media print {
+    .print-bar { display: none !important; }
+    .page-content { 
+      margin: 0; 
+      padding: 0;
+      box-shadow: none;
+      width: 100%;
+    }
+    body { background: #fff; }
+  }
+  h1 {
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 8.5pt;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .field-label {
+    margin-top: 10px;
+    font-size: 10.5pt;
+  }
+  .dots {
+    display: block;
+    border-bottom: 1px dotted #000;
+    margin-top: 4px;
+    min-height: 18px;
+  }
+  .row-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 12px;
+  }
+  .option-list {
+    margin-top: 8px;
+    margin-left: 15px;
+  }
+  .option-list div {
+    margin-bottom: 4px;
+  }
+  .footer-signatures {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .signature-box {
+    text-align: center;
+    width: 45%;
+  }
+  .pouci {
+    margin-top: 25px;
+    font-size: 8pt;
+    line-height: 1.2;
+    text-align: justify;
+  }
+  .notes {
+    margin-top: 15px;
+    font-size: 7.5pt;
+    line-height: 1.15;
+    border-top: 1px solid #000;
+    padding-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <div>
+    <strong>autoškola proud</strong> — Lekářský posudek (tiskový formulář)
+  </div>
+  <button class="btn-print" onclick="window.print()">🖨️ Vytisknout / Uložit jako PDF</button>
+</div>
+
+<div class="page-content">
+  <h1>Lékařský posudek o zdravotní způsobilosti k řízení motorových vozidel</h1>
+  <div class="subtitle">
+    [zákon č. 361/2000 Sb., o provozu na pozemních komunikacích a o změnách některých zákonů (zákon o silničním provozu), ve znění pozdějších předpisů, a vyhlášky č. 277/2004 Sb., o zdravotní způsobilosti k řízení motorových vozidel, ve znění pozdějších předpisů]
+  </div>
+
+  <div class="field-label">Identifikační údaje poskytovatele zdravotních služeb, jehož jménem se posudek vydává, identifikační číslo, bylo-li přiděleno, adresa sídla nebo místa podnikání</div>
+  <div class="dots"></div>
+  <div class="dots"></div>
+
+  <div class="field-label" style="margin-top: 14px;">Jméno, popřípadě jména, a příjmení posuzované osoby: ....................................................................</div>
+
+  <div class="row-flex">
+    <div>Datum narození: ...........................................</div>
+    <div>Průkaz totožnosti - číslo<sup>1)</sup>: ...........................................</div>
+  </div>
+
+  <div class="field-label" style="margin-top: 14px;">Adresa obvyklého bydliště na území České republiky:</div>
+  <div class="dots"></div>
+  <div class="dots"></div>
+
+  <div class="field-label" style="margin-top: 14px;">Druh lékařské prohlídky, které se podle zákona posuzovaná osoba podrobila: ...................................................</div>
+
+  <div class="field-label" style="margin-top: 10px;">Posouzení podle skupiny 1<sup>2)</sup> - skupiny 2<sup>2)</sup> přílohy č. 3 vyhlášky</div>
+
+  <div class="field-label" style="margin-top: 10px;">Posuzovaná osoba:</div>
+  <div class="option-list">
+    <div>a) je zdravotně způsobilá<sup>2)</sup> pro skupinu řidičského oprávnění ............................................................................</div>
+    <div>b) není zdravotně způsobilá<sup>2)</sup> pro skupinu řidičského oprávnění ........................................................................</div>
+    <div>c) je zdravotně způsobilá s podmínkou<sup>2), 3)</sup> pro skupinu řidičského oprávnění ......................................................</div>
+  </div>
+  <div class="dots"></div>
+
+  <div class="field-label" style="margin-top: 14px;">Datum ukončení platnosti posudku<sup>4)</sup>: ..............................................................................................................</div>
+
+  <div class="footer-signatures">
+    <div class="signature-box">
+      ................................................................<br>
+      datum vydání posudku
+    </div>
+    <div class="signature-box">
+      ................................................................<br>
+      jméno, popřípadě jména, příjmení, podpis lékaře<br>
+      otisk razítka poskytovatele zdravotních služeb
+    </div>
+  </div>
+
+  <div class="pouci">
+    <strong>Poučení:</strong><br>
+    Proti tomuto posudku je možno do 10 pracovních dnů ode dne jeho prokazatelného předání podat návrh na jeho přezkoumání poskytovateli zdravotních služeb, který posudek vydal. Osoba, které uplatněním posudku vznikají práva nebo povinnosti a které byl posudek předán posuzovanou osobou, může návrh na přezkoumání lékařského posudku podat do 10 pracovních dnů ode dne jeho předání, a to poskytovateli uvedenému ve větě první. Návrh na přezkoumání lékařského posudku nemá odkladný účinek, jestliže z jeho závěru vyplývá, že posuzovaná osoba je pro účel, pro nějž byla posuzována, zdravotně nezpůsobilá nebo zdravotně způsobilá s podmínkou<sup>5)</sup>. Práva na přezkoumání lékařského posudku se lze vzdát, a to písemně nebo ústně.
+  </div>
+
+  <div class="notes">
+    1) Občanský průkaz, u cizinců cestovní doklad; lze uvést i jiný doklad prokazující totožnost jeho držitele.<br>
+    2) Nehodící se škrtněte.<br>
+    3) Uvede se podmínka, která podmiňuje zdravotní způsobilost k řízení motorových vozidel (například nezbytný zdravotnický prostředek, technická úprava motorového vozidla nebo jiné omezení, podrobení se odbornému vyšetření podmiňujícím zdravotní způsobilost a tím i platnost posudku).<br>
+    4) Vyplní se v případech stanovených v § 4 odst. 2 vyhlášky o zdravotní způsobilosti k řízení motorových vozidel.<br>
+    5) § 46 odst. 1 a 3 zák. č. 373/2011 Sb., o specifických zdravotních službách, ve znění pozdějších předpisů.
+  </div>
+</div>
+
+</body>
+</html>
