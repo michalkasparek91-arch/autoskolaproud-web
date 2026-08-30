@@ -785,7 +785,7 @@ footer {
 /* ---------- how to start ---------- */
 .how { background: var(--bg); }
 .how-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
   background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden;
 }
 @media (max-width: 920px) { .how-grid { grid-template-columns: 1fr 1fr; } }
@@ -1657,13 +1657,13 @@ function HowToStart({ onBook }) {
       t: "Online přihláška",
       b: (
         <React.Fragment>
-          Vyplň online žádost o přijetí k výuce a výcviku přímo zde. Zabere ti to dvě minuty.
+          Vyplň online přihlášku k výuce a výcviku přímo zde. Zabere ti to jen pár minut.
           <div style={{ marginTop: 12 }}>
             <button 
               className="btn btn-volt sm" 
-              onClick={() => setFormOpen(!formOpen)}
+              onClick={() => setFormOpen(true)}
             >
-              {formOpen ? "Skrýt formulář ↑" : "Vyplnit přihlášku online ↓"}
+              Vyplnit přihlášku online →
             </button>
           </div>
         </React.Fragment>
@@ -1674,7 +1674,7 @@ function HowToStart({ onBook }) {
       t: "Potvrzení od lékaře",
       b: (
         <React.Fragment>
-          Vytiskni si <a href="lekarsky-posudek.html" target="_blank" rel="noopener noreferrer" className="how-link">Potvrzení od lékaře</a> (Lékařský posudek o zdravotní způsobilosti). Doma vyplň jméno, adresu atd. a zbytek nech na svém praktickém lékaři. Objednej se k němu a nezapomeň se zeptat, kolik si za potvrzení účtuje (většinou kolem 500 Kč).
+          Vytiskni si a vyplň <a href="lekarsky-posudek.html" target="_blank" rel="noopener noreferrer" className="how-link">potvrzení od lékaře</a> a zajdi s ním ke svému praktickému lékaři. Počítej, že si za potvrzení účtuje většinou kolem 500 Kč.
           <div style={{ marginTop: 12 }}>
             <a 
               href="lekarsky-posudek.html" 
@@ -1692,12 +1692,11 @@ function HowToStart({ onBook }) {
     {
       n: "03",
       t: "Osobní schůzka",
-      b: "S podepsaným potvrzením přijď na pobočku v otevírací době, nebo napiš či zavolej (viz Kontakty) a domluv si osobní schůzku, kde se dozvíš všechny informace o tom, co tě čeká nemine."
-    },
-    {
-      n: "04",
-      t: "Začátek kurzu",
-      b: "Pak už jen počkáš na začátek nejbližšího kurzu. Tak neváhej a jezdi v PROUDU!"
+      b: (
+        <React.Fragment>
+          Až budeš mít potvrzení od lékaře, zavolej nebo napiš (viz <a href="#contact" className="how-link">kontakty</a>) a domluv si osobní schůzku, kde se dozvíš všechny informace o tom, co tě čeká nemine.
+        </React.Fragment>
+      )
     },
   ];
 
@@ -1707,10 +1706,7 @@ function HowToStart({ onBook }) {
         <div className="section-head">
           <div className="kicker"><span className="n">01</span> Jak začít</div>
           <div>
-            <h2>Začít je jednoduché.<br />Čtyři kroky a jedeš.</h2>
-            <p className="lead" style={{ marginTop: 24 }}>
-              Bez byrokracie tě osobně provedeme vším potřebným — ty se staráš jen o to, abys přišel na jízdy.
-            </p>
+            <h2>Začít je jednoduché, stačí tři kroky a jezdíš.</h2>
           </div>
         </div>
         <div className="how-grid">
@@ -1724,190 +1720,208 @@ function HowToStart({ onBook }) {
           ))}
         </div>
 
-        {/* Embedded Form Card in Step 1 */}
+        {/* Online Application Modal (Popup) */}
         {formOpen && (
-          <div style={{
-            marginTop: 32,
-            background: "var(--bg-2)",
-            border: "1px solid var(--line)",
-            borderRadius: "var(--r-lg)",
-            padding: "32px 28px",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
-            animation: "fadein 0.3s ease-out"
-          }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12, marginBottom: 20, borderBottom: "1px solid var(--line)", paddingBottom: 16 }}>
-              <div>
-                <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--volt)", marginBottom: 4 }}>Oficiální formulář</div>
-                <h3 style={{ fontFamily: "var(--display)", fontSize: 24, fontWeight: 600, margin: 0, color: "var(--paper)" }}>Žádost o přijetí k výuce a výcviku</h3>
-              </div>
+          <div 
+            style={{
+              position: "fixed", inset: 0, zIndex: 10000,
+              background: "rgba(10, 11, 10, 0.88)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)",
+              display: "flex", alignItems: "center", justifyContent: "center", padding: "20px",
+              animation: "fadein 0.25s ease",
+            }}
+            onClick={(e) => { if (e.target === e.currentTarget) setFormOpen(false); }}
+          >
+            <div 
+              style={{
+                width: "100%", maxWidth: 860, maxHeight: "90vh", overflowY: "auto",
+                background: "var(--bg-2)", border: "1px solid var(--line)", borderRadius: "var(--r-xl)",
+                padding: "36px 32px", boxShadow: "0 24px 60px rgba(0,0,0,0.7)", position: "relative",
+                color: "var(--paper)"
+              }}
+            >
               <button 
                 onClick={() => setFormOpen(false)} 
-                style={{ background: "transparent", border: "none", color: "var(--muted)", cursor: "pointer", fontSize: 14, fontFamily: "var(--mono)" }}
+                style={{
+                  position: "absolute", top: 20, right: 20, background: "rgba(255,255,255,0.05)",
+                  border: "1px solid var(--line)", color: "var(--paper)", borderRadius: "50%",
+                  width: 40, height: 40, fontSize: 18, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+                  transition: "all 0.2s"
+                }}
+                title="Zavřít"
               >
-                Zavřít ✕
+                ✕
               </button>
-            </div>
 
-            {submitted ? (
-              <div style={{ padding: "32px 20px", textAlign: "center", background: "color-mix(in srgb, var(--volt) 8%, transparent)", borderRadius: "var(--r-md)", border: "1px solid var(--volt)" }}>
-                <div style={{ fontSize: 40, marginBottom: 12 }}>✓</div>
-                <h4 style={{ fontFamily: "var(--display)", fontSize: 22, color: "var(--paper)", margin: "0 0 8px" }}>Žádost byla úspěšně odeslána!</h4>
-                <p style={{ color: "var(--paper-2)", maxWidth: 500, margin: "0 auto 20px", fontSize: 15 }}>
-                  Děkujeme za vyplnění. Ozveme se vám do 24 hodin a domluvíme další postup i první jízdu.
-                </p>
-                <button className="btn btn-volt" onClick={() => setSubmitted(false)}>Vyplnit novou žádost</button>
+              <div style={{ marginBottom: 24, borderBottom: "1px solid var(--line)", paddingBottom: 20, paddingRight: 40 }}>
+                <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--volt)", marginBottom: 6 }}>
+                  Oficiální online formulář
+                </div>
+                <h3 style={{ fontFamily: "var(--display)", fontSize: "clamp(22px, 3.5vw, 32px)", fontWeight: 600, margin: 0, lineHeight: 1.1, color: "var(--paper)" }}>
+                  Žádost o přijetí k výuce a výcviku
+                </h3>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
-                  
-                  <div className="field">
-                    <label>Pobočka (Město) *</label>
-                    <select name="pobocka" value={formData.pobocka} onChange={handleChange}>
-                      <option value="Ostrava">Ostrava (začátek 29. 9. 2026)</option>
-                      <option value="Opava">Opava (místo bude upřesněno)</option>
-                      <option value="Frýdek-Místek">Frýdek-Místek (místo bude upřesněno)</option>
-                    </select>
-                  </div>
 
-                  <div className="field">
-                    <label>Vybraný kurz *</label>
-                    <select name="kurz" value={formData.kurz} onChange={handleChange}>
-                      <option value="Standardní kurz B (22 900 Kč)">Standardní kurz B — Automat (22 900 Kč)</option>
-                      <option value="Rychlokurz B (28 900 Kč)">Rychlokurz B — Expresní výcvik (28 900 Kč)</option>
-                      <option value="Kondiční jízdy (850 Kč/hod)">Kondiční jízdy (850 Kč / hod.)</option>
-                    </select>
-                  </div>
-
-                  <div className="field">
-                    <label>Forma platby *</label>
-                    <select name="platba" value={formData.platba} onChange={handleChange}>
-                      <option value="Jednorázově (sleva 500 Kč)">Jednorázově (sleva 500 Kč)</option>
-                      <option value="6 splátek (0 % navýšení)">6 splátek (0 % navýšení)</option>
-                      <option value="12 splátek (0 % navýšení)">12 splátek (0 % navýšení)</option>
-                    </select>
-                  </div>
-
-                  <div className="field">
-                    <label>Lékařský posudek *</label>
-                    <select name="posudekStav" value={formData.posudekStav} onChange={handleChange}>
-                      <option value="Stáhnu si formulář z webu autoškoly">Stáhnu si formulář z webu autoškoly</option>
-                      <option value="Mám již potvrzený posudek od lékaře">Mám již potvrzený posudek od lékaře</option>
-                      <option value="Vyřizuji u svého praktického lékaře">Vyřizuji u svého praktického lékaře</option>
-                    </select>
-                  </div>
-
-                  <div className="field">
-                    <label>Jméno *</label>
-                    <input type="text" name="jmeno" required value={formData.jmeno} onChange={handleChange} placeholder="Jan" />
-                  </div>
-
-                  <div className="field">
-                    <label>Příjmení (titul) *</label>
-                    <input type="text" name="prijmeni" required value={formData.prijmeni} onChange={handleChange} placeholder="Novák" />
-                  </div>
-
-                  <div className="field">
-                    <label>Datum narození *</label>
-                    <input type="date" name="datumNarozeni" required value={formData.datumNarozeni} onChange={handleChange} />
-                  </div>
-
-                  <div className="field">
-                    <label>Místo narození *</label>
-                    <input type="text" name="mistoNarozeni" required value={formData.mistoNarozeni} onChange={handleChange} placeholder="Ostrava" />
-                  </div>
-
-                  <div className="field">
-                    <label>Rodné číslo *</label>
-                    <input type="text" name="rodneCislo" required value={formData.rodneCislo} onChange={handleChange} placeholder="010203/1234" />
-                  </div>
-
-                  <div className="field">
-                    <label>Státní občanství *</label>
-                    <select name="statniObcanstvi" value={formData.statniObcanstvi} onChange={handleChange}>
-                      <option value="České">České</option>
-                      <option value="Slovenské">Slovenské</option>
-                      <option value="Ukrajinské">Ukrajinské</option>
-                      <option value="Jiné">Jiné</option>
-                    </select>
-                  </div>
-
-                  {formData.statniObcanstvi === 'Jiné' && (
+              {submitted ? (
+                <div style={{ padding: "40px 24px", textAlign: "center", background: "color-mix(in srgb, var(--volt) 8%, transparent)", borderRadius: "var(--r-md)", border: "1px solid var(--volt)" }}>
+                  <div style={{ fontSize: 48, marginBottom: 16 }}>✓</div>
+                  <h4 style={{ fontFamily: "var(--display)", fontSize: 26, color: "var(--paper)", margin: "0 0 12px" }}>Žádost byla úspěšně odeslána!</h4>
+                  <p style={{ color: "var(--paper-2)", maxWidth: 520, margin: "0 auto 24px", fontSize: 16, lineHeight: 1.5 }}>
+                    Děkujeme za vyplnění. Potvrzení jsme zaznamenali a ozveme se vám do 24 hodin s dalším postupem a prvním termínem jízdy.
+                  </p>
+                  <button className="btn btn-volt lg" onClick={() => setFormOpen(false)}>Zavřít formulář</button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 18 }}>
+                    
                     <div className="field">
-                      <label>Upřesněte občanství *</label>
-                      <input type="text" name="statniObcanstviJine" required value={formData.statniObcanstviJine} onChange={handleChange} placeholder="Stát" />
+                      <label>Pobočka (Město) *</label>
+                      <select name="pobocka" value={formData.pobocka} onChange={handleChange}>
+                        <option value="Ostrava">Ostrava (začátek 29. 9. 2026)</option>
+                        <option value="Opava">Opava (místo bude upřesněno)</option>
+                        <option value="Frýdek-Místek">Frýdek-Místek (místo bude upřesněno)</option>
+                      </select>
                     </div>
-                  )}
 
-                  <div className="field">
-                    <label>Číslo dokladu totožnosti *</label>
-                    <input type="text" name="cisloDokladu" required value={formData.cisloDokladu} onChange={handleChange} placeholder="Občanský průkaz / pas" />
+                    <div className="field">
+                      <label>Vybraný kurz *</label>
+                      <select name="kurz" value={formData.kurz} onChange={handleChange}>
+                        <option value="Standardní kurz B (22 900 Kč)">Standardní kurz B — Automat (22 900 Kč)</option>
+                        <option value="Rychlokurz B (28 900 Kč)">Rychlokurz B — Expresní výcvik (28 900 Kč)</option>
+                        <option value="Kondiční jízdy (850 Kč/hod)">Kondiční jízdy (850 Kč / hod.)</option>
+                      </select>
+                    </div>
+
+                    <div className="field">
+                      <label>Forma platby *</label>
+                      <select name="platba" value={formData.platba} onChange={handleChange}>
+                        <option value="Jednorázově (sleva 500 Kč)">Jednorázově (sleva 500 Kč)</option>
+                        <option value="6 splátek (0 % navýšení)">6 splátek (0 % navýšení)</option>
+                        <option value="12 splátek (0 % navýšení)">12 splátek (0 % navýšení)</option>
+                      </select>
+                    </div>
+
+                    <div className="field">
+                      <label>Lékařský posudek *</label>
+                      <select name="posudekStav" value={formData.posudekStav} onChange={handleChange}>
+                        <option value="Stáhnu si formulář z webu autoškoly">Stáhnu si formulář z webu autoškoly</option>
+                        <option value="Mám již potvrzený posudek od lékaře">Mám již potvrzený posudek od lékaře</option>
+                        <option value="Vyřizuji u svého praktického lékaře">Vyřizuji u svého praktického lékaře</option>
+                      </select>
+                    </div>
+
+                    <div className="field">
+                      <label>Jméno *</label>
+                      <input type="text" name="jmeno" required value={formData.jmeno} onChange={handleChange} placeholder="Jan" />
+                    </div>
+
+                    <div className="field">
+                      <label>Příjmení (titul) *</label>
+                      <input type="text" name="prijmeni" required value={formData.prijmeni} onChange={handleChange} placeholder="Novák" />
+                    </div>
+
+                    <div className="field">
+                      <label>Datum narození *</label>
+                      <input type="date" name="datumNarozeni" required value={formData.datumNarozeni} onChange={handleChange} />
+                    </div>
+
+                    <div className="field">
+                      <label>Místo narození *</label>
+                      <input type="text" name="mistoNarozeni" required value={formData.mistoNarozeni} onChange={handleChange} placeholder="Ostrava" />
+                    </div>
+
+                    <div className="field">
+                      <label>Rodné číslo *</label>
+                      <input type="text" name="rodneCislo" required value={formData.rodneCislo} onChange={handleChange} placeholder="010203/1234" />
+                    </div>
+
+                    <div className="field">
+                      <label>Státní občanství *</label>
+                      <select name="statniObcanstvi" value={formData.statniObcanstvi} onChange={handleChange}>
+                        <option value="České">České</option>
+                        <option value="Slovenské">Slovenské</option>
+                        <option value="Ukrajinské">Ukrajinské</option>
+                        <option value="Jiné">Jiné</option>
+                      </select>
+                    </div>
+
+                    {formData.statniObcanstvi === 'Jiné' && (
+                      <div className="field">
+                        <label>Upřesněte občanství *</label>
+                        <input type="text" name="statniObcanstviJine" required value={formData.statniObcanstviJine} onChange={handleChange} placeholder="Stát" />
+                      </div>
+                    )}
+
+                    <div className="field">
+                      <label>Číslo dokladu totožnosti *</label>
+                      <input type="text" name="cisloDokladu" required value={formData.cisloDokladu} onChange={handleChange} placeholder="Občanský průkaz / pas" />
+                    </div>
+
+                    <div className="field">
+                      <label>Doklad vydal (úřad) *</label>
+                      <input type="text" name="dokladVydal" required value={formData.dokladVydal} onChange={handleChange} placeholder="Magistrát města Ostravy" />
+                    </div>
+
+                    <div className="field" style={{ gridColumn: "1 / -1" }}>
+                      <label>Adresa trvalého bydliště *</label>
+                      <input type="text" name="adresa" required value={formData.adresa} onChange={handleChange} placeholder="Ulice, číslo popisné, město, PSČ" />
+                    </div>
+
+                    <div className="field">
+                      <label>Telefon *</label>
+                      <input type="tel" name="telefon" required value={formData.telefon} onChange={handleChange} placeholder="+420 603 213 178" />
+                    </div>
+
+                    <div className="field">
+                      <label>Email *</label>
+                      <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="jan.novak@email.cz" />
+                    </div>
+
+                    <div className="field" style={{ gridColumn: "1 / -1" }}>
+                      <label>Doplňující informace (volitelné)</label>
+                      <textarea name="dopljujiciInfo" rows="3" value={formData.dopljujiciInfo} onChange={handleChange} placeholder="Preferované časy jízd, dotazy apod." />
+                    </div>
+
                   </div>
 
-                  <div className="field">
-                    <label>Doklad vydal (obecní úřad obce s rozšířenou působností) *</label>
-                    <input type="text" name="dokladVydal" required value={formData.dokladVydal} onChange={handleChange} placeholder="Magistrát města Ostravy" />
+                  {/* Čestné prohlášení Box */}
+                  <div style={{
+                    marginTop: 20,
+                    padding: 18,
+                    borderRadius: "var(--r-md)",
+                    background: "rgba(10, 11, 10, 0.6)",
+                    border: "1px solid var(--line)",
+                    fontSize: 13,
+                    color: "var(--muted)",
+                    lineHeight: 1.5
+                  }}>
+                    <div style={{ fontWeight: 600, color: "var(--paper)", marginBottom: 6, textTransform: "uppercase", fontSize: 11, letterSpacing: "0.06em", fontFamily: "var(--mono)" }}>
+                      Čestné prohlášení
+                    </div>
+                    Vyplněním tohoto formuláře čestně prohlašuji, že nejsem nezpůsobilým k právním úkonům, že mi nebyl uložen zákaz činnosti spočívající v zákazu řízení motorových vozidel, případně, že pominula doba stanovená pro pozbytí řidičského oprávnění podle zvláštního zákona 2), v případě rozšíření řidičského oprávnění splňuji další podmínky k udělení řidičského oprávnění podle zvláštního zákona 3), že netrpím tělesnou nebo duševní vadou, která by mne činila nezpůsobilým k řízení motorových vozidel a že všechny uvedené údaje jsou pravdivé.
                   </div>
 
-                  <div className="field" style={{ gridColumn: "1 / -1" }}>
-                    <label>Adresa trvalého bydliště *</label>
-                    <input type="text" name="adresa" required value={formData.adresa} onChange={handleChange} placeholder="Ulice, číslo popisné, město, PSČ" />
+                  <div style={{ marginTop: 18, display: "flex", alignItems: "center", gap: 10 }}>
+                    <input
+                      type="checkbox"
+                      id="souhlas"
+                      name="souhlas"
+                      checked={formData.souhlas}
+                      onChange={handleChange}
+                      style={{ width: 18, height: 18, cursor: "pointer", accentColor: "var(--volt)" }}
+                    />
+                    <label htmlFor="souhlas" style={{ fontSize: 14, color: "var(--paper)", cursor: "pointer", userSelect: "none" }}>
+                      Potvrzuji pravdivost údajů a souhlasím s čestným prohlášením *
+                    </label>
                   </div>
 
-                  <div className="field">
-                    <label>Telefon *</label>
-                    <input type="tel" name="telefon" required value={formData.telefon} onChange={handleChange} placeholder="+420 603 213 178" />
+                  <div style={{ marginTop: 28, display: "flex", justifyContent: "flex-end", gap: 12 }}>
+                    <button type="button" className="btn btn-ghost" onClick={() => setFormOpen(false)}>Zrušit</button>
+                    <button type="submit" className="btn btn-volt lg">Odeslat žádost o přijetí <span className="arrow">→</span></button>
                   </div>
-
-                  <div className="field">
-                    <label>Email *</label>
-                    <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="jan.novak@email.cz" />
-                  </div>
-
-                  <div className="field" style={{ gridColumn: "1 / -1" }}>
-                    <label>Doplňující informace (volitelné)</label>
-                    <textarea name="dopljujiciInfo" rows="3" value={formData.dopljujiciInfo} onChange={handleChange} placeholder="Preferované časy jízd, dotazy apod." />
-                  </div>
-
-                </div>
-
-                {/* Čestné prohlášení Box */}
-                <div style={{
-                  marginTop: 16,
-                  padding: 16,
-                  borderRadius: "var(--r-md)",
-                  background: "rgba(10, 11, 10, 0.6)",
-                  border: "1px solid var(--line)",
-                  fontSize: 13,
-                  color: "var(--muted)",
-                  lineHeight: 1.5
-                }}>
-                  <div style={{ fontWeight: 600, color: "var(--paper)", marginBottom: 6, textTransform: "uppercase", fontSize: 11, letterSpacing: "0.06em", fontFamily: "var(--mono)" }}>
-                    Čestné prohlášení
-                  </div>
-                  Vyplněním tohoto formuláře čestně prohlašuji, že nejsem nezpůsobilým k právním úkonům, že mi nebyl uložen zákaz činnosti spočívající v zákazu řízení motorových vozidel, případně, že pominula doba stanovená pro pozbytí řidičského oprávnění podle zvláštního zákona 2), v případě rozšíření řidičského oprávnění splňuji další podmínky k udělení řidičského oprávnění podle zvláštního zákona 3), že netrpím tělesnou nebo duševní vadou, která by mne činila nezpůsobilým k řízení motorových vozidel a že všechny uvedené údaje jsou pravdivé.
-                </div>
-
-                <div style={{ marginTop: 16, display: "flex", alignItems: "center", gap: 10 }}>
-                  <input
-                    type="checkbox"
-                    id="souhlas"
-                    name="souhlas"
-                    checked={formData.souhlas}
-                    onChange={handleChange}
-                    style={{ width: 18, height: 18, cursor: "pointer", accentColor: "var(--volt)" }}
-                  />
-                  <label htmlFor="souhlas" style={{ fontSize: 14, color: "var(--paper)", cursor: "pointer", userSelect: "none" }}>
-                    Potvrzuji pravdivost údajů a souhlasím s čestným prohlášením *
-                  </label>
-                </div>
-
-                <div style={{ marginTop: 24, display: "flex", justifyContent: "flex-end", gap: 12 }}>
-                  <button type="button" className="btn btn-ghost" onClick={() => setFormOpen(false)}>Zrušit</button>
-                  <button type="submit" className="btn btn-volt lg">Odeslat žádost o přijetí <span className="arrow">→</span></button>
-                </div>
-              </form>
-            )}
+                </form>
+              )}
+            </div>
           </div>
         )}
 
