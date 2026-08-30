@@ -597,6 +597,9 @@ section { padding: 120px 0; position: relative; }
 .routes .section-head .lead { color: var(--ink-2); }
 .routes .section-head .kicker { color: #888; }
 .routes .section-head .kicker .n { color: var(--volt-deep); }
+.routes .course-tab { color: var(--ink); border-color: var(--line-paper); }
+.routes .course-tab:hover { border-color: var(--ink); }
+.routes .course-tab.active { background: var(--volt-deep); border-color: var(--volt-deep); color: #fff; }
 
 .routes-map { position: relative; height: 480px; border-radius: var(--r-lg); overflow: hidden; background: var(--paper-2); border: 1px solid var(--line-paper); }
 .routes-map .grid {
@@ -1582,7 +1585,7 @@ function Routes() {
         <div className="section-head">
           <div className="kicker"><span className="n">07</span> Kde jezdíme</div>
           <div>
-            <h2>Naše pobočky & města</h2>
+            <h2>Naše pobočky</h2>
           </div>
         </div>
 
@@ -2131,9 +2134,9 @@ function Contact({ onBook }) {
         <div className="section-head">
           <div className="kicker"><span className="n">08</span> Kontakty</div>
           <div>
-            <h2>Ozvi se.<br />Volám zpět do 24 hodin.</h2>
+            <h2>Kontaktuj nás a my se ti ozveme do 24 hodin.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
-              Nejraději po telefonu — řekneš mi, co potřebuješ, a domluvíme se za pět minut. Nebo napiš, jak ti to vyhovuje.
+              Telefon, email, whatsapp - vyber si způsob který ti vyhovuje a zjisti vše podstatné.
             </p>
           </div>
         </div>
@@ -2143,22 +2146,20 @@ function Contact({ onBook }) {
             <a href="tel:+420603213178" className="contact-card">
               <div className="cc-l">Telefon</div>
               <div className="cc-v">+420 603 213 178</div>
-              <div className="cc-note">Po–Pá 8:00–19:00 · So 9:00–13:00</div>
             </a>
             <a href="mailto:ahoj@autoskolaproud.cz" className="contact-card">
               <div className="cc-l">E-mail</div>
               <div className="cc-v">ahoj@autoskolaproud.cz</div>
-              <div className="cc-note">Odpovídám typicky do 2 hodin</div>
             </a>
             <div className="contact-card">
               <div className="cc-l">Učebna & zázemí</div>
               <div className="cc-v" style={{ fontSize: 22 }}>Havlíčkovo nábřeží 2728/38<br />702 00 Ostrava</div>
-              <div className="cc-note">U řeky Ostravice · zastávka Most Pionýrů</div>
+              <div className="cc-note">U řeky Ostravice, poblíž zastávky Most Pionýrů</div>
             </div>
             <button className="contact-card cc-action" onClick={onBook}>
               <div className="cc-l">Online</div>
               <div className="cc-v">Přihláška na kurz</div>
-              <div className="cc-note">Zabere dvě minuty <span className="arrow">→</span></div>
+              <div className="cc-note">Zabere pár minut <span className="arrow">→</span></div>
             </button>
           </div>
 
@@ -2693,7 +2694,6 @@ function App() {
       <Fleet onBook={() => openBooking()} />
       <TheoryTests />
       <Routes />
-      <BookingCTA onBook={() => openBooking()} />
       <Contact onBook={() => openBooking()} />
       <FAQ />
       <Footer />
