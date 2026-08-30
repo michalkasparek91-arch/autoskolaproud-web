@@ -1026,6 +1026,28 @@ Object.assign(window, { ProudWordmark, CurrentMark, BoltMark, LoopMark });
 
 const COURSES = [
   {
+    id: "akce",
+    code: "AKCE",
+    name: "Přiveď kamaráda",
+    sub: "akční sleva 1 000 Kč pro oba",
+    blurb: "Přihlaste se do autoškoly společně s kamarádem, sourozencem nebo partnerem a oba získáte slevu 1 000 Kč z ceny kurzovného! Výcvik i jízdy můžete absolvovat společně.",
+    hours: { drive: 28, theory: 7.5, sim: 2 },
+    price: 18900,
+    priceOld: 19900,
+    duration: "sleva 1 000 Kč pro oba",
+    cohorts: 4,
+    spotsLeft: 2,
+    features: [
+      "Sleva 1 000 Kč z ceny kurzu pro tebe i kamaráda",
+      "Společné plánování jízd a výuky",
+      "28 h výcviku v elektromobilu Hyundai Ioniq",
+      "3-4 jízdy týdně v Ostravě, Opavě i F-M",
+      "Závěrečná zkouška, učebnice i online testy v ceně",
+    ],
+    accent: "var(--volt)",
+    metaCells: "full",
+  },
+  {
     id: "b",
     code: "B",
     name: "Skupina B",
@@ -1300,7 +1322,13 @@ function Hero({ onBook }) {
           <p>
             Učíme řídit pouze v elektromobilu <b style={{ color: "var(--volt)" }}>Hyundai Ioniq</b>. Manuály jsou na ústupu — už žádné řazení, trhané rozjezdy v křižovatkách, řev otáček a smrad z výfuku. Jen ticho, plná koncentrace na provoz a v hlavě klid.
           </p>
-          <a href="#courses" className="hero-promo">
+          <a 
+            href="#courses" 
+            className="hero-promo"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('select-course-tab', { detail: { courseId: 'akce' } }));
+            }}
+          >
             <span className="hp-tag">Akce</span>
             <span className="hp-body">Přiveď kamaráda a získej slevu! <span className="hp-more">Zjisti více <span className="arrow">→</span></span></span>
           </a>
@@ -1397,8 +1425,18 @@ function WhyElectric() {
 /* ---------- Courses ---------- */
 function Courses({ onPickCourse }) {
   const [active, setActive] = useState("b");
-  const course = COURSES.find((c) => c.id === active);
+  const course = COURSES.find((c) => c.id === active) || COURSES[0];
   const [ref, cls] = useReveal();
+
+  React.useEffect(() => {
+    const handleSelect = (e) => {
+      if (e.detail && e.detail.courseId) {
+        setActive(e.detail.courseId);
+      }
+    };
+    window.addEventListener('select-course-tab', handleSelect);
+    return () => window.removeEventListener('select-course-tab', handleSelect);
+  }, []);
 
   const bars = course.spotsLeft != null
     ? Array.from({ length: course.cohorts || 4 }, (_, i) => i < course.spotsLeft)
