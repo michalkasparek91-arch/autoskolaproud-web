@@ -427,19 +427,19 @@ section { padding: 120px 0; position: relative; }
 .section-head { margin-bottom: 64px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: end; }
 @media (max-width: 920px) { .section-head { grid-template-columns: 1fr; gap: 24px; } }
 .section-head .kicker {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  font-family: var(--mono); font-size: 14px; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--muted);
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 12px;
 }
-.section-head .kicker .n { color: var(--volt); }
+.section-head .kicker .n { color: var(--volt); font-size: 22px; font-weight: 700; }
 .section-head h2 {
   font-family: var(--display); font-weight: 500;
-  font-size: clamp(34px, 5.5vw, 72px); line-height: 0.95;
-  letter-spacing: -0.035em; margin: 16px 0 0;
+  font-size: clamp(42px, 6.8vw, 88px); line-height: 0.94;
+  letter-spacing: -0.038em; margin: 16px 0 0;
 }
 .section-head .lead {
   font-family: var(--display); font-weight: 400;
-  font-size: clamp(18px, 1.6vw, 24px); line-height: 1.35;
+  font-size: clamp(20px, 1.8vw, 26px); line-height: 1.35;
   letter-spacing: -0.012em; color: var(--paper);
   max-width: 56ch;
 }
@@ -1620,6 +1620,20 @@ function HowToStart({ onBook }) {
     souhlas: false
   });
 
+  React.useEffect(() => {
+    const handleOpen = (e) => {
+      setFormOpen(true);
+      if (e.detail && e.detail.courseId) {
+        const found = COURSES.find(c => c.id === e.detail.courseId);
+        if (found) {
+          setFormData(prev => ({ ...prev, kurz: `${found.name} (${found.price.toLocaleString('cs-CZ')} Kč)` }));
+        }
+      }
+    };
+    window.addEventListener('open-online-application', handleOpen);
+    return () => window.removeEventListener('open-online-application', handleOpen);
+  }, []);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -2555,8 +2569,11 @@ function App() {
   const [initialCourse, setInitialCourse] = useStateApp(null);
 
   const openBooking = (courseId = null) => {
-    setInitialCourse(courseId);
-    setBookingOpen(true);
+    const el = document.getElementById('how');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+    window.dispatchEvent(new CustomEvent('open-online-application', { detail: { courseId } }));
   };
 
   return (
