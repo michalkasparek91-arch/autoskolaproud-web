@@ -1789,7 +1789,7 @@ function HowToStart({ onBook }) {
       t: "Osobní schůzka",
       b: (
         <React.Fragment>
-          Až budeš mít potvrzení od lékaře, zavolej nebo napiš (viz <a href="#contact" className="how-link">kontakty</a>) a domluv si osobní schůzku, kde se dozvíš všechny informace o tom, co tě čeká nemine.
+          Až budeš mít potvrzení od lékaře, zavolej nebo napiš (viz <a href="#contact" className="how-link">kontakty</a>) a domluv si osobní schůzku na učebně, kde se dozvíš všechny informace o tom, co tě čeká nemine. Zároveň se domluvíme na platbě - hotově, qr kódem nebo na splátky, jak budeš potřebovat.
         </React.Fragment>
       )
     },
@@ -2269,18 +2269,18 @@ function Footer() {
           <div>
             <ProudWordmark size={36} />
             <p style={{ color: "var(--muted)", marginTop: 24, maxWidth: 36 + "ch", lineHeight: 1.6 }}>
-              První ostravská autoškola jezdící výhradně na elektřinu. Otevřeno od 2022. Akreditace MD ČR č. 03/2022.
+              První ostravská autoškola jezdící výhradně na elektřinu. Založeno 2026.
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
               <a href="#" className="btn btn-ghost sm">Instagram</a>
-              <a href="#" className="btn btn-ghost sm">Mapy.cz</a>
+              <a href="#" className="btn btn-ghost sm">Facebook</a>
             </div>
           </div>
           <div className="foot-col">
             <h4>Kontakt</h4>
             <a href="tel:+420603213178">+420 603 213 178</a>
             <a href="mailto:ahoj@autoskolaproud.cz">ahoj@autoskolaproud.cz</a>
-            <p style={{ color: "var(--muted)", marginTop: 8 }}>Havlíčkovo nábřeží 2728/38<br />702 00 Ostrava<br />u zastávky Most Pionýrů</p>
+            <p style={{ color: "var(--muted)", marginTop: 8 }}>Havlíčkovo nábřeží 2728/38<br />702 00 Ostrava</p>
           </div>
           <div className="foot-col">
             <h4>Kurzy</h4>
@@ -2742,7 +2742,7 @@ function App() {
       <Routes />
       <Contact onBook={() => openBooking()} />
       <Career />
-      <FAQ />
+      {/* <FAQ /> */}
       <Footer />
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} initialCourse={initialCourse} />
       <ColorSliderWidget />
