@@ -1247,7 +1247,7 @@ function Nav({ onBook }) {
     ["Jak začít", "#how"],
     ["Kurzy a ceny", "#courses"],
     ["Proč PROUD", "#why"],
-    ["Testy & Tým", "#theory"],
+    ["O nás", "#instructors"],
     ["Kontakt", "#contact"],
   ];
   return (
@@ -1617,7 +1617,7 @@ function Instructors() {
     <section className="instructors" id="instructors" ref={ref} data-screen-label="Instruktoři">
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">05</span> Kdo tě učí</div>
+          <div className="kicker"><span className="n">04</span> O nás & instruktoři</div>
           <div>
             <h2>Jeden člověk.<br />Od přihlášky až ke zkoušce.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
@@ -2008,7 +2008,7 @@ function TheoryTests() {
     <section className="theory" id="theory" ref={ref} data-screen-label="Testy a teorie">
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">04</span> Testy a teorie</div>
+          <div className="kicker"><span className="n">06</span> Testy a teorie</div>
           <div>
             <h2>Procvičuj testy<br />kdykoliv a kdekoliv.</h2>
           </div>
@@ -2069,7 +2069,7 @@ function Fleet({ onBook }) {
     <section className="fleet" id="fleet" ref={ref} data-screen-label="Vozový park">
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">06</span> Vozový park</div>
+          <div className="kicker"><span className="n">05</span> Vozový park</div>
           <div>
             <h2>Jedno auto.<br />A je to elektromobil.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
@@ -2664,9 +2664,9 @@ function App() {
       <HowToStart onBook={() => openBooking()} />
       <WhyElectric />
       <Courses onPickCourse={(id) => openBooking(id)} />
-      <TheoryTests />
       <Instructors />
       <Fleet onBook={() => openBooking()} />
+      <TheoryTests />
       <Routes />
       <BookingCTA onBook={() => openBooking()} />
       <Contact onBook={() => openBooking()} />
