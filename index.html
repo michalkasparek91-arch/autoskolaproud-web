@@ -1384,21 +1384,22 @@ function WhyElectric() {
   const cells = [
     { n: "01", t: "Moderní elektromobil. Automat.", b: "Jezdíš v čistém elektromobilu Hyundai Ioniq — tedy s automatem. Žádné trápení se spojkou, hlídání otáček ani odvádění pozornosti řadicí pákou. Plně se věnuješ provozu a posloucháš učitele. Přes 70 % nových a letos nově i většina ojetých vozidel v ČR má dnes automat — a tyto čísla půjdou nahoru. Garantujeme Vám, že řízení v Ioniqu si zamilujete! Je totiž silně návykové :-)" },
     { n: "02", t: "Jeden instruktor. Osobní přístup.", b: "Celou dobu jezdíš jen s jedním učitelem — od teorie až po zkoušku. Žádná štafeta, žádné „toho neznám“ ráno před jízdou. Zkušení a trpěliví profíci vysvětlí situaci tolikrát, kolikrát potřebuješ. Držíme maximálně 5 uchazečů na jednoho učitele — máš dost prostoru i jistotu odpočatého instruktora." },
-    { n: "03", t: "V samém centru Ostravy.", b: "Učebna sídlí na Havlíčkově nábřeží 2728/38 u řeky Ostravice, hned vedle zastávky Most Pionýrů. Jízdy startují z parkoviště před budovou, zkušební místnost je 3 minuty chůze. Podél řeky vede cyklostezka — na teorii klidně přijeď na kole, autobusem nebo trolejbusem." },
+    { n: "03", t: "Rychlokurz standardem.", b: "U nás jezdíme všechny kurzy na skupinu B rychlokurzem, tedy 3 až 4 jízdy týdně. Věříme, že pouze intenzivní výcvik má smysl. Díky tomu budete mít jízdy odježděné za měsíc. Na zkoušku tak jste maximálně připraveni." },
+    { n: "04", t: "V samém centru Ostravy.", b: "Učebna sídlí na Havlíčkově nábřeží 2728/38 u řeky Ostravice, hned vedle zastávky Most Pionýrů. Jízdy startují z parkoviště před budovou, zkušební místnost je 3 minuty chůze. Podél řeky vede cyklostezka — na teorii klidně přijeď na kole, autobusem nebo trolejbusem." },
   ];
   return (
-    <section className="why" id="why" ref={ref} data-screen-label="Proč u nás">
+    <section className="why" id="why" ref={ref} data-screen-label="Proč PROUD">
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">02</span> Proč u nás</div>
+          <div className="kicker"><span className="n">02</span> Proč PROUD</div>
           <div>
             <h2>Auto bez výfuku.<br />Řidič bez stresu.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
-              Z mnoha důvodů. Moderní a čistý elektromobil, jeden zkušený instruktor po celou dobu a učebna v samém centru Ostravy. Tak neváhej a jezdi v&nbsp;PROUDU.
+              Z mnoha důvodů. Moderní a čistý elektromobil, jeden zkušený instruktor po celou dobu, rychlokurz v základu a učebna v samém centru Ostravy. Tak neváhej a jezdi v&nbsp;PROUDU.
             </p>
           </div>
         </div>
-        <div className="why-grid why-grid-3">
+        <div className="why-grid">
           {cells.map((c) => (
             <div key={c.n} className="why-cell">
               <div className="num">{c.n}</div>
