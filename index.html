@@ -2182,6 +2182,52 @@ function Contact({ onBook }) {
   );
 }
 
+/* ---------- Career ---------- */
+function Career() {
+  const [ref, cls] = useReveal();
+  return (
+    <section className="career" id="career" ref={ref} data-screen-label="Kariéra" style={{ background: "var(--bg)", borderTop: "1px solid var(--line)" }}>
+      <div className={`wrap ${cls}`}>
+        <div className="section-head">
+          <div className="kicker"><span className="n">09</span> Kariéra</div>
+          <div>
+            <h2>Hledáme nové instruktory</h2>
+          </div>
+        </div>
+
+        <div style={{
+          background: "var(--bg-2)", border: "1px solid var(--line)", borderRadius: "var(--r-xl)",
+          padding: "48px 40px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40, alignItems: "center"
+        }}>
+          <div>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--volt)", marginBottom: 12 }}>
+              Učitel výuky a výcviku
+            </div>
+            <h3 style={{ fontFamily: "var(--display)", fontSize: "clamp(24px, 3.5vw, 34px)", fontWeight: 600, color: "var(--paper)", margin: "0 0 16px", lineHeight: 1.2 }}>
+              Chceš být pánem svého času a pracovat za férových podmínek?
+            </h3>
+            <p style={{ color: "var(--paper-2)", fontSize: 16, lineHeight: 1.65, margin: 0 }}>
+              Máš platné profesní osvědčení učitele výuky a výcviku a nějakou tu zkušenost s učením za sebou? Jsi zastáncem elektromobility anebo se nebojíš vyzkoušet něco nového? Chceš být pánem svého času a pracovat za férových podmínek? Tak neváhej a ozvi se nám!
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-start", background: "rgba(255,255,255,0.03)", padding: 28, borderRadius: "var(--r-md)", border: "1px solid var(--line)" }}>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 12, color: "var(--volt)", fontWeight: 600 }}>Nabízíme & Očekáváme</div>
+            <div style={{ fontSize: 14, color: "var(--paper)", display: "flex", flexDirection: "column", gap: 10 }}>
+              <div>✓ Platné profesní osvědčení učitele autoškoly</div>
+              <div>✓ Výcvik v nových elektromobilech Hyundai Ioniq</div>
+              <div>✓ Flexibilní plánování vlastních jízd</div>
+              <div>✓ Férové a nadstandardní finanční ohodnocení</div>
+            </div>
+            <a href="mailto:ahoj@autoskolaproud.cz?subject=Kariéra v PROUDU" className="btn btn-volt sm" style={{ marginTop: 8 }}>
+              Napiš nám na e-mail <span className="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- FAQ ---------- */
 function FAQ() {
   const [open, setOpen] = useState(0);
@@ -2190,7 +2236,7 @@ function FAQ() {
     <section className="faq" id="faq" ref={ref}>
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">09</span> Časté otázky</div>
+          <div className="kicker"><span className="n">10</span> Časté otázky</div>
           <div>
             <h2>Na co se ptáte nejčastěji.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
@@ -2258,7 +2304,7 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Nav, Hero, Ticker, WhyElectric, Courses, Routes, Instructors, HowToStart, TheoryTests, Fleet, Contact, FAQ, Footer, useReveal });
+Object.assign(window, { Nav, Hero, Ticker, WhyElectric, Courses, Routes, Instructors, HowToStart, TheoryTests, Fleet, Contact, Career, FAQ, Footer, useReveal });
 
 </script>
 <script type="text/babel">
@@ -2695,6 +2741,7 @@ function App() {
       <TheoryTests />
       <Routes />
       <Contact onBook={() => openBooking()} />
+      <Career />
       <FAQ />
       <Footer />
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} initialCourse={initialCourse} />
