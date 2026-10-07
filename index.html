@@ -2,9 +2,159 @@
 <html lang="cs">
 <head>
 <meta charset="utf-8" />
-<title>autoškola proud · Ostrava · elektronická autoškola</title>
+<title>Autoškola PROUD Ostrava · První čisto-elektrická autoškola (Automat)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="První ostravská autoškola jezdící výhradně na elektřinu. Hyundai Ioniq. Jen automat. Klidnější jízda, žádný stres z řazení." />
+<meta name="description" content="První ostravská autoškola výhradně na elektřinu (Hyundai Ioniq). Výcvik pouze na automatu, rychlokurz za 3–4 týdny. Havlíčkovo nábřeží 38, Ostrava. Tel: +420 603 213 178." />
+<meta name="keywords" content="autoškola Ostrava, autoškola automat Ostrava, autoškola elektromobil Ostrava, rychlokurz autoškola Ostrava, řidičský průkaz automat Ostrava, autoškola proud, Martin Samec autoškola" />
+<link rel="canonical" href="https://autoskolaproud.cz/" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:site_name" content="Autoškola PROUD Ostrava" />
+<meta property="og:title" content="Autoškola PROUD Ostrava · První čisto-elektrická autoškola (Automat)" />
+<meta property="og:description" content="Výcvik výhradně v elektromobilu Hyundai Ioniq s automatickou převodovkou. Rychlokurz 3–4 jízdy týdně, odježděno za měsíc." />
+<meta property="og:url" content="https://autoskolaproud.cz/" />
+<meta property="og:image" content="https://autoskolaproud.cz/logo/SVG/LOGO.svg" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Autoškola PROUD Ostrava · Elektromobil &amp; Automat" />
+<meta name="twitter:description" content="První ostravská autoškola jezdící výhradně na elektřinu. Hyundai Ioniq. Jen automat. Klidnější jízda bez řazení." />
+<meta name="twitter:image" content="https://autoskolaproud.cz/logo/SVG/LOGO.svg" />
+
+<!-- Local SEO / Geo -->
+<meta name="geo.region" content="CZ-80" />
+<meta name="geo.placename" content="Ostrava" />
+<meta name="geo.position" content="49.8398;18.2936" />
+<meta name="ICBM" content="49.8398, 18.2936" />
+
+<!-- Google Analytics 4 (GA4) Tracking Script -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Sem vložte vaše ID z Google Analytics (např. G-1234567890)
+  window.GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  gtag('config', window.GA_MEASUREMENT_ID, {
+    send_page_view: true
+  });
+
+  window.trackGAEvent = function(eventName, params) {
+    if (typeof window.gtag === 'function' && window.GA_MEASUREMENT_ID && window.GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
+      window.gtag('event', eventName, params || {});
+    }
+  };
+</script>
+
+<!-- Schema.org JSON-LD Structured Data (Google & AI Search / GEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["AutomotiveBusiness", "EducationalOrganization"],
+      "@id": "https://autoskolaproud.cz/#organization",
+      "name": "Autoškola PROUD",
+      "legalName": "Autoškola PROUD Ostrava",
+      "alternateName": ["Autoškola Proud", "Proud Autoškola Ostrava"],
+      "url": "https://autoskolaproud.cz/",
+      "logo": "https://autoskolaproud.cz/logo/SVG/LOGO.svg",
+      "image": "https://autoskolaproud.cz/logo/SVG/LOGO.svg",
+      "description": "První ostravská autoškola jezdící výhradně na elektřinu v elektromobilu Hyundai Ioniq s automatickou převodovkou. Akreditace MD ČR č. 03/2022. Založeno 2026.",
+      "telephone": "+420603213178",
+      "email": "info@autoskolaproud.cz",
+      "priceRange": "$$",
+      "founder": {
+        "@type": "Person",
+        "name": "Martin Samec",
+        "jobTitle": "Majitel a Hlavní Instruktor"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Havlíčkovo nábřeží 2728/38",
+        "addressLocality": "Ostrava",
+        "postalCode": "702 00",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.8398,
+        "longitude": 18.2936
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Ostrava, Moravskoslezský kraj"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/autoskolaproud"
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://autoskolaproud.cz/#course-b-automat",
+      "name": "Řidičský průkaz skupina B (Automat / Elektromobil)",
+      "description": "Kompletní kurz pro získání řidičského průkazu skupiny B na osobní automobil s automatickou převodovkou v elektromobilu Hyundai Ioniq. Všechny kurzy jezdíme rychlokurzem (3–4 jízdy týdně, odježděno za měsíc).",
+      "provider": {
+        "@id": "https://autoskolaproud.cz/#organization"
+      },
+      "courseCode": "B-AUTOMAT",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "In-Person",
+        "location": "Ostrava - Havlíčkovo nábřeží 2728/38"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://autoskolaproud.cz/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak probíhá výcvik v Autoškole PROUD v Ostravě?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "U nás jezdíme všechny kurzy na skupinu B rychlokurzem, tedy 3 až 4 jízdy týdně. Díky tomu máte jízdy odježděné za měsíc a na zkoušku jste maximálně připraveni. Výcvik probíhá výhradně v elektromobilu Hyundai Ioniq s automatickou převodovkou."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Na jakém autě se v Autoškole PROUD učí řídit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jezdíme výhradně v čisto-elektrickém automobilu Hyundai Ioniq Electric s automatickou převodovkou, parkovací kamerou a jízdními asistenty."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kde Autoškola PROUD v Ostravě sídlí a jak se přihlásit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sídlíme v Ostravě na adrese Havlíčkovo nábřeží 2728/38 (u zastávky Most Pionýrů). Přihlásit se můžete online na webu autoskolaproud.cz nebo telefonicky na +420 603 213 178 a emailem info@autoskolaproud.cz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké jsou možnosti platby v Autoškole PROUD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Platbu si můžete domluvit hotově, QR kódem nebo na splátky, přesně podle vašich potřeb."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
