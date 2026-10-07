@@ -62,12 +62,13 @@
       "@type": ["AutomotiveBusiness", "EducationalOrganization"],
       "@id": "https://autoskolaproud.cz/#organization",
       "name": "Autoškola PROUD",
-      "legalName": "Autoškola PROUD Ostrava",
+      "legalName": "MARTIN SAMEC - AUTOŠKOLA PROUD",
+      "identifier": "29664853",
       "alternateName": ["Autoškola Proud", "Proud Autoškola Ostrava"],
       "url": "https://autoskolaproud.cz/",
       "logo": "https://autoskolaproud.cz/logo/SVG/LOGO.svg",
       "image": "https://autoskolaproud.cz/logo/SVG/LOGO.svg",
-      "description": "První ostravská autoškola jezdící výhradně na elektřinu v elektromobilu Hyundai Ioniq s automatickou převodovkou. Akreditace MD ČR č. 03/2022. Založeno 2026.",
+      "description": "1. čistě elektromobilní autoškola v ČR. Výcvik výhradně v elektromobilu Hyundai Ioniq s automatickou převodovkou v Ostravě a okolí.",
       "telephone": "+420603213178",
       "email": "info@autoskolaproud.cz",
       "priceRange": "$$",
@@ -88,10 +89,21 @@
         "latitude": 49.8398,
         "longitude": 18.2936
       },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Ostrava, Moravskoslezský kraj"
-      },
+      "areaServed": [
+        { "@type": "City", "name": "Ostrava" },
+        { "@type": "AdministrativeArea", "name": "Moravská Ostrava a Přívoz" },
+        { "@type": "AdministrativeArea", "name": "Ostrava-Poruba" },
+        { "@type": "AdministrativeArea", "name": "Ostrava-Jih (Výškovice, Hrabůvka, Dubina, Zábřeh)" },
+        { "@type": "AdministrativeArea", "name": "Slezská Ostrava a Hladnov" },
+        { "@type": "AdministrativeArea", "name": "Mariánské Hory a Hulváky" },
+        { "@type": "AdministrativeArea", "name": "Vítkovice" },
+        { "@type": "AdministrativeArea", "name": "Krásné Pole" },
+        { "@type": "AdministrativeArea", "name": "Rychvald" },
+        { "@type": "AdministrativeArea", "name": "Bohumín" },
+        { "@type": "AdministrativeArea", "name": "Hlučín" },
+        { "@type": "AdministrativeArea", "name": "Vratimov" },
+        { "@type": "AdministrativeArea", "name": "Klimkovice" }
+      ],
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -624,7 +636,7 @@ section { padding: 120px 0; position: relative; }
 /* ---------- why electric ---------- */
 .why { background: var(--bg); }
 .why-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px;
   background: var(--line); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden;
 }
 @media (max-width: 920px) { .why-grid { grid-template-columns: 1fr 1fr; } }
@@ -660,75 +672,80 @@ section { padding: 120px 0; position: relative; }
 .stat .n .v { color: var(--volt); }
 .stat .l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
 
-/* ---------- courses ---------- */
-.courses { background: var(--bg); }
-.course-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-.course-tab {
-  padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line);
-  background: transparent; color: var(--paper);
+/* ---------- courses (light layout) ---------- */
+.courses { background: var(--paper); color: var(--ink); }
+.courses .section-head h2 { color: var(--ink); }
+.courses .section-head .kicker { color: var(--muted); }
+.courses .section-head .kicker .n { color: var(--volt-deep); font-weight: 700; }
+.courses .course-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.courses .course-tab {
+  padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(10, 11, 10, 0.15);
+  background: #FFFFFF; color: var(--ink);
   font-family: var(--display); font-weight: 500; font-size: 14px;
-  letter-spacing: -0.005em; transition: all 0.2s;
+  letter-spacing: -0.005em; transition: all 0.2s; cursor: pointer;
 }
-.course-tab:hover { border-color: rgba(244, 242, 236, 0.3); }
-.course-tab.active { background: var(--volt); border-color: var(--volt); color: var(--ink); }
+.courses .course-tab:hover { border-color: var(--ink); }
+.courses .course-tab.active { background: var(--ink); border-color: var(--ink); color: #FFFFFF; }
 
-.course-card {
+.courses .course-card {
   display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px;
-  border: 1px solid var(--line); border-radius: var(--r-lg);
-  padding: 48px; background: var(--bg-2);
+  border: 1px solid rgba(10, 11, 10, 0.12); border-radius: var(--r-lg);
+  padding: 48px; background: #FFFFFF; color: var(--ink);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   position: relative; overflow: hidden;
 }
-@media (max-width: 920px) { .course-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; } }
-.course-card .code-badge {
+@media (max-width: 920px) { .courses .course-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; } }
+.courses .course-card .code-badge {
   position: absolute; top: 32px; right: 32px;
   font-family: var(--display); font-weight: 600; font-size: 120px;
-  letter-spacing: -0.05em; line-height: 1; color: var(--volt); opacity: 0.18;
+  letter-spacing: -0.05em; line-height: 1; color: var(--volt-deep); opacity: 0.08;
   pointer-events: none;
 }
-.course-card h3 {
-  font-family: var(--display); font-weight: 500; font-size: 44px;
-  letter-spacing: -0.03em; line-height: 1; margin: 0 0 8px;
+.courses .course-card h3 {
+  font-family: var(--display); font-weight: 600; font-size: 44px;
+  letter-spacing: -0.03em; line-height: 1; margin: 0 0 8px; color: var(--ink);
 }
-.course-card .sub {
+.courses .course-card .sub {
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em;
   text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
 }
-.course-card .blurb {
-  font-family: var(--display); font-size: 19px; line-height: 1.4;
-  font-weight: 400; letter-spacing: -0.012em; margin: 0 0 32px;
-  max-width: 48ch;
+.courses .course-card .blurb {
+  font-family: var(--display); font-size: 18px; line-height: 1.5;
+  font-weight: 400; letter-spacing: -0.01em; margin: 0 0 32px;
+  max-width: 52ch; color: #2D302B;
 }
-.course-card ul { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 10px; }
-.course-card li {
-  font-size: 14px; color: var(--paper); padding-left: 24px; position: relative;
+.courses .course-card ul { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 10px; }
+.courses .course-card li {
+  font-size: 15px; color: var(--ink); padding-left: 24px; position: relative;
   line-height: 1.5;
 }
-.course-card li::before {
+.courses .course-card li::before {
   content: ""; position: absolute; left: 0; top: 9px; width: 12px; height: 2px;
-  background: var(--volt); border-radius: 1px;
+  background: var(--volt-deep); border-radius: 1px;
 }
 
-.course-meta {
+.courses .course-meta {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 }
-.course-meta .cell {
-  border: 1px solid var(--line); border-radius: var(--r-md); padding: 18px;
+.courses .course-meta .cell {
+  border: 1px solid rgba(10, 11, 10, 0.1); border-radius: var(--r-md); padding: 18px;
+  background: rgba(10, 11, 10, 0.02);
 }
-.course-meta .cell .l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-.course-meta .cell .v { font-family: var(--display); font-weight: 500; font-size: 22px; letter-spacing: -0.02em; line-height: 1.1; }
-.course-meta .cell .v .small { font-size: 13px; color: var(--muted); font-weight: 400; margin-left: 6px; }
+.courses .course-meta .cell .l { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.courses .course-meta .cell .v { font-family: var(--display); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); }
+.courses .course-meta .cell .v .small { font-size: 13px; color: var(--muted); font-weight: 400; margin-left: 6px; }
 
-.price-block {
-  margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line);
+.courses .price-block {
+  margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(10, 11, 10, 0.1);
   display: flex; align-items: end; justify-content: space-between; gap: 16px;
   flex-wrap: wrap;
 }
-.price-block .price {
-  font-family: var(--display); font-weight: 500;
-  font-size: 56px; letter-spacing: -0.04em; line-height: 1;
+.courses .price-block .price {
+  font-family: var(--display); font-weight: 600;
+  font-size: 56px; letter-spacing: -0.04em; line-height: 1; color: var(--ink);
 }
-.price-block .price .cur { font-size: 24px; color: var(--muted); margin-left: 6px; }
-.price-block .price-old {
+.courses .price-block .price .cur { font-size: 24px; color: var(--muted); margin-left: 6px; }
+.courses .price-block .price-old {
   font-family: var(--mono); font-size: 13px; color: var(--muted);
   text-decoration: line-through; margin-bottom: 4px;
 }
@@ -793,19 +810,24 @@ section { padding: 120px 0; position: relative; }
 .route-info .nm { font-family: var(--display); font-size: 28px; font-weight: 500; letter-spacing: -0.025em; }
 .route-info .note { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
 
-/* ---------- instructor (single spotlight) ---------- */
-.instructors { background: var(--bg); }
+/* ---------- instructor (single spotlight - light layout) ---------- */
+.instructors { background: var(--paper); color: var(--ink); }
+.instructors .section-head h2 { color: var(--ink); }
+.instructors .section-head .lead { color: #333; }
+.instructors .section-head .kicker { color: var(--muted); }
+.instructors .section-head .kicker .n { color: var(--volt-deep); font-weight: 700; }
 .inst-spotlight {
   display: grid; grid-template-columns: 1fr 1.1fr; gap: 0;
-  border: 1px solid var(--line); border-radius: var(--r-lg);
-  background: var(--bg-2); overflow: hidden;
+  border: 1px solid rgba(10, 11, 10, 0.12); border-radius: var(--r-lg);
+  background: #FFFFFF; color: var(--ink); overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 @media (max-width: 920px) { .inst-spotlight { grid-template-columns: 1fr; } }
 .inst-portrait {
   min-height: 620px;
   border-radius: 0;
   border: none;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid rgba(10, 11, 10, 0.12);
   position: relative;
   overflow: hidden;
   background: var(--bg);
@@ -819,29 +841,30 @@ section { padding: 120px 0; position: relative; }
   object-position: 72% center;
 }
 @media (max-width: 920px) {
-  .inst-portrait { min-height: 420px; border-right: none; border-bottom: 1px solid var(--line); }
+  .inst-portrait { min-height: 420px; border-right: none; border-bottom: 1px solid rgba(10, 11, 10, 0.12); }
 }
 .inst-body { padding: 48px; display: flex; flex-direction: column; gap: 16px; }
 @media (max-width: 540px) { .inst-body { padding: 32px 24px; } }
-.inst-body .role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--volt); }
-.inst-body .nm { font-family: var(--display); font-weight: 500; font-size: clamp(36px, 4.5vw, 56px); letter-spacing: -0.03em; line-height: 1; margin: 0; }
-.inst-body .bio { font-family: var(--display); font-size: 20px; line-height: 1.4; font-weight: 400; letter-spacing: -0.012em; color: var(--paper); margin: 0; max-width: 44ch; }
-.inst-body .bio-long { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 50ch; }
+.inst-body .role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--volt-deep); font-weight: 700; }
+.inst-body .nm { font-family: var(--display); font-weight: 600; font-size: clamp(36px, 4.5vw, 56px); letter-spacing: -0.03em; line-height: 1; margin: 0; color: var(--ink); }
+.inst-body .bio { font-family: var(--display); font-size: 20px; line-height: 1.45; font-weight: 400; letter-spacing: -0.012em; color: #222; margin: 0; max-width: 44ch; }
+.inst-body .bio-long { font-size: 15px; line-height: 1.6; color: #555; margin: 0; max-width: 50ch; }
 .inst-body .meta-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.inst-body .chip { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--paper); }
-.inst-body .region { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.inst-body .chip { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(10, 11, 10, 0.12); color: var(--ink); background: rgba(10, 11, 10, 0.03); }
+.inst-body .region { font-family: var(--mono); font-size: 12px; color: #666; letter-spacing: 0.04em; text-transform: uppercase; }
 .inst-stats {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-  margin-top: 24px; padding-top: 28px; border-top: 1px solid var(--line);
+  margin-top: 24px; padding-top: 28px; border-top: 1px solid rgba(10, 11, 10, 0.1);
 }
-.inst-stats .sn { font-family: var(--display); font-weight: 500; font-size: 36px; letter-spacing: -0.03em; line-height: 1; color: var(--volt); }
+.inst-stats .sn { font-family: var(--display); font-weight: 600; font-size: 36px; letter-spacing: -0.03em; line-height: 1; color: var(--volt-deep); }
 .inst-stats .sl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
 .inst-quote {
   font-family: var(--display); font-weight: 400; font-size: 22px;
-  letter-spacing: -0.018em; line-height: 1.35; color: var(--paper);
-  margin: 24px 0 0; padding: 24px 0 0; border-top: 1px solid var(--line);
-  max-width: 44ch;
+  letter-spacing: -0.02em; line-height: 1.35; color: #333;
+  margin-top: 24px; padding-left: 20px; border-left: 3px solid var(--volt-deep);
+  font-style: italic;
 }
+
 
 /* ---------- booking ---------- */
 .booking {
@@ -1183,10 +1206,9 @@ const COURSES = [
     blurb: "Přihlaste se do autoškoly společně s kamarádem, sourozencem nebo partnerem a oba získáte slevu 1 000 Kč z ceny kurzovného! Výcvik i jízdy můžete absolvovat společně.",
     hours: { drive: 28, theory: 7.5, sim: 2 },
     price: 18900,
-    priceOld: 19900,
     duration: "sleva 1 000 Kč pro oba",
-    cohorts: 4,
-    spotsLeft: 2,
+    cohorts: null,
+    spotsLeft: null,
     features: [
       "Sleva 1 000 Kč z ceny kurzu pro tebe i kamaráda",
       "Společné plánování jízd a výuky",
@@ -1199,45 +1221,40 @@ const COURSES = [
   },
   {
     id: "b",
-    code: "B",
-    name: "Skupina B",
-    sub: "osobní auto · plně elektrické",
-    blurb: "Standardní řidičák na osobní auto s automatickou převodovkou. A jedině u nás pouze s elektromobilem - Hyundai Ioniq. A jedině u nás je tzv. rychlokurz standardem.",
+    code: "Skupina B",
+    name: "Skupina B - automat",
+    sub: "osobní auto · automatická převodovka · elektromobil",
+    blurb: "Řidičský průkaz na osobní auto s harmonizačním kódem 78, tzn. omezení na vozidla s automatickou převodovkou. A jedině u nás pouze s elektromobilem Hyundai Ioniq. A jedině u nás rychlokurzem v základní ceně.",
     hours: { drive: 28, theory: 7.5, sim: 2 },
     price: 19900,
-    priceOld: 22500,
     duration: "4 týdny",
-    cohorts: 4,
-    spotsLeft: 1,
+    cohorts: null,
+    spotsLeft: null,
     features: [
-      "28 h jízdy v Hyundai Ioniq",
-      "3-4 jízdy týdně (za měsíc máš odježděno)",
-      "7.5 h teorie naživo, tzv. samostudiem",
-      "2 h první dvě jízdy na cvičišti, kde se vše v klidu vyzkoušíš",
-      "Závěrečná zkouška na Magistrátu Ostrava",
-      "Učebnice a online testy v ceně",
+      "28 hodin jízd v Hyundai Ioniq",
+      "3 až 4 jízdy týdně (za měsíc máte odježděno)",
+      "První jízda na cvičišti",
+      "Všechny studijní materiály v ceně",
     ],
     accent: "var(--volt)",
     metaCells: "full",
   },
   {
     id: "b-en",
-    code: "B",
-    name: "Group B (driving course in english)",
-    sub: "passenger car · fully electric",
-    blurb: "A standard driving licence for a passenger car with an automatic transmission. And only with us is it taught purely in an electric car — the Hyundai Ioniq. And only with us is the fast-track course the standard.",
+    code: "Group B",
+    name: "Group B - driving course in English",
+    sub: "passenger car · automatic transmission · EV",
+    blurb: "Driving license for passenger cars with harmonization code 78, meaning restricted to automatic transmission vehicles. And only with us, exclusively in a Hyundai Ioniq electric vehicle. Plus, an intensive course is included in the base price as standard.",
     hours: { drive: 28, theory: 7.5, sim: 2 },
     price: 21900,
     duration: "4 weeks",
-    cohorts: 4,
-    spotsLeft: 1,
+    cohorts: null,
+    spotsLeft: null,
     features: [
-      "28 hours of driving in a Hyundai Ioniq",
-      "3–4 lessons a week (done within a month)",
-      "7.5 hours of theory — live classes, then self-study",
-      "2 hours for your first two lessons on a practice ground, so you can get comfortable",
-      "Final exam at Ostrava City Hall (Magistrát)",
-      "Textbook and online practice tests included",
+      "28 hours of driving lessons in a Hyundai Ioniq",
+      "3 to 4 lessons per week (done driving within a month)",
+      "First lesson on a closed training ground",
+      "All study materials included in the price",
     ],
     accent: "var(--volt)",
     metaCells: "full",
@@ -1245,7 +1262,7 @@ const COURSES = [
   },
   {
     id: "kondicni",
-    code: "K",
+    code: "",
     name: "Kondiční jízdy",
     sub: "už řídíš, ale chceš si sednout do elektriky",
     blurb: "Máš řidičák, ale dlouho jsi neřídil nebo poprvé sedáš za volant elektromobilu. Naučíme tě rekuperovat, plánovat nabíjení a parkovat couvací kamerou.",
@@ -1262,6 +1279,24 @@ const COURSES = [
     ],
     accent: "var(--paper)",
     metaCells: "duration",
+  },
+  {
+    id: "nanecisto",
+    code: "",
+    name: "Autoškola nanečisto",
+    sub: "seznamte se s učitelem i autem zcela nezávazně",
+    blurb: "Nejste si jistí, zda výcvik zvládnete? Chcete se nejprve seznámit s učitelem a vozidlem, než se pustíte do shánění potvrzení od lékaře a vyplňování přihlášky? Tak se ozvěte a zcela zdarma a bez závazků se přijďte podívat, jak to u nás chodí. Stačí zavolat.",
+    features: [
+      "Osobní setkání s učitelem Martinem Samcem",
+      "Prohlídka elektromobilu Hyundai Ioniq",
+      "Odpovědi na všechny vaše dotazy",
+      "Zcela zdarma a bez jakýchkoliv závazků",
+    ],
+    accent: "var(--volt-deep)",
+    metaCells: "none",
+    bookable: false,
+    priceLabel: "ZDARMA",
+    ctaLabel: "Zavolat instruktorovi (+420 603 213 178)",
   },
   {
     id: "referenti",
@@ -1308,7 +1343,7 @@ const INSTRUCTORS = [
   {
     nm: "Martin Samec",
     role: "Instruktor · zakladatel",
-    bio: "15 let za volantem, se zkušenostmi s malými i velkými vozidly. Nadšenec do elektromobility. Učí klidně a předvídavě, na nikoho nekřičí (i když uděláš stejnou chybu podesáté) a přesto z Vás vytáhne maximální výkon. Mluví česky, anglicky a trochu polsky.",
+    bio: "15 let za volantem, se zkušenostmi s malými i velkými vozidly. Nadšenec do elektromobility. Celoživotní skaut, táta od rodiny. Učí klidně a předvídavě, na nikoho nekřičí (i když uděláš stejnou chybu podesáté) a přesto z Vás vytáhne maximální výkon. Mluví česky, anglicky a trochu polsky.",
     longBio: "Sám tě vyzvedne, sám tě naučí, sám s tebou pojede ke zkoušce. Žádná štafeta mezi pěti instruktory, žádné „toho neznám“ ráno před zkouškou. Jeden člověk, jedno auto, jeden plán.",
     spec: ["Skupina B · automat", "Teorie", "Kondiční jízdy", "CZ / EN / PL"],
     region: "Celá Ostrava + okolí",
@@ -1453,23 +1488,19 @@ function Hero({ onBook }) {
       <div className="wrap hero-grid">
         <div>
           <div className="hero-meta">
-            <span className="pulse"></span>
-            <span>První čistě elektronická autoškola v ČR</span>
-            <span className="hm-sep">·</span>
-            <span>Ostrava · Opava · Frýdek-Místek</span>
+            <span style={{ color: "var(--volt)", fontWeight: 700 }}>1. čistě elektromobilní autoškola v ČR!</span>
+            <span className="hm-sep" style={{ color: "#fff" }}>·</span>
+            <span style={{ color: "#fff" }}>Ostrava · Opava · Frýdek-Místek</span>
           </div>
           <h1>
             Jezdi v klidu<br />
-            a bezpečně.<br />
-            Jezdi v <span className="accent">PROUDU</span>.
+            a bez řazení,<br />
+            jezdi v <span className="accent">PROUDU</span>.
           </h1>
         </div>
         <aside className="hero-aside">
-          <div className="kicker">
-            první čistě elektronická autoškola v ČR
-          </div>
           <p>
-            U nás učíme řídit pouze v elektromobilech značky <b style={{ color: "var(--volt)" }}>Hyundai Ioniq</b>. Manuály jsou na ústupu a českým silnicím začínají dominovat vozidla s automaty. Už žádné trhané rozjezdy v křižovatkách, řev otáček ani smrad z výfuku. Jen klid a plná koncentrace na provoz.
+            U nás učíme řídit pouze v elektromobilech značky <b style={{ color: "var(--volt)" }}>Hyundai Ioniq</b>. Každý elektromobil je z principu své konstrukce ryzí automat, takže spojku ani převodovku, se kterými mívají studenti při zkouškách problémy, zde zkrátka nenajdete. Proto vás s námi nečekají žádné trhané rozjezdy v křižovatkách, řev otáček ani smrad z výfuku. Jen klid a plná koncentrace na provoz. Díky individuálnímu přístupu je navíc rychlokurz samozřejmostí a máte ho již v základní ceně.
           </p>
         </aside>
       </div>
@@ -1479,32 +1510,26 @@ function Hero({ onBook }) {
 
 /* ---------- Announcement bar (top, looping) ---------- */
 function Ticker() {
-  const GreenDot = () => (
+  const BlueDot = () => (
     <span style={{
-      display: "inline-block", width: 6, height: 6, borderRadius: "50%",
-      background: "var(--volt)", boxShadow: "0 0 8px var(--volt-glow)", margin: "0 12px", flexShrink: 0
+      display: "inline-block", width: 7, height: 7, borderRadius: "50%",
+      background: "var(--volt)", boxShadow: "0 0 10px var(--volt-glow)", margin: "0 28px", flexShrink: 0
     }} />
   );
-  const GreyDot = () => (
-    <span style={{ color: "var(--muted)", opacity: 0.6, margin: "0 6px" }}>·</span>
+  const Sep = () => (
+    <span style={{ color: "var(--muted)", opacity: 0.6, margin: "0 8px" }}>·</span>
   );
 
   const unit = (
     <div style={{ display: "inline-flex", alignItems: "center" }}>
       <span style={{ color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>Nejbližší kurzy</span>
-      <GreenDot />
-      <span><b>Ostrava</b></span>
-      <GreyDot />
-      <span style={{ color: "var(--paper)" }}>začátek 29. 9. 2026</span>
-      <GreenDot />
-      <span><b>Opava</b></span>
-      <GreyDot />
-      <span style={{ color: "var(--paper-2)" }}>info brzy</span>
-      <GreenDot />
-      <span><b>Frýdek-Místek</b></span>
-      <GreyDot />
-      <span style={{ color: "var(--paper-2)" }}>info brzy</span>
-      <GreenDot />
+      <BlueDot />
+      <span><b>Ostrava</b> začátek <Sep /> 19. 10. 2026 <Sep /> kapacita 2/5</span>
+      <BlueDot />
+      <span><b>Opava</b> <Sep /> info brzy</span>
+      <BlueDot />
+      <span><b>Frýdek-Místek</b> <Sep /> info brzy</span>
+      <BlueDot />
     </div>
   );
 
@@ -1521,18 +1546,39 @@ function Ticker() {
 function WhyElectric() {
   const [ref, cls] = useReveal();
   const cells = [
-    { n: "01", t: "Moderní elektromobil. Automat.", b: "Jezdíš v čistém elektromobilu Hyundai Ioniq — tedy s automatem. Žádné trápení se spojkou, hlídání otáček ani odvádění pozornosti řadicí pákou. Plně se věnuješ provozu a posloucháš učitele. Přes 70 % nových a letos nově i většina ojetých vozidel v ČR má dnes automat — a tyto čísla půjdou nahoru. Garantujeme ti, že řízení v Ioniqu si zamiluješ! Je totiž silně návykové :-)" },
-    { n: "02", t: "Jeden instruktor. Osobní přístup.", b: "Celou dobu jezdíš jen s jedním učitelem — od teorie až po zkoušku. Žádná štafeta, žádné „toho neznám“ ráno před jízdou. Zkušení a trpěliví profíci vysvětlí situaci tolikrát, kolikrát potřebuješ. Držíme maximálně 5 uchazečů na jednoho učitele — máš dost prostoru i jistotu odpočatého instruktora." },
-    { n: "03", t: "Rychlokurz standardem.", b: "U nás jezdíme všechny kurzy na skupinu B rychlokurzem, tedy 3 až 4 jízdy týdně. Věříme, že pouze intenzivní výcvik má smysl. Díky tomu budeš mít jízdy odježděné za měsíc. Na zkoušku tak budeš maximálně připraven." },
-    { n: "04", t: "V samém centru Ostravy.", b: "Učebna sídlí na Havlíčkově nábřeží 2728/38 u řeky Ostravice, hned vedle zastávky Most Pionýrů. Jízdy startují z parkoviště před budovou, zkušební místnost je 3 minuty chůze. Podél řeky vede cyklostezka — na teorii klidně přijeď na kole, autobusem nebo trolejbusem." },
+    {
+      n: "01",
+      t: "Moderní elektromobil s automatickou převodovkou.",
+      b: "Jezdíte pouze v elektromobilu Hyundai Ioniq - tedy s automatem. Žádné trápení se spojkou, hlídání otáček ani odvádění pozornosti řadicí pákou. Plně se věnuješ provozu a posloucháš učitele. Manuály jsou na ústupu a českým silnicím začínají dominovat vozidla s automaty - již přes 70 % nových a letos nově i většina ojetých vozidel v ČR má dnes automat. A tyto čísla půjdou nahoru. A garantujeme, že si řízení v Ioniqu zamilujete - je totiž silně návykové!"
+    },
+    {
+      n: "02",
+      t: "Jeden instruktor. Osobní přístup.",
+      b: "Celou dobu jezdíš jen s jedním učitelem — od teorie až po zkoušku. Žádná štafeta, žádné „toho neznám“ ráno před jízdou. Zkušení a trpěliví profíci vysvětlí situaci tolikrát, kolikrát potřebuješ. Držíme maximálně 5 uchazečů na jednoho učitele — máš dost prostoru i jistotu odpočatého instruktora."
+    },
+    {
+      n: "03",
+      t: "Rychlokurz standardem.",
+      b: "U nás jezdíme všechny kurzy na skupinu B rychlokurzem, tedy 3 až 4 jízdy týdně. Věříme, že pouze intenzivní výcvik má smysl. Díky tomu budeš mít jízdy odježděné za měsíc. Na zkoušku tak budeš maximálně připraven."
+    },
+    {
+      n: "04",
+      t: "Plně online.",
+      b: "Veškeré studijní materiály, přihlašování k jízdám a další užitečné informace budete mít v aplikaci Moje autoškola, kterou u nás v PROUDU používáme pro učitele i pro žáky."
+    },
+    {
+      n: "05",
+      t: "V samém centru Ostravy.",
+      b: "Učebna sídlí na Havlíčkově nábřeží 2728/38 u řeky Ostravice, hned vedle zastávky Most Pionýrů. Jízdy startují z parkoviště před budovou, zkušební místnost je 3 minuty chůze. Podél řeky vede cyklostezka — na teorii klidně přijeď na kole, autobusem nebo trolejbusem."
+    },
   ];
   return (
     <section className="why" id="why" ref={ref} data-screen-label="Proč PROUD">
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">02</span> Proč PROUD</div>
+          <div className="kicker"><span className="n">03</span> Proč PROUD</div>
           <div>
-            <h2>Moderní auto, řidič bez stresu.</h2>
+            <h2>Moderně a bez stresu.</h2>
             <p className="lead" style={{ marginTop: 24 }}>
               Z mnoha důvodů. Moderní a čistý elektromobil, jeden zkušený instruktor po celou dobu, rychlokurz v základu a učebna v samém centru Ostravy. Tak neváhej a jezdi v&nbsp;PROUDU.
             </p>
@@ -1582,7 +1628,7 @@ function Courses({ onPickCourse }) {
     <section className="courses" id="courses" ref={ref}>
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">03</span> Kurzy & ceny</div>
+          <div className="kicker"><span className="n">02</span> Kurzy & ceny</div>
           <div>
             <h2>Nabídka našich kurzů</h2>
           </div>
@@ -1595,7 +1641,7 @@ function Courses({ onPickCourse }) {
               className={`course-tab ${c.id === active ? "active" : ""}`}
               onClick={() => setActive(c.id)}
             >
-              {c.code ? `${c.code} · ${c.name}` : c.name}
+              {c.name}
             </button>
           ))}
         </div>
@@ -1610,10 +1656,12 @@ function Courses({ onPickCourse }) {
               {course.features.map((f, i) => <li key={i}>{f}</li>)}
             </ul>
             {course.bookable === false ? (
-              <a href="#contact" className="btn btn-volt lg">{course.ctaLabel} <span className="arrow">→</span></a>
+              <a href={course.id === "nanecisto" ? "tel:+420603213178" : "#contact"} className="btn btn-volt lg">
+                {course.ctaLabel} <span className="arrow">→</span>
+              </a>
             ) : (
               <button className="btn btn-volt lg" onClick={() => onPickCourse(course.id)}>
-                {L.signup} {course.code} <span className="arrow">→</span>
+                {L.signup} {course.code || course.name} <span className="arrow">→</span>
               </button>
             )}
           </div>
@@ -1652,7 +1700,7 @@ function Courses({ onPickCourse }) {
               <div>
                 {course.priceOld && <div className="price-old">{course.priceOld.toLocaleString("cs-CZ")} Kč</div>}
                 {course.priceLabel ? (
-                  <div className="price" style={{ fontSize: 28 }}>{course.priceLabel}</div>
+                  <div className="price" style={{ fontSize: 32 }}>{course.priceLabel}</div>
                 ) : (
                   <div className="price">{course.price.toLocaleString("cs-CZ")}<span className="cur">{course.priceSuffix || "Kč"}</span></div>
                 )}
@@ -1664,7 +1712,6 @@ function Courses({ onPickCourse }) {
                   </div>
                   <span>{L.spots(course.spotsLeft, course.cohorts)}</span>
                 </div>
-              )}
             </div>
           </div>
         </div>
@@ -1682,12 +1729,13 @@ function Routes() {
     {
       id: "ostrava",
       name: "Ostrava",
-      status: "Kurz začíná 29. 9. 2026",
+      status: "Kurz začíná 19. 10. 2026",
       badge: "Výuka & Jízdy probíhají",
       address: "Havlíčkovo nábřeží 2728/38, 702 00 Ostrava (u zastávky Most Pionýrů)",
-      desc: "Jízdy probíhají po celé Ostravě a přímo v trasách zkušebních komisařů. Moravská Ostrava a centrum, Poruba, Vítkovice i Slezská Ostrava. Trénujeme na Rudné, Místecké i dálnici D1. Zvládneš parkování v podzemních garážích Nová Karolina i složité kruhové objezdy v klidu na automatu.",
+      desc: "Jízdy probíhají po celé Ostravě a přímo v trasách zkušebních komisařů. Moravská Ostrava a centrum, Poruba a Krásné Pole, Ostrava-Jih (Výškovice, Hrabůvka, Dubina, Zábřeh), Vítkovice i Slezská Ostrava a Hladnov. Rádi přivítáme i zájemce z okolí (Rychvald, Bohumín, Hlučín, Vratimov, Klimkovice). Trénujeme na Rudné, Místecké i dálnici D1. Zvládneš parkování v podzemních garážích Nová Karolina i složité kruhové objezdy v klidu na automatu.",
       highlights: [
-        "Jízdy v trasách zkušebních komisařů (Centrum, Poruba, Vítkovice, Slezská)",
+        "Jízdy v trasách zkušebních komisařů (Centrum, Poruba, Výškovice, Vítkovice, Slezská)",
+        "Výborná dostupnost pro celou Ostravu i okolí (Krásné Pole, Rychvald, Bohumín, Hlučín)",
         "Trénink na Rudné, Místecké, dálnici D1 i v parkovacím domě Nová Karolina",
         "Start jízd z parkoviště před učebnou na Havlíčkově nábřeží v Ostravě",
         "Magistrát města Ostravy a zkušební komisař jen 3 minuty chůze"
@@ -2016,16 +2064,17 @@ function HowToStart({ onBook }) {
                     <div className="field">
                       <label>Pobočka (Město) *</label>
                       <select name="pobocka" value={formData.pobocka} onChange={handleChange}>
-                        <option value="Ostrava">Ostrava (začátek 29. 9. 2026)</option>
+                        <option value="Ostrava">Ostrava (začátek 19. 10. 2026)</option>
                       </select>
                     </div>
 
                     <div className="field">
                       <label>Vybraný kurz *</label>
                       <select name="kurz" value={formData.kurz} onChange={handleChange}>
-                        <option value="Skupina B (19 900 Kč)">Skupina B (19 900 Kč)</option>
-                        <option value="Group B - in English (21 900 Kč)">Group B - in English (21 900 Kč)</option>
-                        <option value="Skupina B - AKCE (18 900 Kč)">Skupina B - AKCE (18 900 Kč)</option>
+                        <option value="Skupina B - automat (19 900 Kč)">Skupina B - automat (19 900 Kč)</option>
+                        <option value="Group B - driving course in English (21 900 Kč)">Group B - driving course in English (21 900 Kč)</option>
+                        <option value="Kondiční jízdy (1 200 Kč / lekce)">Kondiční jízdy (1 200 Kč / lekce)</option>
+                        <option value="Autoškola nanečisto (ZDARMA)">Autoškola nanečisto (ZDARMA)</option>
                       </select>
                     </div>
 
@@ -2314,33 +2363,34 @@ function Contact({ onBook }) {
 function Career() {
   const [ref, cls] = useReveal();
   return (
-    <section className="career" id="career" ref={ref} data-screen-label="Kariéra" style={{ background: "var(--bg)", borderTop: "1px solid var(--line)" }}>
+    <section className="career" id="career" ref={ref} data-screen-label="Kariéra" style={{ background: "var(--paper)", color: "var(--ink)", borderTop: "1px solid rgba(10, 11, 10, 0.1)" }}>
       <div className={`wrap ${cls}`}>
         <div className="section-head">
-          <div className="kicker"><span className="n">09</span> Kariéra</div>
+          <div className="kicker"><span className="n" style={{ color: "var(--volt-deep)" }}>09</span> Kariéra</div>
           <div>
-            <h2>Hledáme nové instruktory</h2>
+            <h2 style={{ color: "var(--ink)" }}>Hledáme nové instruktory</h2>
           </div>
         </div>
 
         <div style={{
-          background: "var(--bg-2)", border: "1px solid var(--line)", borderRadius: "var(--r-xl)",
-          padding: "48px 40px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40, alignItems: "center"
+          background: "#FFFFFF", border: "1px solid rgba(10, 11, 10, 0.12)", borderRadius: "var(--r-xl)",
+          padding: "48px 40px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40, alignItems: "center",
+          boxShadow: "0 4px 24px rgba(0,0,0,0.04)"
         }}>
           <div>
-            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--volt)", marginBottom: 12 }}>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--volt-deep)", fontWeight: 700, marginBottom: 12 }}>
               Učitel výuky a výcviku
             </div>
-            <h3 style={{ fontFamily: "var(--display)", fontSize: "clamp(24px, 3.5vw, 34px)", fontWeight: 600, color: "var(--paper)", margin: "0 0 16px", lineHeight: 1.2 }}>
+            <h3 style={{ fontFamily: "var(--display)", fontSize: "clamp(24px, 3.5vw, 34px)", fontWeight: 600, color: "var(--ink)", margin: "0 0 16px", lineHeight: 1.2 }}>
               Chceš být pánem svého času a pracovat za férových podmínek?
             </h3>
-            <p style={{ color: "var(--paper-2)", fontSize: 16, lineHeight: 1.65, margin: 0 }}>
+            <p style={{ color: "#333", fontSize: 16, lineHeight: 1.65, margin: 0 }}>
               Máš platné profesní osvědčení učitele výuky a výcviku a nějakou tu zkušenost s učením za sebou? Jsi zastáncem elektromobility anebo se nebojíš vyzkoušet něco nového? Chceš být pánem svého času a pracovat za férových podmínek? Tak neváhej a ozvi se nám!
             </p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-start", background: "rgba(255,255,255,0.03)", padding: 28, borderRadius: "var(--r-md)", border: "1px solid var(--line)" }}>
-            <div style={{ fontFamily: "var(--mono)", fontSize: 12, color: "var(--volt)", fontWeight: 600 }}>Nabízíme & Očekáváme</div>
-            <div style={{ fontSize: 14, color: "var(--paper)", display: "flex", flexDirection: "column", gap: 10 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-start", background: "rgba(82, 221, 214, 0.08)", padding: 28, borderRadius: "var(--r-md)", border: "1px solid rgba(33, 129, 125, 0.25)" }}>
+            <div style={{ fontFamily: "var(--mono)", fontSize: 12, color: "var(--volt-deep)", fontWeight: 700 }}>Nabízíme & Očekáváme</div>
+            <div style={{ fontSize: 14, color: "var(--ink)", display: "flex", flexDirection: "column", gap: 10 }}>
               <div>✓ Platné profesní osvědčení učitele autoškoly</div>
               <div>✓ Výcvik v nových elektromobilech Hyundai Ioniq</div>
               <div>✓ Flexibilní plánování vlastních jízd</div>
@@ -2397,11 +2447,11 @@ function Footer() {
           <div>
             <ProudWordmark height={54} />
             <p style={{ color: "var(--muted)", marginTop: 24, maxWidth: 36 + "ch", lineHeight: 1.6 }}>
-              První ostravská autoškola jezdící výhradně na elektřinu. Založeno 2026.
+              1. čistě elektromobilní autoškola v ČR!
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
-              <a href="#" className="btn btn-ghost sm">Instagram</a>
-              <a href="#" className="btn btn-ghost sm">Facebook</a>
+              <a href="https://www.instagram.com/autoskola_proud/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost sm">Instagram</a>
+              <a href="https://www.facebook.com/autoskolaproud" target="_blank" rel="noopener noreferrer" className="btn btn-ghost sm">Facebook</a>
             </div>
           </div>
           <div className="foot-col">
@@ -2412,7 +2462,7 @@ function Footer() {
           </div>
           <div className="foot-col">
             <h4>Kurzy</h4>
-            {COURSES.map((c) => <a key={c.id} href="#courses">{c.code} · {c.name}</a>)}
+            {COURSES.map((c) => <a key={c.id} href="#courses">{c.name}</a>)}
             <a href="#">Dárkový voucher</a>
           </div>
           <div className="foot-col">
@@ -2426,7 +2476,7 @@ function Footer() {
           </div>
         </div>
         <div className="foot-bottom">
-          <div>© 2026 autoškola proud s.r.o. · IČO 12345678</div>
+          <div>© 2026 MARTIN SAMEC - AUTOŠKOLA PROUD · IČO 29664853</div>
           <div>made in Ostrava · powered by 100% obnovitelnou energií</div>
         </div>
       </div>
@@ -2464,7 +2514,7 @@ function BookingModal({ open, onClose, initialCourse }) {
 
   const course = COURSES.find((c) => c.id === form.course);
   const cohorts = [
-    { id: 0, label: "Ostrava",       date: "začátek 29. 9. 2026 · zbývá 1 místo" },
+    { id: 0, label: "Ostrava",       date: "začátek 19. 10. 2026 · kapacita 2/5" },
     { id: 1, label: "Opava",         date: "místo bude upřesněno · info již brzy" },
     { id: 2, label: "Frýdek-Místek", date: "místo bude upřesněno · info již brzy" },
   ];
@@ -2659,9 +2709,9 @@ function BookingCTA({ onBook }) {
         <div className="section-head">
           <div className="kicker"><span className="n">→</span> Přihláška</div>
           <div>
-            <h2>Příští kurz<br />startuje 29. září.</h2>
+            <h2>Příští kurz<br />startuje 19. října.</h2>
             <p className="lead" style={{ marginTop: 24, color: "var(--ink-2)" }}>
-              Zbývá <b>1 místo</b> z původních čtyř. Online přihláška ti zabere dvě minuty, do 24 hodin se ti ozve Martin a domluvíte první jízdu.
+              Kapacita 2/5 volných míst. Online přihláška ti zabere dvě minuty, do 24 hodin se ti ozve Martin a domluvíte první jízdu.
             </p>
           </div>
         </div>
@@ -2700,8 +2750,8 @@ function App() {
       <Nav onBook={() => openBooking()} />
       <Hero onBook={() => openBooking()} />
       <HowToStart onBook={() => openBooking()} />
-      <WhyElectric />
       <Courses onPickCourse={(id) => openBooking(id)} />
+      <WhyElectric />
       <Instructors />
       <Fleet onBook={() => openBooking()} />
       <TheoryTests />
