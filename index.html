@@ -30,14 +30,13 @@
 <meta name="ICBM" content="49.8398, 18.2936" />
 
 <!-- Google Analytics 4 (GA4) Tracking Script -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQK7QPSL2N"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  // Sem vložte vaše ID z Google Analytics (např. G-1234567890)
-  window.GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  window.GA_MEASUREMENT_ID = 'G-QQK7QPSL2N';
   gtag('config', window.GA_MEASUREMENT_ID, {
     send_page_view: true
   });
@@ -2468,7 +2467,14 @@ function BookingModal({ open, onClose, initialCourse }) {
     return true;
   };
 
-  const submit = () => setSent(true);
+  const submit = () => {
+    setSent(true);
+    if (window.trackGAEvent) {
+      window.trackGAEvent('generate_lead', {
+        course: form.course
+      });
+    }
+  };
 
   return (
     <div style={{
@@ -2669,6 +2675,9 @@ function App() {
     const el = document.getElementById('how');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (window.trackGAEvent) {
+      window.trackGAEvent('begin_checkout', { course_id: courseId });
     }
     window.dispatchEvent(new CustomEvent('open-online-application', { detail: { courseId } }));
   };
