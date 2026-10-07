@@ -2183,9 +2183,14 @@ function TheoryTests() {
               <p className="lead" style={{ color: "var(--ink-2)" }}>
                 Stejné otázky jako u státní zkoušky. Na hodinách teorie si ukážeme a vysvětlíme jak testy fungují tak abyste si je mohli kdykoliv a kdekoliv zkoušet — trénuj v tramvaji, na gauči, kdykoliv máš pět minut.
               </p>
-              <a href="https://etesty.md.gov.cz/" target="_blank" rel="noopener noreferrer" className="btn btn-ink lg" style={{ justifyContent: "center" }}>
-                Otevřít cvičné testy <span className="arrow">→</span>
-              </a>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+                <a href="/testy-autoskola-online.html" className="btn btn-ink lg" style={{ justifyContent: "center" }}>
+                  Průvodce testy a bodování <span className="arrow">→</span>
+                </a>
+                <a href="https://etesty2.mdcr.cz/" target="_blank" rel="noopener noreferrer" className="btn btn-volt lg" style={{ justifyContent: "center" }}>
+                  Spustit eTesty MDČR ↗
+                </a>
+              </div>
             </React.Fragment>
           )}
           {tab === "technika" && (
@@ -2411,6 +2416,7 @@ function Footer() {
             <a href="/elektricka-autoskola-ostrava.html">Elektrická autoškola</a>
             <a href="/rychlokurz-autoskola-ostrava.html">Rychlokurz za 1 měsíc</a>
             <a href="/kondicni-jizdy-ostrava.html">Kondiční jízdy Ostrava</a>
+            <a href="/testy-autoskola-online.html">Testy do autoškoly online</a>
             <a href="/lekarsky-posudek.html">Lékařský posudek (PDF)</a>
           </div>
         </div>
