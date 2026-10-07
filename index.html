@@ -209,20 +209,32 @@ img{max-width:100%}
 .nav.scrolled{background:rgba(10,11,10,.78);border-bottom-color:rgba(244,242,236,.06)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .nav-logo img{height:40px;width:auto;display:block}
-.nav-links{display:flex;gap:28px;font-family:var(--d);font-weight:500;font-size:14px}
-.nav-links a{color:var(--paper);opacity:.72;white-space:nowrap}.nav-links a:hover{opacity:1;color:var(--paper)}
+.nav-links{display:flex;align-items:center;gap:28px;font-family:var(--d);font-weight:500;font-size:14px}
+.nav-links a{color:var(--paper);opacity:.72;white-space:nowrap;transition:opacity .2s,color .2s}
+.nav-links a:hover{opacity:1;color:var(--paper)}
+/* dropdown */
+.nav-drop{position:relative;display:flex;align-items:center}
+.nav-drop-btn{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;color:var(--paper);opacity:.72;font-family:var(--d);font-weight:500;font-size:14px;cursor:pointer;padding:8px 0;transition:opacity .2s,color .2s}
+.nav-drop:hover .nav-drop-btn,.nav-drop:focus-within .nav-drop-btn{opacity:1;color:var(--volt)}
+.nav-drop-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);min-width:180px;background:var(--bg2);border:1px solid var(--line2);border-radius:12px;padding:8px;box-shadow:0 12px 32px rgba(0,0,0,.6);opacity:0;visibility:hidden;pointer-events:none;transition:all .2s ease;display:flex;flex-direction:column;gap:4px;z-index:75}
+.nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-drop-menu a{padding:10px 14px;border-radius:8px;font-size:13px;opacity:1;color:var(--paper);display:block;transition:background .15s,color .15s}
+.nav-drop-menu a:hover{background:rgba(82,221,214,.1);color:var(--volt)}
 .nav-cta{display:flex;gap:10px;align-items:center}
 .burger{display:none;padding:10px 16px;border-radius:999px;border:1px solid rgba(244,242,236,.2);background:transparent;color:var(--paper);font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 @media (max-width:1279px){.nav-phone{display:none!important}}
 @media (max-width:1099px){.nav-links{display:none}.burger{display:inline-flex}.nav{background:rgba(10,11,10,.78)}}
 @media (max-width:759px){.nav-apply{display:none!important}}
-.mmenu{position:fixed;inset:0;z-index:90;background:var(--bg);padding:24px clamp(20px,6vw,32px) max(24px,env(safe-area-inset-bottom));display:none;flex-direction:column;animation:fadein .2s ease}
+.mmenu{position:fixed;inset:0;z-index:90;background:var(--bg);padding:24px clamp(20px,6vw,32px) max(24px,env(safe-area-inset-bottom));display:none;flex-direction:column;animation:fadein .2s ease;overflow-y:auto}
 .mmenu.open{display:flex}
 .mmenu-top{display:flex;justify-content:space-between;align-items:center}
 .mmenu-top img{height:36px}
 .mmenu-close{padding:10px 16px;border-radius:999px;border:none;background:var(--volt);color:var(--ink);font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.mmenu-links{flex:1;display:flex;flex-direction:column;justify-content:center}
-.mmenu-links a{font-family:var(--d);font-weight:500;font-size:clamp(22px,6vw,30px);letter-spacing:-.025em;color:var(--paper);padding:14px 0;border-bottom:1px solid var(--line)}
+.mmenu-links{flex:1;display:flex;flex-direction:column;justify-content:center;padding:16px 0}
+.mmenu-links a{font-family:var(--d);font-weight:500;font-size:clamp(20px,5vw,26px);letter-spacing:-.025em;color:var(--paper);padding:12px 0;border-bottom:1px solid var(--line)}
+.mmenu-sublinks{display:flex;flex-direction:column;padding-left:18px;border-bottom:1px solid var(--line)}
+.mmenu-sublinks a{font-size:clamp(16px,4vw,19px);color:var(--text2);padding:9px 0;border-bottom:none}
+.mmenu-sublinks a:hover{color:var(--volt)}
 .mmenu-actions{display:flex;flex-direction:column;gap:10px}.mmenu-actions .btn{justify-content:center;font-size:16px}
 /* hero */
 .hero{position:relative;overflow:hidden;padding:clamp(150px,18vw,190px) 0 clamp(64px,8vw,96px);min-height:min(100vh,960px);display:flex;flex-direction:column;justify-content:flex-end;background:radial-gradient(ellipse 100% 60% at 80% 100%,rgba(82,221,214,.12),transparent 60%),radial-gradient(ellipse 60% 40% at 0% 0%,rgba(107,197,255,.05),transparent 70%),var(--bg)}
@@ -230,7 +242,7 @@ img{max-width:100%}
 .hero-grid{position:relative;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,5vw,72px);align-items:end}
 .hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:28px;font-family:var(--m);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .hero-meta .first{display:inline-flex;align-items:center;gap:10px;color:var(--volt);font-weight:700}
-.pulse{width:8px;height:8px;border-radius:50%;background:var(--volt);animation:pulse 1.8s ease-out infinite}
+.pulse{display:none}
 .hero h1{font-family:var(--d);font-weight:500;font-size:clamp(44px,6.6vw,96px);line-height:.96;letter-spacing:-.04em;margin:0;text-wrap:balance}
 .hero h1 span{color:var(--volt)}
 .hero-aside{background:rgba(19,20,18,.85);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:24px}
@@ -242,6 +254,7 @@ img{max-width:100%}
 .sec.bt{border-top:1px solid var(--line)}
 .sec.nopt{padding-top:0}
 .light{background:var(--paper);color:var(--ink)}
+.light.bt{border-top:1px solid rgba(10,11,10,.1)}
 .head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(20px,4vw,56px);align-items:end;margin-bottom:clamp(32px,4vw,48px)}
 .head.single{display:block}
 .kicker{display:flex;align-items:center;gap:12px;font-family:var(--m);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -250,6 +263,23 @@ img{max-width:100%}
 h2.h2{font-family:var(--d);font-weight:500;font-size:clamp(36px,5.4vw,72px);line-height:.98;letter-spacing:-.035em;margin:16px 0 0;text-wrap:balance}
 .lead{font-family:var(--d);font-size:clamp(18px,1.6vw,21px);line-height:1.45;color:var(--text3);margin:0;max-width:56ch;text-wrap:pretty}
 .light .lead{color:var(--ink2)}
+/* light themes for inst and career */
+.light .inst{background:#fff;border-color:rgba(10,11,10,.1);box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.light .inst-name{color:var(--ink)}
+.light .inst-bio{color:#2D302B}
+.light .inst-role{color:var(--volt-deep)}
+.light .inst .chip{border-color:rgba(10,11,10,.15);color:var(--ink)}
+.light .inst-stats{border-top-color:rgba(10,11,10,.1)}
+.light .inst-stats .sn{color:var(--volt-deep)}
+.light .inst-stats .sl{color:var(--muted-l)}
+.light .inst blockquote{color:var(--ink)}
+.light .career{background:#fff;border-color:rgba(10,11,10,.1);box-shadow:0 4px 24px rgba(0,0,0,.04);color:var(--ink)}
+.light .career h3{color:var(--ink)}
+.light .career p{color:#2D302B}
+.light .career-side .mono{color:var(--volt-deep)!important}
+.light .career .check-list li{color:var(--ink)}
+.light .career .btn-ghost{border-color:rgba(10,11,10,.2);color:var(--ink)}
+.light .career .btn-ghost:hover{border-color:var(--ink);background:rgba(10,11,10,.05)}
 .card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,3vw,36px)}
 /* why */
 .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
@@ -410,7 +440,18 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   <div class="wrap nav-inner">
     <a href="#top" class="nav-logo"><img src="assets/proud-logo.svg" alt="Autoškola PROUD" width="90" height="40"></a>
     <div class="nav-links">
-      <a href="#why">Proč PROUD</a><a href="#courses">Kurzy a ceny</a><a href="#instructors">Instruktor</a><a href="#how">Jak začít</a><a href="#routes">Pobočky</a><a href="#contact">Kontakt</a>
+      <a href="#why">Proč PROUD</a>
+      <a href="#courses">Kurzy a ceny</a>
+      <a href="#how">Jak začít</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" type="button" aria-expanded="false">O nás ▾</button>
+        <div class="nav-drop-menu">
+          <a href="#instructors">Instruktor</a>
+          <a href="#fleet">Vozový park</a>
+          <a href="#routes">Pobočky</a>
+        </div>
+      </div>
+      <a href="#contact">Kontakt</a>
     </div>
     <div class="nav-cta">
       <a href="tel:+420603213178" class="btn btn-ghost sm nav-phone">+420 603 213 178</a>
@@ -423,7 +464,16 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 <div class="mmenu" id="mmenu">
   <div class="mmenu-top"><img src="assets/proud-logo.svg" alt="Autoškola PROUD"><button class="mmenu-close" id="mclose">Zavřít ✕</button></div>
   <div class="mmenu-links">
-    <a href="#why">Proč PROUD</a><a href="#courses">Kurzy a ceny</a><a href="#instructors">Instruktor</a><a href="#how">Jak začít</a><a href="#routes">Pobočky</a><a href="#contact">Kontakt</a>
+    <a href="#why">Proč PROUD</a>
+    <a href="#courses">Kurzy a ceny</a>
+    <a href="#how">Jak začít</a>
+    <span style="font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--volt);padding-top:10px">O nás</span>
+    <div class="mmenu-sublinks">
+      <a href="#instructors">Instruktor</a>
+      <a href="#fleet">Vozový park</a>
+      <a href="#routes">Pobočky</a>
+    </div>
+    <a href="#contact">Kontakt</a>
   </div>
   <div class="mmenu-actions">
     <button class="btn btn-volt" data-open-form>Online přihláška →</button>
@@ -439,7 +489,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   </svg>
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-meta"><span class="first"><span class="pulse"></span>1. čistě elektromobilní autoškola v ČR!</span><span>Ostrava · Opava · Frýdek-Místek</span></div>
+      <div class="hero-meta"><span class="first">1. čistě elektromobilní autoškola v ČR!</span><span>Ostrava · Opava · Frýdek-Místek</span></div>
       <h1>Jezděte v klidu<br>a bez řazení,<br>jezděte v <span>PROUDU</span>.</h1>
     </div>
     <aside class="hero-aside">
@@ -544,10 +594,22 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   </div>
 </section>
 
-<section class="sec" id="instructors">
+<section class="sec bt" id="how">
+  <div class="wrap">
+    <div class="head single"><div class="kicker"><span class="n">03</span>Jak začít</div><h2 class="h2" style="max-width:18ch">Začít je jednoduché, stačí tři kroky a jezdíte.</h2></div>
+    <div class="how-grid">
+      <div class="card how-step"><div class="num">01</div><h3>Online přihláška</h3><p>Vyplňte online přihlášku k výuce a výcviku přímo zde. Zabere vám to jen pár minut.</p><div><button class="btn btn-volt sm" data-open-form>Vyplnit přihlášku online →</button></div></div>
+      <div class="card how-step"><div class="num">02</div><h3>Potvrzení od lékaře</h3><p>Vytiskněte si a vyplňte <a href="lekarsky-posudek.html" target="_blank" rel="noopener noreferrer">potvrzení od lékaře</a> a zajděte s ním ke svému praktickému lékaři. Počítejte, že si lékař za potvrzení většinou účtuje kolem 500 Kč.</p><div><a href="lekarsky-posudek.html" target="_blank" rel="noopener noreferrer" class="btn btn-ghost sm">📄 Otevřít / Vytisknout posudek 🖨️</a></div></div>
+      <div class="card how-step"><div class="num">03</div><h3>Osobní schůzka</h3><p>Až budete mít potvrzení od lékaře, zavolejte nebo napište (viz <a href="#contact">kontakty</a>) a domluvte si osobní schůzku na učebně, kde se dozvíte všechny informace o tom, co vás čeká a nemine. Zároveň se domluvíme na platbě – hotově, QR kódem nebo na splátky, podle vašich potřeb.</p></div>
+    </div>
+    <div class="how-cta"><span>Tak neváhejte a jezděte v PROUDU!</span><button class="btn btn-ink lg" data-open-form>Spustit přihlášku →</button></div>
+  </div>
+</section>
+
+<section class="sec light bt" id="instructors">
   <div class="wrap">
     <div class="head">
-      <div><div class="kicker"><span class="n">03</span>Instruktor</div><h2 class="h2">Jeden člověk od přihlášky až ke zkoušce.</h2></div>
+      <div><div class="kicker"><span class="n">04</span>Instruktor</div><h2 class="h2">Jeden člověk od přihlášky až ke zkoušce.</h2></div>
       <p class="lead">Žádná štafeta mezi pěti instruktory. Žádné „toho neznám" ráno před zkouškou. Během celého výcviku jezdíte pouze s jedním učitelem.</p>
     </div>
     <article class="inst">
@@ -565,10 +627,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   </div>
 </section>
 
-<section class="sec nopt" id="fleet">
+<section class="sec bt" id="fleet">
   <div class="wrap">
-    <div class="head fleet-top">
-      <div><div class="kicker"><span class="n">04</span>Vozový park</div><h2 class="h2">Jedno auto.<br>A je to elektromobil.</h2></div>
+    <div class="head">
+      <div><div class="kicker"><span class="n">05</span>Vozový park</div><h2 class="h2">Jedno auto.<br>A je to elektromobil.</h2></div>
       <p class="lead">Hyundai Ioniq Electric. Automat, parkovací kamera, asistenti jízdních pruhů i rekuperace. Po celou dobu kurzu jezdíte v jednom voze — žádné překvapení u zkoušky.</p>
     </div>
     <div class="fleet-img"><img src="assets/martin.jpg" alt="Hyundai Ioniq Electric autoškoly PROUD, Dolní oblast Vítkovic" loading="lazy"><div class="fleet-tag">Hyundai Ioniq Electric</div></div>
@@ -581,38 +643,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   </div>
 </section>
 
-<section class="sec bt" id="how">
+<section class="sec bt" id="routes">
   <div class="wrap">
-    <div class="head single"><div class="kicker"><span class="n">05</span>Jak začít</div><h2 class="h2" style="max-width:18ch">Začít je jednoduché, stačí tři kroky a jezdíte.</h2></div>
-    <div class="how-grid">
-      <div class="card how-step"><div class="num">01</div><h3>Online přihláška</h3><p>Vyplňte online přihlášku k výuce a výcviku přímo zde. Zabere vám to jen pár minut.</p><div><button class="btn btn-volt sm" data-open-form>Vyplnit přihlášku online →</button></div></div>
-      <div class="card how-step"><div class="num">02</div><h3>Potvrzení od lékaře</h3><p>Vytiskněte si a vyplňte <a href="lekarsky-posudek.html" target="_blank" rel="noopener noreferrer">potvrzení od lékaře</a> a zajděte s ním ke svému praktickému lékaři. Počítejte, že si lékař za potvrzení většinou účtuje kolem 500 Kč.</p><div><a href="lekarsky-posudek.html" target="_blank" rel="noopener noreferrer" class="btn btn-ghost sm">📄 Otevřít / Vytisknout posudek 🖨️</a></div></div>
-      <div class="card how-step"><div class="num">03</div><h3>Osobní schůzka</h3><p>Až budete mít potvrzení od lékaře, zavolejte nebo napište (viz <a href="#contact">kontakty</a>) a domluvte si osobní schůzku na učebně, kde se dozvíte všechny informace o tom, co vás čeká a nemine. Zároveň se domluvíme na platbě – hotově, QR kódem nebo na splátky, podle vašich potřeb.</p></div>
-    </div>
-    <div class="how-cta"><span>Tak neváhejte a jezděte v PROUDU!</span><button class="btn btn-ink lg" data-open-form>Spustit přihlášku →</button></div>
-  </div>
-</section>
-
-<section class="sec light" id="theory">
-  <div class="wrap two-col">
-    <div><div class="kicker"><span class="n">06</span>Testy a teorie</div><h2 class="h2">Procvičujte testy<br>kdykoliv a kdekoliv.</h2></div>
-    <div>
-      <div class="tabs" data-tabs="theory"><button class="tab active" data-tab="testy">Testy · pro všechny skupiny ŘP</button><button class="tab" data-tab="technika">Technika · pro skupiny C, D, E</button></div>
-      <div class="panel" data-panel="theory" data-id="testy">
-        <p class="lead">Stejné otázky jako u státní zkoušky. Na hodinách teorie si ukážeme a vysvětlíme jak testy fungují, abyste si je mohli kdykoliv a kdekoliv zkoušet — trénujte v tramvaji, doma, kdykoliv máte pět minut.</p>
-        <div class="btn-row"><a href="/testy-autoskola-online.html" class="btn btn-ink">Průvodce testy a bodování →</a><a href="https://etesty2.mdcr.cz/" target="_blank" rel="noopener noreferrer" class="btn btn-volt">Spustit eTesty MDČR ↗</a></div>
-      </div>
-      <div class="panel" data-panel="theory" data-id="technika" hidden>
-        <p class="lead">Tohle jinde nenajdete! Pro všechny žadatele o rozšíření na skupiny C, C+E, D a D+E, které čeká ústní zkouška z ovládání a údržby vozidla (OÚV dle vyhlášky 167/2002 Sb.), připravil instruktor Martin Samec přehledná zjednodušená skripta (všech 45 otázek) k online studiu i stažení v PDF zcela zdarma!</p>
-        <div class="btn-row"><a href="/skripta-obsluha-a-udrzba-vozidel.html" class="btn btn-ink">Studovat skripta online (45 otázek) →</a><a href="/skripta-obsluha-a-udrzba-vozidel.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-volt">Stáhnout skripta v PDF (334 kB) ↗</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="routes">
-  <div class="wrap">
-    <div class="head single"><div class="kicker"><span class="n">07</span>Kde jezdíme</div><h2 class="h2">Naše pobočky</h2></div>
+    <div class="head single"><div class="kicker"><span class="n">06</span>Kde jezdíme</div><h2 class="h2">Naše pobočky</h2></div>
     <div class="tabs" data-tabs="city"><button class="tab active" data-tab="ostrava">Ostrava</button><button class="tab" data-tab="opava">Opava</button><button class="tab" data-tab="fm">Frýdek-Místek</button></div>
     <div class="card branch panel" data-panel="city" data-id="ostrava">
       <div class="branch-main"><span class="branch-badge">Výuka &amp; Jízdy probíhají</span><h3>Ostrava</h3><div><span class="status">Kurz začíná 19. 10. 2026</span></div>
@@ -635,10 +668,50 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   </div>
 </section>
 
+<section class="sec light bt" id="theory">
+  <div class="wrap two-col">
+    <div><div class="kicker"><span class="n">07</span>Testy a teorie</div><h2 class="h2">Procvičujte testy<br>kdykoliv a kdekoliv.</h2></div>
+    <div>
+      <div class="tabs" data-tabs="theory"><button class="tab active" data-tab="testy">Testy · pro všechny skupiny ŘP</button><button class="tab" data-tab="technika">Technika · pro skupiny C, D, E</button></div>
+      <div class="panel" data-panel="theory" data-id="testy">
+        <p class="lead">Stejné otázky jako u státní zkoušky. Na hodinách teorie si ukážeme a vysvětlíme jak testy fungují, abyste si je mohli kdykoliv a kdekoliv zkoušet — trénujte v tramvaji, doma, kdykoliv máte pět minut.</p>
+        <div class="btn-row"><a href="/testy-autoskola-online.html" class="btn btn-ink">Průvodce testy a bodování →</a><a href="https://etesty2.mdcr.cz/" target="_blank" rel="noopener noreferrer" class="btn btn-volt">Spustit eTesty MDČR ↗</a></div>
+      </div>
+      <div class="panel" data-panel="theory" data-id="technika" hidden>
+        <p class="lead">Tohle jinde nenajdete! Pro všechny žadatele o rozšíření na skupiny C, C+E, D a D+E, které čeká ústní zkouška z ovládání a údržby vozidla (OÚV dle vyhlášky 167/2002 Sb.), připravil instruktor Martin Samec přehledná zjednodušená skripta (všech 45 otázek) k online studiu i stažení v PDF zcela zdarma!</p>
+        <div class="btn-row"><a href="/skripta-obsluha-a-udrzba-vozidel.html" class="btn btn-ink">Studovat skripta online (45 otázek) →</a><a href="/skripta-obsluha-a-udrzba-vozidel.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-volt">Stáhnout skripta v PDF (334 kB) ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec bt" id="faq">
+  <div class="wrap two-col">
+    <div><div class="kicker"><span class="n">08</span>Časté otázky</div><h2 class="h2" style="font-size:clamp(36px,5.4vw,64px);margin-bottom:24px">Na co se ptáte nejčastěji.</h2>
+      <p class="lead" style="max-width:40ch">Nenašli jste odpověď? Napište nám — odpovídáme typicky do 2 hodin v pracovní době.</p></div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<section class="sec light bt" id="career">
+  <div class="wrap">
+    <div class="career">
+      <div><div class="kicker"><span class="n">09</span>Kariéra · Hledáme nové instruktory</div>
+        <h3>Chcete být pánem svého času a pracovat za férových podmínek?</h3>
+        <p>Máte platné profesní osvědčení učitele výuky a výcviku a zkušenosti s výukou? Jste zastáncem elektromobility nebo se nebojíte vyzkoušet něco nového? Chcete být pánem svého času a pracovat za férových podmínek? Tak neváhejte a ozvěte se nám!</p></div>
+      <div class="career-side">
+        <div class="mono" style="font-size:11px;color:var(--volt)">Učitel výuky a výcviku · Nabízíme &amp; Očekáváme</div>
+        <ul class="check-list"><li>Platné profesní osvědčení učitele autoškoly</li><li>Výcvik v nových elektromobilech Hyundai Ioniq</li><li>Flexibilní plánování vlastních jízd</li><li>Férové a nadstandardní finanční ohodnocení</li></ul>
+        <a href="mailto:info@autoskolaproud.cz?subject=Kari%C3%A9ra%20v%20PROUDU" class="btn btn-ghost sm">Napište nám na e-mail →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec bt" id="contact">
   <div class="wrap">
     <div class="head">
-      <div><div class="kicker"><span class="n">08</span>Kontakty</div><h2 class="h2">Kontaktujte nás a my se vám ozveme do 24 hodin.</h2></div>
+      <div><div class="kicker"><span class="n">10</span>Kontakty</div><h2 class="h2">Kontaktujte nás a my se vám ozveme do 24 hodin.</h2></div>
       <p class="lead">Telefon, e-mail, WhatsApp – vyberte si způsob, který vám vyhovuje, a zjistěte vše podstatné.</p>
     </div>
     <div class="contact-grid">
@@ -654,29 +727,6 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
         <div class="map-cta">Otevřít v Mapy.cz →</div>
       </a>
     </div>
-  </div>
-</section>
-
-<section class="sec nopt" id="career">
-  <div class="wrap">
-    <div class="career">
-      <div><div class="kicker"><span class="n">09</span>Kariéra · Hledáme nové instruktory</div>
-        <h3>Chcete být pánem svého času a pracovat za férových podmínek?</h3>
-        <p>Máte platné profesní osvědčení učitele výuky a výcviku a zkušenosti s výukou? Jste zastáncem elektromobility nebo se nebojíte vyzkoušet něco nového? Chcete být pánem svého času a pracovat za férových podmínek? Tak neváhejte a ozvěte se nám!</p></div>
-      <div class="career-side">
-        <div class="mono" style="font-size:11px;color:var(--volt)">Učitel výuky a výcviku · Nabízíme &amp; Očekáváme</div>
-        <ul class="check-list"><li>Platné profesní osvědčení učitele autoškoly</li><li>Výcvik v nových elektromobilech Hyundai Ioniq</li><li>Flexibilní plánování vlastních jízd</li><li>Férové a nadstandardní finanční ohodnocení</li></ul>
-        <a href="mailto:info@autoskolaproud.cz?subject=Kari%C3%A9ra%20v%20PROUDU" class="btn btn-ghost sm">Napište nám na e-mail →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec bt" id="faq">
-  <div class="wrap two-col">
-    <div><div class="kicker"><span class="n">10</span>Časté otázky</div><h2 class="h2" style="font-size:clamp(36px,5.4vw,64px);margin-bottom:24px">Na co se ptáte nejčastěji.</h2>
-      <p class="lead" style="max-width:40ch">Nenašli jste odpověď? Napište nám — odpovídáme typicky do 2 hodin v pracovní době.</p></div>
-    <div class="faq-list" id="faqList"></div>
   </div>
 </section>
 
