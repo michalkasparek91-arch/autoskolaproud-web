@@ -231,10 +231,11 @@ img{max-width:100%}
 .mmenu-top img{height:36px}
 .mmenu-close{padding:10px 16px;border-radius:999px;border:none;background:var(--volt);color:var(--ink);font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .mmenu-links{flex:1;display:flex;flex-direction:column;justify-content:center;padding:16px 0}
-.mmenu-links a{font-family:var(--d);font-weight:500;font-size:clamp(20px,5vw,26px);letter-spacing:-.025em;color:var(--paper);padding:12px 0;border-bottom:1px solid var(--line)}
-.mmenu-sublinks{display:flex;flex-direction:column;padding-left:18px;border-bottom:1px solid var(--line)}
-.mmenu-sublinks a{font-size:clamp(16px,4vw,19px);color:var(--text2);padding:9px 0;border-bottom:none}
-.mmenu-sublinks a:hover{color:var(--volt)}
+.mmenu-links a,.mmenu-head{font-family:var(--d);font-weight:500;font-size:clamp(20px,5vw,26px);letter-spacing:-.025em;color:var(--paper);padding:12px 0;border-bottom:1px solid var(--line)}
+.mmenu-head{border-bottom:none;padding-bottom:4px}
+.mmenu-sublinks{display:flex;flex-direction:column;padding-left:18px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.mmenu-sublinks a{font-size:clamp(17px,4.2vw,20px);color:var(--volt)!important;padding:8px 0;border-bottom:none}
+.mmenu-sublinks a:hover{color:var(--volt-h)!important}
 .mmenu-actions{display:flex;flex-direction:column;gap:10px}.mmenu-actions .btn{justify-content:center;font-size:16px}
 /* hero */
 .hero{position:relative;overflow:hidden;padding:clamp(150px,18vw,190px) 0 clamp(64px,8vw,96px);min-height:min(100vh,960px);display:flex;flex-direction:column;justify-content:flex-end;background:radial-gradient(ellipse 100% 60% at 80% 100%,rgba(82,221,214,.12),transparent 60%),radial-gradient(ellipse 60% 40% at 0% 0%,rgba(107,197,255,.05),transparent 70%),var(--bg)}
@@ -245,10 +246,17 @@ img{max-width:100%}
 .pulse{display:none}
 .hero h1{font-family:var(--d);font-weight:500;font-size:clamp(44px,6.6vw,96px);line-height:.96;letter-spacing:-.04em;margin:0;text-wrap:balance}
 .hero h1 span{color:var(--volt)}
-.hero-aside{background:rgba(19,20,18,.85);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:24px}
+.hero-aside{background:rgba(19,20,18,.85);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:20px}
+.hero-aside-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:-4px}
+.hero-aside-badge{font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--volt);font-weight:700}
+.lang-switch{display:inline-flex;align-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line2);border-radius:999px;padding:3px;gap:2px}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;border:1px solid transparent;background:transparent;color:var(--muted);font-family:var(--m);font-size:11px;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:all .2s ease}
+.lang-btn .flag-icon{border-radius:2px;display:block;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.lang-btn:hover{color:var(--paper)}
+.lang-btn.active{background:rgba(82,221,214,.18);color:var(--volt);border-color:rgba(82,221,214,.4)}
 .hero-aside p{font-family:var(--d);font-size:clamp(17px,1.4vw,19px);line-height:1.5;letter-spacing:-.01em;margin:0;color:#DCDAD3;text-wrap:pretty}
 .hero-aside p b{color:var(--volt);font-weight:600}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid var(--line)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid var(--line)}
 /* sections */
 .sec{padding:clamp(72px,9vw,112px) 0;background:var(--bg)}
 .sec.bt{border-top:1px solid var(--line)}
@@ -335,7 +343,7 @@ h2.h2{font-family:var(--d);font-weight:500;font-size:clamp(36px,5.4vw,72px);line
 /* fleet */
 .fleet-top{padding-top:clamp(56px,7vw,88px);border-top:1px solid var(--line)}
 .fleet-img{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line)}
-.fleet-img img{display:block;width:100%;height:clamp(300px,48vw,600px);object-fit:cover;object-position:30% 45%}
+.fleet-img img{display:block;width:100%;height:clamp(300px,48vw,600px);object-fit:cover;object-position:center center}
 .fleet-tag{position:absolute;left:20px;bottom:20px;font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:rgba(10,11,10,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:10px 16px;border-radius:999px;border:1px solid rgba(244,242,236,.14)}
 .specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;margin-top:32px}
 .spec{padding-top:20px;border-top:1px solid var(--line)}
@@ -440,13 +448,13 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   <div class="wrap nav-inner">
     <a href="#top" class="nav-logo"><img src="assets/proud-logo.svg" alt="Autoškola PROUD" width="90" height="40"></a>
     <div class="nav-links">
-      <a href="#why">Proč PROUD</a>
+      <a href="#why">Proč v PROUDU?</a>
       <a href="#courses">Kurzy a ceny</a>
       <a href="#how">Jak začít</a>
       <div class="nav-drop">
         <button class="nav-drop-btn" type="button" aria-expanded="false">O nás ▾</button>
         <div class="nav-drop-menu">
-          <a href="#instructors">Instruktor</a>
+          <a href="#instructors">Instruktoři</a>
           <a href="#fleet">Vozový park</a>
           <a href="#routes">Pobočky</a>
         </div>
@@ -464,12 +472,12 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 <div class="mmenu" id="mmenu">
   <div class="mmenu-top"><img src="assets/proud-logo.svg" alt="Autoškola PROUD"><button class="mmenu-close" id="mclose">Zavřít ✕</button></div>
   <div class="mmenu-links">
-    <a href="#why">Proč PROUD</a>
+    <a href="#why">Proč v PROUDU?</a>
     <a href="#courses">Kurzy a ceny</a>
     <a href="#how">Jak začít</a>
-    <span style="font-family:var(--m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--volt);padding-top:10px">O nás</span>
+    <div class="mmenu-head">O nás</div>
     <div class="mmenu-sublinks">
-      <a href="#instructors">Instruktor</a>
+      <a href="#instructors">Instruktoři</a>
       <a href="#fleet">Vozový park</a>
       <a href="#routes">Pobočky</a>
     </div>
@@ -489,12 +497,38 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   </svg>
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-meta"><span class="first">1. čistě elektromobilní autoškola v ČR!</span><span>Ostrava · Opava · Frýdek-Místek</span></div>
-      <h1>Jezděte v klidu<br>a bez řazení,<br>jezděte v <span>PROUDU</span>.</h1>
+      <div class="hero-meta"><span class="first" id="heroMetaFirst">1. čistě elektromobilní autoškola v ČR!</span><span id="heroMetaCities">Ostrava · Opava · Frýdek-Místek</span></div>
+      <h1 id="heroHeading">Jezděte v klidu<br>a bez řazení,<br>jezděte v <span>PROUDU</span>.</h1>
     </div>
     <aside class="hero-aside">
-      <p>U nás učíme řídit pouze v elektromobilech značky <b>Hyundai Ioniq</b>. Každý elektromobil je z principu své konstrukce ryzí automat, takže spojku ani převodovku, se kterými mívají studenti při zkouškách problémy, zde zkrátka nenajdete. Proto vás s námi nečekají žádné trhané rozjezdy v křižovatkách, řev otáček ani smrad z výfuku. Jen klid a plná koncentrace na provoz. Díky individuálnímu přístupu je navíc rychlokurz samozřejmostí a máte ho již v základní ceně.</p>
-      <div class="hero-actions"><button class="btn btn-volt" data-open-form>Online přihláška →</button><a href="#courses" class="btn btn-ghost">Kurzy a ceny</a></div>
+      <div class="hero-aside-top">
+        <span class="hero-aside-badge mono">Autoškola PROUD</span>
+        <div class="lang-switch" role="group" aria-label="Jazyk / Language">
+          <button type="button" class="lang-btn active" id="langCsBtn" aria-pressed="true" title="Čeština">
+            <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+              <rect width="640" height="480" fill="#d7141a"/>
+              <rect width="640" height="240" fill="#fff"/>
+              <path d="M0 0l320 240L0 480z" fill="#11457e"/>
+            </svg>
+            <span>CZ</span>
+          </button>
+          <button type="button" class="lang-btn" id="langEnBtn" aria-pressed="false" title="English">
+            <svg class="flag-icon" viewBox="0 0 640 480" width="18" height="13.5" aria-hidden="true">
+              <path fill="#012169" d="M0 0h640v480H0z"/>
+              <path fill="#FFF" d="m75 0 245 180L565 0h75v60L435 240l205 180v60h-75L320 300 75 480H0v-60l205-180L0 60V0h75z"/>
+              <path fill="#C8102E" d="m424 288 216 156v36h-48L376 324h48zm-208-96L0 36V0h48l216 156h-48zm-48 96L0 444v36h48l168-120h-48zm256-96L640 36V0h-48L424 156h48z"/>
+              <path fill="#FFF" d="M256 0h128v480H256zM0 176h640v128H0z"/>
+              <path fill="#C8102E" d="M280 0h80v480h-80zM0 200h640v80H0z"/>
+            </svg>
+            <span>EN</span>
+          </button>
+        </div>
+      </div>
+      <p id="heroDesc">U nás učíme řídit pouze v elektromobilech značky <b>Hyundai Ioniq</b>. Každý elektromobil je z principu své konstrukce ryzí automat, takže spojku ani převodovku, se kterými mívají studenti při zkouškách problémy, zde zkrátka nenajdete. Proto vás s námi nečekají žádné trhané rozjezdy v křižovatkách, řev otáček ani smrad z výfuku. Jen klid a plná koncentrace na provoz. Díky individuálnímu přístupu je navíc rychlokurz samozřejmostí a máte ho již v základní ceně.</p>
+      <div class="hero-actions">
+        <button class="btn btn-volt" id="heroApplyBtn" data-open-form="Skupina B - automat (19 900 Kč)">Online přihláška →</button>
+        <a href="#courses" class="btn btn-ghost" id="heroCoursesBtn">Kurzy a ceny</a>
+      </div>
     </aside>
   </div>
 </header>
@@ -502,7 +536,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 <section class="sec" id="why">
   <div class="wrap">
     <div class="head">
-      <div><div class="kicker"><span class="n">01</span>Proč PROUD</div><h2 class="h2">Moderně a bez stresu.</h2></div>
+      <div><div class="kicker"><span class="n">01</span>Proč v PROUDU?</div><h2 class="h2">Moderně a bez stresu.</h2></div>
       <p class="lead">Z mnoha důvodů. Moderní a čistý elektromobil, jeden zkušený instruktor po celou dobu, rychlokurz v základu a učebna v samém centru Ostravy. Tak neváhejte a jezděte v PROUDU.</p>
     </div>
     <div class="why-grid">
@@ -554,7 +588,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <div><h3>Group B - driving course in English</h3><div class="sub">passenger car · automatic transmission · EV</div>
         <p class="blurb">Driving license for passenger cars with harmonization code 78, meaning restricted to automatic transmission vehicles. And only with us, exclusively in a Hyundai Ioniq electric vehicle. Plus, an intensive course is included in the base price as standard.</p>
         <ul class="dash-list"><li>28 hours of driving lessons in a Hyundai Ioniq</li><li>3 to 4 lessons per week (done driving within a month)</li><li>First lesson on a closed training ground</li><li>All study materials included in the price</li></ul>
-        <button class="btn btn-volt lg" data-open-form="Group B - driving course in English (21 900 Kč)">Sign up for Group B →</button></div>
+        <button class="btn btn-volt lg" data-open-form="Group B - driving course in English (21 900 Kč)" data-open-form-lang="en">Sign up for Group B →</button></div>
       <div class="course-side"><div class="meta-grid"><div class="meta-cell"><div class="l">Hours of driving</div><div class="v">28 h</div></div><div class="meta-cell"><div class="l">Theory</div><div class="v">7.5 h</div></div><div class="meta-cell"><div class="l">Duration</div><div class="v">4 weeks</div></div><div class="meta-cell"><div class="l">Practice ground</div><div class="v">2 h</div></div></div>
         <div class="price"><span class="p">21 900</span><span class="cur">Kč</span></div></div>
     </article>
@@ -609,15 +643,18 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 <section class="sec light bt" id="instructors">
   <div class="wrap">
     <div class="head">
-      <div><div class="kicker"><span class="n">04</span>Instruktor</div><h2 class="h2">Jeden člověk od přihlášky až ke zkoušce.</h2></div>
+      <div><div class="kicker"><span class="n">04</span>Instruktoři</div><h2 class="h2">Jeden člověk od přihlášky až ke zkoušce.</h2></div>
       <p class="lead">Žádná štafeta mezi pěti instruktory. Žádné „toho neznám" ráno před zkouškou. Během celého výcviku jezdíte pouze s jedním učitelem.</p>
     </div>
-    <article class="inst">
+    <div class="tabs scroll" data-tabs="instructor" role="tablist">
+      <button class="tab active" data-tab="martin">Martin Samec</button>
+    </div>
+    <article class="inst panel" data-panel="instructor" data-id="martin">
       <div class="inst-photo"><img src="assets/martin.jpg" alt="Martin Samec u Hyundai Ioniq, Dolní oblast Vítkovic" loading="lazy"></div>
       <div class="inst-body">
         <div class="inst-role">Instruktor · zakladatel</div>
         <div class="inst-name">Martin Samec</div>
-        <p class="inst-bio">15 let za volantem, se zkušenostmi s malými i velkými vozidly. Nadšenec do elektromobility. Celoživotní skaut, táta od rodiny. Učí klidně a předvídavě, na nikoho nekřičí (i když uděláte stejnou chybu podesáté) a přesto z Vás vytáhne maximální výkon. Mluví česky, anglicky a trochu polsky.</p>
+        <p class="inst-bio">Díky mnohaletým zkušenostem s malými i velkými vozidly vám vždy všechno perfektně vysvětlí, posledních pár let učil nové řidiče v dopravním podniku. Učí klidně (i když uděláte stejnou chybu podesáté), na všechny situace vás včas upozorní a při jízdách z vás vytáhne maximální výkon. Nadšenec do elektromobility, celoživotní skaut, táta od rodiny. Mluví česky, anglicky a trochu polsky.</p>
         <div class="chips"><span class="chip">Skupina B · automat</span><span class="chip">Teorie</span><span class="chip">Kondiční jízdy</span><span class="chip">CZ / EN / PL</span></div>
         <div class="region">→ Celá Ostrava + okolí</div>
         <div class="inst-stats"><div><div class="sn">stovky</div><div class="sl">absolventů</div></div><div><div class="sn">15 let</div><div class="sl">za volantem</div></div><div><div class="sn">4,9 ★</div><div class="sl">google reviews</div></div></div>
@@ -633,7 +670,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <div><div class="kicker"><span class="n">05</span>Vozový park</div><h2 class="h2">Jedno auto.<br>A je to elektromobil.</h2></div>
       <p class="lead">Hyundai Ioniq Electric. Automat, parkovací kamera, asistenti jízdních pruhů i rekuperace. Po celou dobu kurzu jezdíte v jednom voze — žádné překvapení u zkoušky.</p>
     </div>
-    <div class="fleet-img"><img src="assets/martin.jpg" alt="Hyundai Ioniq Electric autoškoly PROUD, Dolní oblast Vítkovic" loading="lazy"><div class="fleet-tag">Hyundai Ioniq Electric</div></div>
+    <div class="fleet-img"><img src="assets/ioniq.jpg" alt="Hyundai Ioniq Electric autoškoly PROUD" loading="lazy"><div class="fleet-tag">Hyundai Ioniq Electric</div></div>
     <div class="specs">
       <div class="spec"><div class="l">Dojezd</div><div class="v">240<span>km</span></div></div>
       <div class="spec"><div class="l">Výkon</div><div class="v">88<span>kW</span></div></div>
@@ -747,29 +784,29 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
     <button class="modal-x" data-close-form title="Zavřít">✕</button>
-    <div class="modal-head"><div class="mono" style="font-size:11px;color:var(--volt)">Oficiální online formulář</div><h3 id="modalTitle">Žádost o přijetí k výuce a výcviku</h3></div>
-    <div class="success"><div class="ok">✓</div><h4>Žádost byla úspěšně odeslána!</h4><p>Děkujeme za vyplnění. Potvrzení jsme zaznamenali a ozveme se vám do 24 hodin s dalším postupem a prvním termínem jízdy.</p><button class="btn btn-volt lg" data-close-form>Zavřít formulář</button></div>
+    <div class="modal-head"><div class="mono" style="font-size:11px;color:var(--volt)" id="modalKicker">Oficiální online formulář</div><h3 id="modalTitle">Žádost o přijetí k výuce a výcviku</h3></div>
+    <div class="success"><div class="ok">✓</div><h4 id="successTitle">Žádost byla úspěšně odeslána!</h4><p id="successDesc">Děkujeme za vyplnění. Potvrzení jsme zaznamenali a ozveme se vám do 24 hodin s dalším postupem a prvním termínem jízdy.</p><button class="btn btn-volt lg" data-close-form id="successBtn">Zavřít formulář</button></div>
     <form id="appForm">
       <div class="fgrid">
-        <label class="field">Pobočka (Město) *<select name="pobocka"><option value="Ostrava">Ostrava (začátek 19. 10. 2026)</option></select></label>
-        <label class="field">Vybraný kurz *<select name="kurz" id="kurzSelect"><option>Skupina B - automat (19 900 Kč)</option><option>Group B - driving course in English (21 900 Kč)</option><option>Kondiční jízdy (1 200 Kč / lekce)</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
-        <label class="field">Jméno *<input type="text" name="jmeno" required placeholder="Jan"></label>
-        <label class="field">Příjmení (titul) *<input type="text" name="prijmeni" required placeholder="Novák"></label>
-        <label class="field">Datum narození *<input type="date" name="datumNarozeni" required></label>
-        <label class="field">Místo narození *<input type="text" name="mistoNarozeni" required placeholder="Ostrava"></label>
-        <label class="field">Rodné číslo *<input type="text" name="rodneCislo" required placeholder="010203/1234"></label>
-        <label class="field">Státní občanství *<select name="statniObcanstvi" id="obcSelect"><option>České</option><option>Slovenské</option><option>Ukrajinské</option><option>Jiné</option></select></label>
-        <label class="field" id="obcJine" hidden>Upřesněte občanství *<input type="text" name="statniObcanstviJine" placeholder="Stát"></label>
-        <label class="field">Číslo dokladu totožnosti *<input type="text" name="cisloDokladu" required placeholder="Občanský průkaz / pas"></label>
-        <label class="field">Doklad vydal (úřad) *<input type="text" name="dokladVydal" required placeholder="Magistrát města Ostravy"></label>
-        <label class="field full">Adresa trvalého bydliště *<input type="text" name="adresa" required placeholder="Ulice, číslo popisné, město, PSČ"></label>
-        <label class="field">Telefon *<input type="tel" name="telefon" required placeholder="+420 603 213 178"></label>
-        <label class="field">Email *<input type="email" name="email" required placeholder="jan.novak@email.cz"></label>
-        <label class="field full">Doplňující informace (volitelné)<textarea name="dopljujiciInfo" rows="3" placeholder="Preferované časy jízd, dotazy apod."></textarea></label>
+        <label class="field" id="fBranchLabel">Pobočka (Město) *<select name="pobocka" id="pobockaSelect"><option value="Ostrava">Ostrava (začátek 19. 10. 2026)</option></select></label>
+        <label class="field" id="fCourseLabel">Vybraný kurz *<select name="kurz" id="kurzSelect"><option>Skupina B - automat (19 900 Kč)</option><option>Group B - driving course in English (21 900 Kč)</option><option>Kondiční jízdy (1 200 Kč / lekce)</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
+        <label class="field" id="fNameLabel">Jméno *<input type="text" name="jmeno" required placeholder="Jan" id="fNameInput"></label>
+        <label class="field" id="fSurnameLabel">Příjmení (titul) *<input type="text" name="prijmeni" required placeholder="Novák" id="fSurnameInput"></label>
+        <label class="field" id="fDobLabel">Datum narození *<input type="date" name="datumNarozeni" required id="fDobInput"></label>
+        <label class="field" id="fPobLabel">Místo narození *<input type="text" name="mistoNarozeni" required placeholder="Ostrava" id="fPobInput"></label>
+        <label class="field" id="fPinLabel">Rodné číslo *<input type="text" name="rodneCislo" required placeholder="010203/1234" id="fPinInput"></label>
+        <label class="field" id="fCitLabel">Státní občanství *<select name="statniObcanstvi" id="obcSelect"><option>České</option><option>Slovenské</option><option>Ukrajinské</option><option>Jiné</option></select></label>
+        <label class="field" id="obcJine" hidden><span id="fCitOtherLabel">Upřesněte občanství *</span><input type="text" name="statniObcanstviJine" placeholder="Stát" id="fCitOtherInput"></label>
+        <label class="field" id="fIdNumLabel">Číslo dokladu totožnosti *<input type="text" name="cisloDokladu" required placeholder="Občanský průkaz / pas" id="fIdNumInput"></label>
+        <label class="field" id="fIdIssLabel">Doklad vydal (úřad) *<input type="text" name="dokladVydal" required placeholder="Magistrát města Ostravy" id="fIdIssInput"></label>
+        <label class="field full" id="fAddrLabel">Adresa trvalého bydliště *<input type="text" name="adresa" required placeholder="Ulice, číslo popisné, město, PSČ" id="fAddrInput"></label>
+        <label class="field" id="fPhoneLabel">Telefon *<input type="tel" name="telefon" required placeholder="+420 603 213 178" id="fPhoneInput"></label>
+        <label class="field" id="fEmailLabel">Email *<input type="email" name="email" required placeholder="jan.novak@email.cz" id="fEmailInput"></label>
+        <label class="field full" id="fNoteLabel">Doplňující informace (volitelné)<textarea name="dopljujiciInfo" rows="3" placeholder="Preferované časy jízd, dotazy apod." id="fNoteInput"></textarea></label>
       </div>
-      <div class="decl"><b>Čestné prohlášení</b>Vyplněním tohoto formuláře čestně prohlašuji, že nejsem nezpůsobilým k právním úkonům, že mi nebyl uložen zákaz činnosti spočívající v zákazu řízení motorových vozidel, případně, že pominula doba stanovená pro pozbytí řidičského oprávnění podle zvláštního zákona 2), v případě rozšíření řidičského oprávnění splňuji další podmínky k udělení řidičského oprávnění podle zvláštního zákona 3), že netrpím tělesnou nebo duševní vadou, která by mne činila nezpůsobilým k řízení motorových vozidel a že všechny uvedené údaje jsou pravdivé.</div>
-      <label class="agree"><input type="checkbox" name="souhlas" id="souhlas">Potvrzuji pravdivost údajů a souhlasím s čestným prohlášením *</label>
-      <div class="form-actions"><button type="button" class="btn btn-ghost" data-close-form>Zrušit</button><button type="submit" class="btn btn-volt lg">Odeslat žádost o přijetí →</button></div>
+      <div class="decl" id="modalDecl"><b>Čestné prohlášení</b>Vyplněním tohoto formuláře čestně prohlašuji, že nejsem nezpůsobilým k právním úkonům, že mi nebyl uložen zákaz činnosti spočívající v zákazu řízení motorových vozidel, případně, že pominula doba stanovená pro pozbytí řidičského oprávnění podle zvláštního zákona 2), v případě rozšíření řidičského oprávnění splňuji další podmínky k udělení řidičského oprávnění podle zvláštního zákona 3), že netrpím tělesnou nebo duševní vadou, která by mne činila nezpůsobilým k řízení motorových vozidel a že všechny uvedené údaje jsou pravdivé.</div>
+      <label class="agree" id="modalAgreeLabel"><input type="checkbox" name="souhlas" id="souhlas"><span id="modalAgreeText">Potvrzuji pravdivost údajů a souhlasím s čestným prohlášením *</span></label>
+      <div class="form-actions"><button type="button" class="btn btn-ghost" data-close-form id="modalCancelBtn">Zrušit</button><button type="submit" class="btn btn-volt lg" id="modalSubmitBtn">Odeslat žádost o přijetí →</button></div>
     </form>
   </div>
 </div>
@@ -820,12 +857,151 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       if(!was){it.classList.add('open');it.querySelector('.faq-q').setAttribute('aria-expanded','true')}
     });
   });
-  // application modal
+
+  // hero language toggle
+  var currentHeroLang = 'cs';
+  var langCsBtn = document.getElementById('langCsBtn');
+  var langEnBtn = document.getElementById('langEnBtn');
+  var heroMetaFirst = document.getElementById('heroMetaFirst');
+  var heroHeading = document.getElementById('heroHeading');
+  var heroDesc = document.getElementById('heroDesc');
+  var heroApplyBtn = document.getElementById('heroApplyBtn');
+  var heroCoursesBtn = document.getElementById('heroCoursesBtn');
+
+  var setHeroLang = function(lang){
+    currentHeroLang = lang;
+    var isEn = lang === 'en';
+    if(langCsBtn) {
+      langCsBtn.classList.toggle('active', !isEn);
+      langCsBtn.setAttribute('aria-pressed', (!isEn).toString());
+    }
+    if(langEnBtn) {
+      langEnBtn.classList.toggle('active', isEn);
+      langEnBtn.setAttribute('aria-pressed', isEn.toString());
+    }
+    if(heroMetaFirst) {
+      heroMetaFirst.textContent = isEn ? '1st all-electric driving school in Czechia!' : '1. čistě elektromobilní autoškola v ČR!';
+    }
+    if(heroHeading) {
+      heroHeading.innerHTML = isEn
+        ? 'Drive smoothly<br>and without shifting,<br>drive in <span>PROUD</span>.'
+        : 'Jezděte v klidu<br>a bez řazení,<br>jezděte v <span>PROUDU</span>.';
+    }
+    if(heroDesc) {
+      heroDesc.innerHTML = isEn
+        ? 'We teach driving exclusively in <b>Hyundai Ioniq</b> electric vehicles. Every electric car is by design a pure automatic, so you simply won\'t find a clutch or gearbox here, which students often struggle with during driving tests. With us, no jerky starts at intersections, no roaring engine revs, and no exhaust fumes. Just peace of mind and complete focus on the road. Thanks to our personalized approach, an intensive course is standard and included in the base price.'
+        : 'U nás učíme řídit pouze v elektromobilech značky <b>Hyundai Ioniq</b>. Každý elektromobil je z principu své konstrukce ryzí automat, takže spojku ani převodovku, se kterými mívají studenti při zkouškách problémy, zde zkrátka nenajdete. Proto vás s námi nečekají žádné trhané rozjezdy v křižovatkách, řev otáček ani smrad z výfuku. Jen klid a plná koncentrace na provoz. Díky individuálnímu přístupu je navíc rychlokurz samozřejmostí a máte ho již v základní ceně.';
+    }
+    if(heroApplyBtn) {
+      heroApplyBtn.textContent = isEn ? 'Online application →' : 'Online přihláška →';
+      if(isEn) {
+        heroApplyBtn.setAttribute('data-open-form', 'Group B - driving course in English (21 900 Kč)');
+        heroApplyBtn.setAttribute('data-open-form-lang', 'en');
+      } else {
+        heroApplyBtn.setAttribute('data-open-form', 'Skupina B - automat (19 900 Kč)');
+        heroApplyBtn.setAttribute('data-open-form-lang', 'cs');
+      }
+    }
+    if(heroCoursesBtn) {
+      heroCoursesBtn.textContent = isEn ? 'Courses & pricing' : 'Kurzy a ceny';
+    }
+  };
+
+  if(langCsBtn) langCsBtn.addEventListener('click', function(){ setHeroLang('cs'); });
+  if(langEnBtn) langEnBtn.addEventListener('click', function(){ setHeroLang('en'); });
+
+  if(heroCoursesBtn) {
+    heroCoursesBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      var targetTabId = currentHeroLang === 'en' ? 'b-en' : 'b';
+      var courseTabs = document.querySelector('[data-tabs="course"]');
+      if(courseTabs) {
+        var targetBtn = courseTabs.querySelector('[data-tab="'+targetTabId+'"]');
+        if(targetBtn) targetBtn.click();
+      }
+      var targetSection = document.getElementById('courses');
+      if(targetSection) targetSection.scrollIntoView({behavior:'smooth'});
+    });
+  }
+
+  // application modal & language
   var modal=document.getElementById('modal'),form=document.getElementById('appForm'),kurz=document.getElementById('kurzSelect');
-  var openForm=function(k){closeMenu();modal.classList.remove('sent');if(k)kurz.value=k;modal.classList.add('open');document.body.style.overflow='hidden';
-    if(window.trackGAEvent)window.trackGAEvent('begin_checkout',{course:k||null})};
+  var modalKicker=document.getElementById('modalKicker'),modalTitle=document.getElementById('modalTitle');
+  var fBranchLabel=document.getElementById('fBranchLabel'),pobockaSelect=document.getElementById('pobockaSelect');
+  var fCourseLabel=document.getElementById('fCourseLabel');
+  var fNameLabel=document.getElementById('fNameLabel'),fNameInput=document.getElementById('fNameInput');
+  var fSurnameLabel=document.getElementById('fSurnameLabel'),fSurnameInput=document.getElementById('fSurnameInput');
+  var fDobLabel=document.getElementById('fDobLabel'),fPobLabel=document.getElementById('fPobLabel'),fPobInput=document.getElementById('fPobInput');
+  var fPinLabel=document.getElementById('fPinLabel'),fPinInput=document.getElementById('fPinInput');
+  var fCitLabel=document.getElementById('fCitLabel'),fCitOtherLabel=document.getElementById('fCitOtherLabel'),fCitOtherInput=document.getElementById('fCitOtherInput');
+  var fIdNumLabel=document.getElementById('fIdNumLabel'),fIdNumInput=document.getElementById('fIdNumInput');
+  var fIdIssLabel=document.getElementById('fIdIssLabel'),fIdIssInput=document.getElementById('fIdIssInput');
+  var fAddrLabel=document.getElementById('fAddrLabel'),fAddrInput=document.getElementById('fAddrInput');
+  var fPhoneLabel=document.getElementById('fPhoneLabel'),fPhoneInput=document.getElementById('fPhoneInput');
+  var fEmailLabel=document.getElementById('fEmailLabel'),fEmailInput=document.getElementById('fEmailInput');
+  var fNoteLabel=document.getElementById('fNoteLabel'),fNoteInput=document.getElementById('fNoteInput');
+  var modalDecl=document.getElementById('modalDecl'),modalAgreeText=document.getElementById('modalAgreeText');
+  var modalCancelBtn=document.getElementById('modalCancelBtn'),modalSubmitBtn=document.getElementById('modalSubmitBtn');
+  var successTitle=document.getElementById('successTitle'),successDesc=document.getElementById('successDesc'),successBtn=document.getElementById('successBtn');
+
+  var setModalLang = function(lang){
+    var isEn = lang === 'en';
+    if(modalKicker) modalKicker.textContent = isEn ? 'Official Online Form' : 'Oficiální online formulář';
+    if(modalTitle) modalTitle.textContent = isEn ? 'Application for Driver Training & Education' : 'Žádost o přijetí k výuce a výcviku';
+    if(fBranchLabel && fBranchLabel.childNodes[0]) fBranchLabel.childNodes[0].nodeValue = isEn ? 'Branch (City) *' : 'Pobočka (Město) *';
+    if(pobockaSelect) pobockaSelect.options[0].text = isEn ? 'Ostrava (starting Oct 19, 2026)' : 'Ostrava (začátek 19. 10. 2026)';
+    if(fCourseLabel && fCourseLabel.childNodes[0]) fCourseLabel.childNodes[0].nodeValue = isEn ? 'Selected course *' : 'Vybraný kurz *';
+    if(fNameLabel && fNameLabel.childNodes[0]) fNameLabel.childNodes[0].nodeValue = isEn ? 'First name *' : 'Jméno *';
+    if(fNameInput) fNameInput.placeholder = isEn ? 'John' : 'Jan';
+    if(fSurnameLabel && fSurnameLabel.childNodes[0]) fSurnameLabel.childNodes[0].nodeValue = isEn ? 'Last name *' : 'Příjmení (titul) *';
+    if(fSurnameInput) fSurnameInput.placeholder = isEn ? 'Smith' : 'Novák';
+    if(fDobLabel && fDobLabel.childNodes[0]) fDobLabel.childNodes[0].nodeValue = isEn ? 'Date of birth *' : 'Datum narození *';
+    if(fPobLabel && fPobLabel.childNodes[0]) fPobLabel.childNodes[0].nodeValue = isEn ? 'Place of birth *' : 'Místo narození *';
+    if(fPobInput) fPobInput.placeholder = isEn ? 'City, Country' : 'Ostrava';
+    if(fPinLabel && fPinLabel.childNodes[0]) fPinLabel.childNodes[0].nodeValue = isEn ? 'Birth / ID number *' : 'Rodné číslo *';
+    if(fPinInput) fPinInput.placeholder = isEn ? 'Personal identification number' : '010203/1234';
+    if(fCitLabel && fCitLabel.childNodes[0]) fCitLabel.childNodes[0].nodeValue = isEn ? 'Citizenship / Nationality *' : 'Státní občanství *';
+    if(fCitOtherLabel) fCitOtherLabel.textContent = isEn ? 'Specify citizenship *' : 'Upřesněte občanství *';
+    if(fCitOtherInput) fCitOtherInput.placeholder = isEn ? 'Country' : 'Stát';
+    if(fIdNumLabel && fIdNumLabel.childNodes[0]) fIdNumLabel.childNodes[0].nodeValue = isEn ? 'ID / Passport number *' : 'Číslo dokladu totožnosti *';
+    if(fIdNumInput) fIdNumInput.placeholder = isEn ? 'Passport / National ID' : 'Občanský průkaz / pas';
+    if(fIdIssLabel && fIdIssLabel.childNodes[0]) fIdIssLabel.childNodes[0].nodeValue = isEn ? 'Issued by (authority) *' : 'Doklad vydal (úřad) *';
+    if(fIdIssInput) fIdIssInput.placeholder = isEn ? 'Issuing authority' : 'Magistrát města Ostravy';
+    if(fAddrLabel && fAddrLabel.childNodes[0]) fAddrLabel.childNodes[0].nodeValue = isEn ? 'Permanent address *' : 'Adresa trvalého bydliště *';
+    if(fAddrInput) fAddrInput.placeholder = isEn ? 'Street, house number, city, ZIP code' : 'Ulice, číslo popisné, město, PSČ';
+    if(fPhoneLabel && fPhoneLabel.childNodes[0]) fPhoneLabel.childNodes[0].nodeValue = isEn ? 'Phone number *' : 'Telefon *';
+    if(fEmailLabel && fEmailLabel.childNodes[0]) fEmailLabel.childNodes[0].nodeValue = isEn ? 'Email *' : 'Email *';
+    if(fNoteLabel && fNoteLabel.childNodes[0]) fNoteLabel.childNodes[0].nodeValue = isEn ? 'Additional information (optional)' : 'Doplňující informace (volitelné)';
+    if(fNoteInput) fNoteInput.placeholder = isEn ? 'Preferred schedule, questions, etc.' : 'Preferované časy jízd, dotazy apod.';
+    if(modalDecl) {
+      modalDecl.innerHTML = isEn
+        ? '<b>Solemn Declaration</b>By submitting this application, I solemnly declare that I am legally competent, have not been disqualified from driving motor vehicles, meet all legal health and fitness requirements under applicable Czech law, and that all provided information is accurate and complete.'
+        : '<b>Čestné prohlášení</b>Vyplněním tohoto formuláře čestně prohlašuji, že nejsem nezpůsobilým k právním úkonům, že mi nebyl uložen zákaz činnosti spočívající v zákazu řízení motorových vozidel, případně, že pominula doba stanovená pro pozbytí řidičského oprávnění podle zvláštního zákona 2), v případě rozšíření řidičského oprávnění splňuji další podmínky k udělení řidičského oprávnění podle zvláštního zákona 3), že netrpím tělesnou nebo duševní vadou, která by mne činila nezpůsobilým k řízení motorových vozidel a že všechny uvedené údaje jsou pravdivé.';
+    }
+    if(modalAgreeText) modalAgreeText.textContent = isEn ? 'I confirm the accuracy of the data and agree with the solemn declaration *' : 'Potvrzuji pravdivost údajů a souhlasím s čestným prohlášením *';
+    if(modalCancelBtn) modalCancelBtn.textContent = isEn ? 'Cancel' : 'Zrušit';
+    if(modalSubmitBtn) modalSubmitBtn.textContent = isEn ? 'Submit application →' : 'Odeslat žádost o přijetí →';
+    if(successTitle) successTitle.textContent = isEn ? 'Application submitted successfully!' : 'Žádost byla úspěšně odeslána!';
+    if(successDesc) successDesc.textContent = isEn ? 'Thank you for signing up. We have received your application and will contact you within 24 hours.' : 'Děkujeme za vyplnění. Potvrzení jsme zaznamenali a ozveme se vám do 24 hodin s dalším postupem a prvním termínem jízdy.';
+    if(successBtn) successBtn.textContent = isEn ? 'Close form' : 'Zavřít formulář';
+  };
+
+  var openForm=function(k, lang){
+    closeMenu();
+    modal.classList.remove('sent');
+    var targetLang = lang || (k && k.indexOf('English') !== -1 ? 'en' : currentHeroLang);
+    setModalLang(targetLang);
+    if(k) kurz.value=k;
+    modal.classList.add('open');
+    document.body.style.overflow='hidden';
+    if(window.trackGAEvent)window.trackGAEvent('begin_checkout',{course:k||null});
+  };
   var closeForm=function(){modal.classList.remove('open');document.body.style.overflow=''};
-  document.querySelectorAll('[data-open-form]').forEach(function(b){b.addEventListener('click',function(){openForm(b.getAttribute('data-open-form'))})});
+  document.querySelectorAll('[data-open-form]').forEach(function(b){
+    b.addEventListener('click',function(){
+      openForm(b.getAttribute('data-open-form'), b.getAttribute('data-open-form-lang'));
+    });
+  });
   document.querySelectorAll('[data-close-form]').forEach(function(b){b.addEventListener('click',closeForm)});
   modal.addEventListener('click',function(e){if(e.target===modal)closeForm()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeForm();closeMenu()}});
@@ -833,7 +1009,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   obc.addEventListener('change',function(){var on=obc.value==='Jiné';jine.hidden=!on;jine.querySelector('input').required=on});
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(!document.getElementById('souhlas').checked){alert('Pro odeslání přihlášky je nutné potvrdit čestné prohlášení.');return}
+    if(!document.getElementById('souhlas').checked){
+      alert(currentHeroLang==='en' ? 'Please confirm the solemn declaration.' : 'Pro odeslání přihlášky je nutné potvrdit čestné prohlášení.');
+      return;
+    }
     if(window.trackGAEvent)window.trackGAEvent('generate_lead',{course:kurz.value});
     modal.classList.add('sent');form.reset();jine.hidden=true;
   });
