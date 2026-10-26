@@ -203,6 +203,7 @@ img{max-width:100%}
 .annbar-track{display:flex;white-space:nowrap;animation:annflow 40s linear infinite;font-family:var(--m);font-size:12px;letter-spacing:.05em;text-transform:uppercase;will-change:transform}
 .ann-unit{display:inline-flex;align-items:center;gap:28px;padding-right:28px}
 .ann-unit .dot{width:6px;height:6px;border-radius:50%;background:var(--volt)}
+.ann-unit .dot-muted{background:var(--muted)}
 .ann-unit .sep{color:var(--muted-l)}.ann-unit b{font-weight:500}
 /* nav */
 .nav{position:fixed;top:40px;left:0;right:0;z-index:60;padding:14px 0;background:rgba(10,11,10,0);border-bottom:1px solid transparent;transition:background .25s,border-color .25s;-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%)}
@@ -497,7 +498,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   </svg>
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-meta"><span class="first" id="heroMetaFirst">1. čistě elektromobilní autoškola v ČR!</span><span id="heroMetaCities">Ostrava · Opava · Frýdek-Místek</span></div>
+      <div class="hero-meta"><span class="first" id="heroMetaFirst">1. čistě elektromobilní autoškola v ČR!</span><span id="heroMetaCities">Ostrava · Brno připravujeme</span></div>
       <h1 id="heroHeading">Jezděte v klidu<br>a bez řazení,<br>jezděte v <span>PROUDU</span>.</h1>
     </div>
     <aside class="hero-aside">
@@ -526,7 +527,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       </div>
       <p id="heroDesc">U nás učíme řídit pouze v elektromobilech značky <b>Hyundai Ioniq</b>. Každý elektromobil je z principu své konstrukce ryzí automat, takže spojku ani převodovku, se kterými mívají studenti při zkouškách problémy, zde zkrátka nenajdete. Proto vás s námi nečekají žádné trhané rozjezdy v křižovatkách, řev otáček ani smrad z výfuku. Jen klid a plná koncentrace na provoz. Díky individuálnímu přístupu je navíc rychlokurz samozřejmostí a máte ho již v základní ceně.</p>
       <div class="hero-actions">
-        <button class="btn btn-volt" id="heroApplyBtn" data-open-form="Skupina B - automat (19 900 Kč)">Online přihláška →</button>
+        <button class="btn btn-volt" id="heroApplyBtn" data-open-form="Skupina B - automat (17 900 Kč)">Online přihláška →</button>
         <a href="#courses" class="btn btn-ghost" id="heroCoursesBtn">Kurzy a ceny</a>
       </div>
     </aside>
@@ -556,6 +557,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     <div class="tabs scroll" data-tabs="course" role="tablist">
       <button class="tab" data-tab="akce">Přiveď kamaráda</button>
       <button class="tab active" data-tab="b">Skupina B - automat</button>
+      <button class="tab" data-tab="l17">L17 - automat</button>
       <button class="tab" data-tab="b-en">Group B - driving course in English</button>
       <button class="tab" data-tab="kondicni">Kondiční jízdy</button>
       <button class="tab" data-tab="nanecisto">Autoškola nanečisto</button>
@@ -567,10 +569,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <div class="code-badge">AKCE</div>
       <div><h3>Přiveď kamaráda</h3><div class="sub">akční sleva 1 000 Kč pro oba</div>
         <p class="blurb">Přihlaste se do autoškoly společně s kamarádem, sourozencem nebo partnerem a oba získáte slevu 1 000 Kč z ceny kurzovného! Výcvik i jízdy můžete absolvovat společně.</p>
-        <ul class="dash-list"><li>Sleva 1 000 Kč z ceny kurzu pro Vás i kamaráda</li><li>Společné plánování jízd a výuky</li><li>28 h výcviku v elektromobilu Hyundai Ioniq</li><li>3-4 jízdy týdně v Ostravě, Opavě i F-M</li><li>Závěrečná zkouška, učebnice i online testy v ceně</li></ul>
-        <button class="btn btn-volt lg" data-open-form>Přihlásit se na AKCE →</button></div>
+        <ul class="dash-list"><li>Sleva 1 000 Kč z ceny kurzu pro Vás i kamaráda</li><li>Společné plánování jízd a výuky</li><li>28 h výcviku v elektromobilu Hyundai Ioniq</li><li>3-4 jízdy týdně v Ostravě</li><li>Závěrečná zkouška, učebnice i online testy v ceně</li></ul>
+        <button class="btn btn-volt lg" data-open-form="Přiveď kamaráda (16 900 Kč)">Přihlásit se na AKCE →</button></div>
       <div class="course-side"><div class="meta-grid"><div class="meta-cell"><div class="l">Hodin jízdy</div><div class="v">28 h</div></div><div class="meta-cell"><div class="l">Teorie</div><div class="v">7.5 h</div></div><div class="meta-cell"><div class="l">Délka</div><div class="v">sleva 1 000 Kč pro oba</div></div><div class="meta-cell"><div class="l">Cvičiště</div><div class="v">2 h</div></div></div>
-        <div class="price"><span class="p">18 900</span><span class="cur">Kč</span></div></div>
+        <div class="price"><span class="p">16 900</span><span class="cur">Kč</span></div></div>
     </article>
 
     <article class="course-card panel" data-panel="course" data-id="b">
@@ -578,9 +580,19 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <div><h3>Skupina B - automat</h3><div class="sub">osobní auto · automatická převodovka · elektromobil</div>
         <p class="blurb">Řidičský průkaz na osobní auto s harmonizačním kódem 78, tzn. omezení na vozidla s automatickou převodovkou. A jedině u nás pouze s elektromobilem Hyundai Ioniq. A jedině u nás rychlokurzem v základní ceně.</p>
         <ul class="dash-list"><li>28 hodin jízd v Hyundai Ioniq</li><li>3 až 4 jízdy týdně (za měsíc máte odježděno)</li><li>První jízda na cvičišti</li><li>Všechny studijní materiály v ceně</li></ul>
-        <button class="btn btn-volt lg" data-open-form="Skupina B - automat (19 900 Kč)">Přihlásit se na Skupina B →</button></div>
+        <button class="btn btn-volt lg" data-open-form="Skupina B - automat (17 900 Kč)">Přihlásit se na Skupina B →</button></div>
       <div class="course-side"><div class="meta-grid"><div class="meta-cell"><div class="l">Hodin jízdy</div><div class="v">28 h</div></div><div class="meta-cell"><div class="l">Teorie</div><div class="v">7.5 h</div></div><div class="meta-cell"><div class="l">Délka</div><div class="v">4 týdny</div></div><div class="meta-cell"><div class="l">Cvičiště</div><div class="v">2 h</div></div></div>
-        <div class="price"><span class="p">19 900</span><span class="cur">Kč</span></div></div>
+        <div class="price"><span class="p">17 900</span><span class="cur">Kč</span></div></div>
+    </article>
+
+    <article class="course-card panel" data-panel="course" data-id="l17" hidden>
+      <div class="code-badge">L17</div>
+      <div><h3>L17 - automat</h3><div class="sub">osobní auto · automatická převodovka · elektromobil</div>
+        <p class="blurb">Řidičský průkaz na osobní auto s harmonizačním kódem 78, tzn. omezení na vozidla s automatickou převodovkou. Učíme samozřejmě i studenty, kterým teprve je nebo bude 17 let. Pro bližší info nám neváhejte zavolat.</p>
+        <ul class="dash-list"><li>28 hodin jízd v Hyundai Ioniq</li><li>3 až 4 jízdy týdně (za měsíc máte odježděno)</li><li>První jízda na cvičišti</li><li>Všechny studijní materiály v ceně</li></ul>
+        <button class="btn btn-volt lg" data-open-form="L17 - automat (17 900 Kč)">Přihlásit se na L17 - automat →</button></div>
+      <div class="course-side"><div class="meta-grid"><div class="meta-cell"><div class="l">Hodin jízdy</div><div class="v">28 h</div></div><div class="meta-cell"><div class="l">Teorie</div><div class="v">7.5 h</div></div><div class="meta-cell"><div class="l">Délka</div><div class="v">4 týdny</div></div><div class="meta-cell"><div class="l">Cvičiště</div><div class="v">2 h</div></div></div>
+        <div class="price"><span class="p">17 900</span><span class="cur">Kč</span></div></div>
     </article>
 
     <article class="course-card panel" data-panel="course" data-id="b-en" lang="en" hidden>
@@ -588,9 +600,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <div><h3>Group B - driving course in English</h3><div class="sub">passenger car · automatic transmission · EV</div>
         <p class="blurb">Driving license for passenger cars with harmonization code 78, meaning restricted to automatic transmission vehicles. And only with us, exclusively in a Hyundai Ioniq electric vehicle. Plus, an intensive course is included in the base price as standard.</p>
         <ul class="dash-list"><li>28 hours of driving lessons in a Hyundai Ioniq</li><li>3 to 4 lessons per week (done driving within a month)</li><li>First lesson on a closed training ground</li><li>All study materials included in the price</li></ul>
-        <button class="btn btn-volt lg" data-open-form="Group B - driving course in English (21 900 Kč)" data-open-form-lang="en">Sign up for Group B →</button></div>
+        <button class="btn btn-volt lg" data-open-form="Group B - driving course in English (19 900 Kč)" data-open-form-lang="en">Sign up for Group B →</button></div>
       <div class="course-side"><div class="meta-grid"><div class="meta-cell"><div class="l">Hours of driving</div><div class="v">28 h</div></div><div class="meta-cell"><div class="l">Theory</div><div class="v">7.5 h</div></div><div class="meta-cell"><div class="l">Duration</div><div class="v">4 weeks</div></div><div class="meta-cell"><div class="l">Practice ground</div><div class="v">2 h</div></div></div>
-        <div class="price"><span class="p">21 900</span><span class="cur">Kč</span></div></div>
+        <div class="price"><span class="p">19 900</span><span class="cur">Kč</span></div></div>
     </article>
 
     <article class="course-card panel" data-panel="course" data-id="kondicni" hidden>
@@ -654,7 +666,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <div class="inst-body">
         <div class="inst-role">Instruktor · zakladatel</div>
         <div class="inst-name">Martin Samec</div>
-        <p class="inst-bio">Díky mnohaletým zkušenostem s malými i velkými vozidly vám vždy všechno perfektně vysvětlí, posledních pár let učil nové řidiče v dopravním podniku. Učí klidně (i když uděláte stejnou chybu podesáté), na všechny situace vás včas upozorní a při jízdách z vás vytáhne maximální výkon. Nadšenec do elektromobility, celoživotní skaut, táta od rodiny. Mluví česky, anglicky a trochu polsky.</p>
+        <p class="inst-bio">Má mnohaleté zkušenosti s malými i velkými vozidly, posledních pár let učil nové řidiče autobusů v Dopravním podniku Ostrava. Díky tomu vám vždy všechno perfektně vysvětlí a na všechny situace včas upozorní. Učí klidně a trpělivě, a přesto z vás při jízdách vytáhne maximální výkon. Nadšenec do elektromobility, celoživotní skaut, táta od rodiny. Mluví česky, anglicky a trochu polsky.</p>
         <div class="chips"><span class="chip">Skupina B · automat</span><span class="chip">Teorie</span><span class="chip">Kondiční jízdy</span><span class="chip">CZ / EN / PL</span></div>
         <div class="region">→ Celá Ostrava + okolí</div>
         <div class="inst-stats"><div><div class="sn">stovky</div><div class="sl">absolventů</div></div><div><div class="sn">15 let</div><div class="sl">za volantem</div></div><div><div class="sn">4,9 ★</div><div class="sl">google reviews</div></div></div>
@@ -683,24 +695,23 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 <section class="sec bt" id="routes">
   <div class="wrap">
     <div class="head single"><div class="kicker"><span class="n">06</span>Kde jezdíme</div><h2 class="h2">Naše pobočky</h2></div>
-    <div class="tabs" data-tabs="city"><button class="tab active" data-tab="ostrava">Ostrava</button><button class="tab" data-tab="opava">Opava</button><button class="tab" data-tab="fm">Frýdek-Místek</button></div>
+    <div class="tabs" data-tabs="city"><button class="tab active" data-tab="ostrava">Ostrava</button><button class="tab" data-tab="brno">Brno</button><button class="tab" data-tab="dalsi">Další města</button></div>
     <div class="card branch panel" data-panel="city" data-id="ostrava">
       <div class="branch-main"><span class="branch-badge">Výuka &amp; Jízdy probíhají</span><h3>Ostrava</h3><div><span class="status">Kurz začíná 16. 11. 2026</span></div>
         <p>Jízdy probíhají po celé Ostravě a přímo v trasách zkušebních komisařů, tzn. Moravská Ostrava, Přívoz, Slezská Ostrava a Vítkovice. Vyzkoušíte si jízdu po Rudné, Místecké i na dálnici. Naučíte se, jak zvládnout zaparkovat v centru i v Nové Karolině. Rádi přivítáme zájemce z blízkého (Výškovice, Hrabůvka, Dubina, Poruba) i vzdáleného (Rychvald, Bohumín, Hlučín, Vratimov, Klimkovice, Krásné Pole) okolí.</p>
         <div class="addr"><div class="l">Adresa / Zázemí</div><div class="v">Havlíčkovo nábřeží 2728/38, 702 00 Ostrava (u zastávky Most Pionýrů)</div></div></div>
       <ul class="check-list"><li>Jízdy v trasách zkušebních komisařů - centrum, Přívoz, Vítkovice, Slezská</li><li>Výborná dostupnost pro celou Ostravu i okolí (Krásné Pole, Rychvald, Bohumín, Hlučín)</li><li>Trénink na Rudné, Místecké, dálnici D1 i v parkovacím domě Nová Karolina</li><li>Start jízd z parkoviště před učebnou na Havlíčkově nábřeží v Ostravě</li><li>Magistrát města Ostravy a zkušební komisař jen 3 minuty chůze</li></ul>
     </div>
-    <div class="card branch panel" data-panel="city" data-id="opava" hidden>
-      <div class="branch-main"><span class="branch-badge">Pobočka v přípravě · Info brzy</span><h3>Opava</h3><div><span class="status">Info brzy</span></div>
-        <p>Připravujeme otevření plnohodnotné výuky a výcviku přímo v Opavě. Všechny informace o přesném místě a termínu zveřejníme již brzy.</p>
+    <div class="card branch panel" data-panel="city" data-id="brno" hidden>
+      <div class="branch-main"><span class="branch-badge">Pobočka v přípravě · Info brzy</span><h3>Brno</h3><div><span class="status">Info brzy</span></div>
+        <p>Připravujeme otevření plnohodnotné výuky a výcviku přímo v Brně. Všechny informace o přesném místě a termínu zveřejníme již brzy.</p>
         <div class="addr"><div class="l">Adresa / Zázemí</div><div class="v">Místo bude upřesněno · Info brzy</div></div></div>
       <ul class="check-list"><li>Výcvik výhradně v elektromobilu Hyundai Ioniq s automatem</li><li>Stejný osobní přístup jednoho instruktora po celou dobu</li><li>Možnost předběžné přihlášky a rezervace volného místa</li><li>Veškeré podrobnosti zveřejníme již brzy</li></ul>
     </div>
-    <div class="card branch panel" data-panel="city" data-id="fm" hidden>
-      <div class="branch-main"><span class="branch-badge">Pobočka v přípravě · Info brzy</span><h3>Frýdek-Místek</h3><div><span class="status">Info brzy</span></div>
-        <p>Rozšiřujeme výuku a výcvik také pro zájemce z Frýdku-Místku a okolí. Všechny informace o přesném místě a termínu zveřejníme již brzy.</p>
-        <div class="addr"><div class="l">Adresa / Zázemí</div><div class="v">Místo bude upřesněno · Info brzy</div></div></div>
-      <ul class="check-list"><li>Výcvik v elektromobilu s automatickou převodovkou</li><li>Klidný a profesionální přístup instruktora</li><li>Možnost předběžné přihlášky a rezervace volného místa</li><li>Veškeré podrobnosti zveřejníme již brzy</li></ul>
+    <div class="card branch panel" data-panel="city" data-id="dalsi" hidden>
+      <div class="branch-main"><span class="branch-badge">Rozšiřujeme se</span><h3>Další města</h3>
+        <p>Chtěli byste autoškolu Proud i ve Vašem městě? Neváhejte a ozvěte se nám!</p></div>
+      <ul class="check-list"><li>Ozvěte se nám na telefonu +420 603 213 178</li><li>Nebo napište na info@autoskolaproud.cz</li></ul>
     </div>
   </div>
 </section>
@@ -774,7 +785,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
         <p style="color:var(--muted);margin:20px 0 0;max-width:36ch;line-height:1.6">1. čistě elektromobilní autoškola v ČR!</p>
         <div style="display:flex;gap:10px;margin-top:20px"><a href="https://www.instagram.com/autoskola_proud/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost sm">Instagram</a><a href="https://www.facebook.com/autoskolaproud" target="_blank" rel="noopener noreferrer" class="btn btn-ghost sm">Facebook</a></div></div>
       <div class="foot-col"><h4>Kontakt</h4><a href="tel:+420603213178">+420 603 213 178</a><a href="mailto:info@autoskolaproud.cz">info@autoskolaproud.cz</a><span style="color:var(--muted);margin-top:8px">Havlíčkovo nábřeží 2728/38<br>702 00 Ostrava</span></div>
-      <div class="foot-col"><h4>Kurzy</h4><a href="#courses">Přiveď kamaráda</a><a href="#courses">Skupina B - automat</a><a href="#courses">Group B - driving course in English</a><a href="#courses">Kondiční jízdy</a><a href="#courses">Autoškola nanečisto</a><a href="#courses">Školení řidičů referentů</a><a href="#courses">Pravidelné školení řidičů</a><a href="#">Dárkový voucher</a></div>
+      <div class="foot-col"><h4>Kurzy</h4><a href="#courses">Přiveď kamaráda</a><a href="#courses">Skupina B - automat</a><a href="#courses">L17 - automat</a><a href="#courses">Group B - driving course in English</a><a href="#courses">Kondiční jízdy</a><a href="#courses">Autoškola nanečisto</a><a href="#courses">Školení řidičů referentů</a><a href="#courses">Pravidelné školení řidičů</a><a href="#">Dárkový voucher</a></div>
       <div class="foot-col"><h4>Specializace &amp; výcvik</h4><a href="/autoskola-automat-ostrava.html">Autoškola s automatem</a><a href="/elektricka-autoskola-ostrava.html">Elektrická autoškola</a><a href="/rychlokurz-autoskola-ostrava.html">Rychlokurz za 1 měsíc</a><a href="/kondicni-jizdy-ostrava.html">Kondiční jízdy Ostrava</a><a href="/testy-autoskola-online.html">Testy do autoškoly online</a><a href="/skripta-obsluha-a-udrzba-vozidel.html">Skripta údržby vozidel (C, D)</a><a href="/lekarsky-posudek.html">Lékařský posudek (PDF)</a></div>
     </div>
     <div class="foot-bottom"><div>© 2026 MARTIN SAMEC - AUTOŠKOLA PROUD · IČO 29664853</div><div>made in Ostrava · powered by 100% obnovitelnou energií</div></div>
@@ -789,7 +800,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     <form id="appForm">
       <div class="fgrid">
         <label class="field" id="fBranchLabel">Pobočka (Město) *<select name="pobocka" id="pobockaSelect"><option value="Ostrava">Ostrava (začátek 16. 11. 2026)</option></select></label>
-        <label class="field" id="fCourseLabel">Vybraný kurz *<select name="kurz" id="kurzSelect"><option>Skupina B - automat (19 900 Kč)</option><option>Group B - driving course in English (21 900 Kč)</option><option>Kondiční jízdy (1 200 Kč / lekce)</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
+        <label class="field" id="fCourseLabel">Vybraný kurz *<select name="kurz" id="kurzSelect"><option>Skupina B - automat (17 900 Kč)</option><option>Přiveď kamaráda (16 900 Kč)</option><option>L17 - automat (17 900 Kč)</option><option>Group B - driving course in English (19 900 Kč)</option><option>Kondiční jízdy (1 200 Kč / lekce)</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
         <label class="field" id="fNameLabel">Jméno *<input type="text" name="jmeno" required placeholder="Jan" id="fNameInput"></label>
         <label class="field" id="fSurnameLabel">Příjmení (titul) *<input type="text" name="prijmeni" required placeholder="Novák" id="fSurnameInput"></label>
         <label class="field" id="fDobLabel">Datum narození *<input type="date" name="datumNarozeni" required id="fDobInput"></label>
@@ -816,7 +827,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   // ticker
   var now = new Date();
   var capacity = (now >= new Date(2026, 9, 23)) ? '3/5' : '0/5';
-  var unit='<div class="ann-unit"><span style="color:var(--muted)">Nejbližší kurzy</span><span class="dot"></span><span><b>Ostrava</b> <span class="sep">·</span> začátek 16. 11. 2026 <span class="sep">·</span> <span style="color:var(--volt)">kapacita '+capacity+'</span></span><span class="dot"></span><span><b>Opava</b> <span class="sep">·</span> info brzy</span><span class="dot"></span><span><b>Frýdek-Místek</b> <span class="sep">·</span> info brzy</span><span class="dot"></span></div>';
+  var unit='<div class="ann-unit"><span style="color:var(--muted)">Nejbližší kurzy</span><span class="dot"></span><span><b>Ostrava</b> <span class="sep">·</span> začátek 16. 11. 2026</span><span class="dot dot-muted"></span><span><b>Brno</b> <span class="sep">·</span> připravujeme</span><span class="dot"></span></div>';
   document.getElementById('ticker').innerHTML=unit+unit+unit+unit;
   // nav scroll
   var nav=document.getElementById('nav');
@@ -843,7 +854,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   var FAQS=[
     ["Proč právě elektromobil? Není lepší začít v klasickém autě?","Každý elektromobil je z principu své konstrukce ryzí automat, takže spojku ani převodovku, se kterými mívají žáci při zkouškách největší stres a problémy, u nás vůbec nenajdete. Žádné trhané rozjezdy v křižovatkách, řev otáček ani zhasínání motoru. V roce 2026 už v ČR dominuje automat u více než 70 % nových i většiny ojetých aut. V Hyundai Ioniq se naučíte bezpečně vnímat provoz a řízení si zamilujete."],
     ["Jaký řidičský průkaz získám a co znamená harmonizační kód 78?","Získáte plnohodnotný řidičský průkaz skupiny B s harmonizačním kódem 78, což znamená oprávnění k řízení vozidel s automatickou převodovkou. Do této kategorie spadají všechny elektromobily, hybridy a dnes již většina moderních rodinných i služebních vozů. Pokud byste v budoucnu potřebovali řídit i manuál, stačí složit pouze doplňovací praktickou jízdu bez nutnosti znovu absolvovat celou autoškolu či testy."],
-    ["Je rychlokurz opravdu již v základní ceně?","Ano! V PROUDU neplatíte za rychlokurz žádné nesmyslné příplatky 5 000 až 8 000 Kč jako v běžných autoškolách. Individuální přístup a rychlokurz máte v základní ceně 19 900 Kč. Při intenzitě 3 až 4 jízdy týdně máte kompletní praktický výcvik (28 hodin) odježděný přibližně za jeden měsíc."],
+    ["Je rychlokurz opravdu již v základní ceně?","Ano! V PROUDU neplatíte za rychlokurz žádné nesmyslné příplatky 5 000 až 8 000 Kč jako v běžných autoškolách. Individuální přístup a rychlokurz máte v základní ceně 17 900 Kč. Při intenzitě 3 až 4 jízdy týdně máte kompletní praktický výcvik (28 hodin) odježděný přibližně za jeden měsíc."],
     ["Co přesně je Autoškola nanečisto?","Nejste si jistí, zda výcvik zvládnete? Chcete se nejprve seznámit s učitelem Martinem a vozidlem, než se pustíte do shánění potvrzení od lékaře a vyplňování přihlášky? Přijďte se k nám zcela zdarma a bez závazků podívat, jak to u nás chodí, sednout si do Ioniqu a vše probrat. Stačí nám zavolat na +420 603 213 178."],
     ["Kde přesně probíhají jízdy a výuka v Ostravě?","Učebnu máme na Havlíčkově nábřeží 2728/38 (hned u Mostu Pionýrů a řeky Ostravice), kde také začínají jízdy. Magistrát města Ostravy a zkušební komisaři jsou jen 3 minuty chůze od nás. Trénujeme po celé Ostravě v reálných trasách zkoušek – centrum, Poruba a Krásné Pole, Výškovice, Jih, Slezská Ostrava, podzemní garáže Nová Karolina i rychlostní komunikace Rudná, Místecká a D1."],
     ["Jak funguje teorie a plánování jízd?","V PROUDU fungujeme moderně a plně online. Veškeré studijní materiály, testy i přihlašování k jednotlivým jízdám máte v aplikaci Moje autoškola, kterou používáme pro učitele i pro žáky. Vše si pohodlně plánujete z mobilu."],
@@ -897,10 +908,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     if(heroApplyBtn) {
       heroApplyBtn.textContent = isEn ? 'Online application →' : 'Online přihláška →';
       if(isEn) {
-        heroApplyBtn.setAttribute('data-open-form', 'Group B - driving course in English (21 900 Kč)');
+        heroApplyBtn.setAttribute('data-open-form', 'Group B - driving course in English (19 900 Kč)');
         heroApplyBtn.setAttribute('data-open-form-lang', 'en');
       } else {
-        heroApplyBtn.setAttribute('data-open-form', 'Skupina B - automat (19 900 Kč)');
+        heroApplyBtn.setAttribute('data-open-form', 'Skupina B - automat (17 900 Kč)');
         heroApplyBtn.setAttribute('data-open-form-lang', 'cs');
       }
     }
