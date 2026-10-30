@@ -610,7 +610,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <div><h3>Kondiční jízdy</h3><div class="sub">již řídíte, ale chcete si vyzkoušet elektromobil</div>
         <p class="blurb">Máte řidičský průkaz, ale dlouho jste neřídili nebo poprvé usedáte za volant elektromobilu? Naučíme Vás rekuperovat, plánovat nabíjení a parkovat s couvací kamerou.</p>
         <ul class="dash-list"><li>Plánování nabíjení v reálné trase</li><li>Rekuperace, one-pedal driving</li><li>Couvací kamera, asistenční systémy</li><li>Cena za 45 minut 500 Kč</li></ul>
-        <button class="btn btn-volt lg" data-open-form="Kondiční jízdy (1 200 Kč / lekce)">Přihlásit se na Kondiční jízdy →</button></div>
+        <button class="btn btn-volt lg" data-open-form="Kondiční jízdy (500 Kč / 45 min)">Přihlásit se na Kondiční jízdy →</button></div>
       <div class="course-side"><div class="meta-grid"><div class="meta-cell"><div class="l">Délka</div><div class="v">45 min</div></div></div>
         <div class="price"><span class="p">500</span><span class="cur">Kč</span></div></div>
     </article>
@@ -796,29 +796,20 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
     <button class="modal-x" data-close-form title="Zavřít">✕</button>
-    <div class="modal-head"><div class="mono" style="font-size:11px;color:var(--volt)" id="modalKicker">Oficiální online formulář</div><h3 id="modalTitle">Žádost o přijetí k výuce a výcviku</h3></div>
+    <div class="modal-head"><div class="mono" style="font-size:11px;color:var(--volt)" id="modalKicker">Nezávazná přihláška</div><h3 id="modalTitle">Nezávazná přihláška na kurz</h3></div>
     <div class="success"><div class="ok">✓</div><h4 id="successTitle">Žádost byla úspěšně odeslána!</h4><p id="successDesc">Děkujeme za vyplnění. Potvrzení jsme zaznamenali a ozveme se vám do 24 hodin s dalším postupem a prvním termínem jízdy.</p><button class="btn btn-volt lg" data-close-form id="successBtn">Zavřít formulář</button></div>
     <form id="appForm">
       <div class="fgrid">
-        <label class="field" id="fBranchLabel">Pobočka (Město) *<select name="pobocka" id="pobockaSelect"><option value="Ostrava">Ostrava (začátek 16. 11. 2026)</option></select></label>
-        <label class="field" id="fCourseLabel">Vybraný kurz *<select name="kurz" id="kurzSelect"><option>Skupina B - automat (17 900 Kč)</option><option>Přiveď kamaráda (16 900 Kč)</option><option>L17 - automat (17 900 Kč)</option><option>Group B - driving course in English (19 900 Kč)</option><option>Kondiční jízdy (1 200 Kč / lekce)</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
-        <label class="field" id="fNameLabel">Jméno *<input type="text" name="jmeno" required placeholder="Jan" id="fNameInput"></label>
-        <label class="field" id="fSurnameLabel">Příjmení (titul) *<input type="text" name="prijmeni" required placeholder="Novák" id="fSurnameInput"></label>
-        <label class="field" id="fDobLabel">Datum narození *<input type="date" name="datumNarozeni" required id="fDobInput"></label>
-        <label class="field" id="fPobLabel">Místo narození *<input type="text" name="mistoNarozeni" required placeholder="Ostrava" id="fPobInput"></label>
-        <label class="field" id="fPinLabel">Rodné číslo *<input type="text" name="rodneCislo" required placeholder="010203/1234" id="fPinInput"></label>
-        <label class="field" id="fCitLabel">Státní občanství *<select name="statniObcanstvi" id="obcSelect"><option>České</option><option>Slovenské</option><option>Ukrajinské</option><option>Jiné</option></select></label>
-        <label class="field" id="obcJine" hidden><span id="fCitOtherLabel">Upřesněte občanství *</span><input type="text" name="statniObcanstviJine" placeholder="Stát" id="fCitOtherInput"></label>
-        <label class="field" id="fIdNumLabel">Číslo dokladu totožnosti *<input type="text" name="cisloDokladu" required placeholder="Občanský průkaz / pas" id="fIdNumInput"></label>
-        <label class="field" id="fIdIssLabel">Doklad vydal (úřad) *<input type="text" name="dokladVydal" required placeholder="Magistrát města Ostravy" id="fIdIssInput"></label>
-        <label class="field full" id="fAddrLabel">Adresa trvalého bydliště *<input type="text" name="adresa" required placeholder="Ulice, číslo popisné, město, PSČ" id="fAddrInput"></label>
-        <label class="field" id="fPhoneLabel">Telefon *<input type="tel" name="telefon" required placeholder="+420 603 213 178" id="fPhoneInput"></label>
-        <label class="field" id="fEmailLabel">Email *<input type="email" name="email" required placeholder="jan.novak@email.cz" id="fEmailInput"></label>
+        <label class="field" style="grid-column:1 / -1" id="fCourseLabel">Vybraný kurz *<select name="kurz" id="kurzSelect"><option>Skupina B - automat (17 900 Kč)</option><option>Přiveď kamaráda (16 900 Kč)</option><option>L17 - automat (17 900 Kč)</option><option>Group B - driving course in English (19 900 Kč)</option><option>Kondiční jízdy (500 Kč / 45 min)</option><option>Školení řidičů referentů</option><option>Pravidelné školení řidičů</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
+        <label class="field" id="fNameLabel">Jméno *<input type="text" name="jmeno" required placeholder="Jan" autocomplete="given-name" id="fNameInput"></label>
+        <label class="field" id="fSurnameLabel">Příjmení *<input type="text" name="prijmeni" required placeholder="Novák" autocomplete="family-name" id="fSurnameInput"></label>
+        <label class="field" id="fPhoneLabel">Telefon *<input type="tel" name="telefon" required placeholder="+420 603 213 178" autocomplete="tel" id="fPhoneInput"></label>
+        <label class="field" id="fEmailLabel">Email *<input type="email" name="email" required placeholder="jan.novak@email.cz" autocomplete="email" id="fEmailInput"></label>
         <label class="field full" id="fNoteLabel">Doplňující informace (volitelné)<textarea name="dopljujiciInfo" rows="3" placeholder="Preferované časy jízd, dotazy apod." id="fNoteInput"></textarea></label>
       </div>
-      <div class="decl" id="modalDecl"><b>Čestné prohlášení</b>Vyplněním tohoto formuláře čestně prohlašuji, že nejsem nezpůsobilým k právním úkonům, že mi nebyl uložen zákaz činnosti spočívající v zákazu řízení motorových vozidel, případně, že pominula doba stanovená pro pozbytí řidičského oprávnění podle zvláštního zákona 2), v případě rozšíření řidičského oprávnění splňuji další podmínky k udělení řidičského oprávnění podle zvláštního zákona 3), že netrpím tělesnou nebo duševní vadou, která by mne činila nezpůsobilým k řízení motorových vozidel a že všechny uvedené údaje jsou pravdivé.</div>
-      <label class="agree" id="modalAgreeLabel"><input type="checkbox" name="souhlas" id="souhlas"><span id="modalAgreeText">Potvrzuji pravdivost údajů a souhlasím s čestným prohlášením *</span></label>
-      <div class="form-actions"><button type="button" class="btn btn-ghost" data-close-form id="modalCancelBtn">Zrušit</button><button type="submit" class="btn btn-volt lg" id="modalSubmitBtn">Odeslat žádost o přijetí →</button></div>
+      <p class="decl" id="modalDecl">Ozveme se vám do 24 hodin a společně domluvíme další postup. Údaje pro zápis doplníme později.</p>
+
+      <div class="form-actions"><button type="button" class="btn btn-ghost" data-close-form id="modalCancelBtn">Zrušit</button><button type="submit" class="btn btn-volt lg" id="modalSubmitBtn">Odeslat přihlášku →</button></div>
       <div class="form-error" id="formError" role="alert" aria-live="polite"></div>
     </form>
   </div>
@@ -961,14 +952,14 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 
   var setModalLang = function(lang){
     var isEn = lang === 'en';
-    if(modalKicker) modalKicker.textContent = isEn ? 'Official Online Form' : 'Oficiální online formulář';
-    if(modalTitle) modalTitle.textContent = isEn ? 'Application for Driver Training & Education' : 'Žádost o přijetí k výuce a výcviku';
+    if(modalKicker) modalKicker.textContent = isEn ? 'Course enquiry' : 'Nezávazná přihláška';
+    if(modalTitle) modalTitle.textContent = isEn ? 'Register your interest in a course' : 'Nezávazná přihláška na kurz';
     if(fBranchLabel && fBranchLabel.childNodes[0]) fBranchLabel.childNodes[0].nodeValue = isEn ? 'Branch (City) *' : 'Pobočka (Město) *';
     if(pobockaSelect) pobockaSelect.options[0].text = isEn ? 'Ostrava (starting Nov 16, 2026)' : 'Ostrava (začátek 16. 11. 2026)';
     if(fCourseLabel && fCourseLabel.childNodes[0]) fCourseLabel.childNodes[0].nodeValue = isEn ? 'Selected course *' : 'Vybraný kurz *';
     if(fNameLabel && fNameLabel.childNodes[0]) fNameLabel.childNodes[0].nodeValue = isEn ? 'First name *' : 'Jméno *';
     if(fNameInput) fNameInput.placeholder = isEn ? 'John' : 'Jan';
-    if(fSurnameLabel && fSurnameLabel.childNodes[0]) fSurnameLabel.childNodes[0].nodeValue = isEn ? 'Last name *' : 'Příjmení (titul) *';
+    if(fSurnameLabel && fSurnameLabel.childNodes[0]) fSurnameLabel.childNodes[0].nodeValue = isEn ? 'Last name *' : 'Příjmení *';
     if(fSurnameInput) fSurnameInput.placeholder = isEn ? 'Smith' : 'Novák';
     if(fDobLabel && fDobLabel.childNodes[0]) fDobLabel.childNodes[0].nodeValue = isEn ? 'Date of birth *' : 'Datum narození *';
     if(fPobLabel && fPobLabel.childNodes[0]) fPobLabel.childNodes[0].nodeValue = isEn ? 'Place of birth *' : 'Místo narození *';
@@ -988,14 +979,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     if(fEmailLabel && fEmailLabel.childNodes[0]) fEmailLabel.childNodes[0].nodeValue = isEn ? 'Email *' : 'Email *';
     if(fNoteLabel && fNoteLabel.childNodes[0]) fNoteLabel.childNodes[0].nodeValue = isEn ? 'Additional information (optional)' : 'Doplňující informace (volitelné)';
     if(fNoteInput) fNoteInput.placeholder = isEn ? 'Preferred schedule, questions, etc.' : 'Preferované časy jízd, dotazy apod.';
-    if(modalDecl) {
-      modalDecl.innerHTML = isEn
-        ? '<b>Solemn Declaration</b>By submitting this application, I solemnly declare that I am legally competent, have not been disqualified from driving motor vehicles, meet all legal health and fitness requirements under applicable Czech law, and that all provided information is accurate and complete.'
-        : '<b>Čestné prohlášení</b>Vyplněním tohoto formuláře čestně prohlašuji, že nejsem nezpůsobilým k právním úkonům, že mi nebyl uložen zákaz činnosti spočívající v zákazu řízení motorových vozidel, případně, že pominula doba stanovená pro pozbytí řidičského oprávnění podle zvláštního zákona 2), v případě rozšíření řidičského oprávnění splňuji další podmínky k udělení řidičského oprávnění podle zvláštního zákona 3), že netrpím tělesnou nebo duševní vadou, která by mne činila nezpůsobilým k řízení motorových vozidel a že všechny uvedené údaje jsou pravdivé.';
-    }
+    if(modalDecl) modalDecl.textContent=isEn ? 'We will contact you within 24 hours to arrange the next steps. Enrollment details can be completed later.' : 'Ozveme se vám do 24 hodin a společně domluvíme další postup. Údaje pro zápis doplníme později.';
     if(modalAgreeText) modalAgreeText.textContent = isEn ? 'I confirm the accuracy of the data and agree with the solemn declaration *' : 'Potvrzuji pravdivost údajů a souhlasím s čestným prohlášením *';
     if(modalCancelBtn) modalCancelBtn.textContent = isEn ? 'Cancel' : 'Zrušit';
-    if(modalSubmitBtn) modalSubmitBtn.textContent = isEn ? 'Submit application →' : 'Odeslat žádost o přijetí →';
+    if(modalSubmitBtn) modalSubmitBtn.textContent = isEn ? 'Submit application →' : 'Odeslat přihlášku →';
     if(successTitle) successTitle.textContent = isEn ? 'Application submitted successfully!' : 'Žádost byla úspěšně odeslána!';
     if(successDesc) successDesc.textContent = isEn ? 'Thank you for signing up. We have received your application and will contact you within 24 hours.' : 'Děkujeme za vyplnění. Potvrzení jsme zaznamenali a ozveme se vám do 24 hodin s dalším postupem a prvním termínem jízdy.';
     if(successBtn) successBtn.textContent = isEn ? 'Close form' : 'Zavřít formulář';
@@ -1006,7 +993,13 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     modal.classList.remove('sent');
     var targetLang = lang || (k && k.indexOf('English') !== -1 ? 'en' : currentHeroLang);
     setModalLang(targetLang);
-    if(k) kurz.value=k;
+    if(!k){
+      var activeCourse=document.querySelector('[data-panel="course"]:not([hidden])');
+      var courseButton=activeCourse && activeCourse.querySelector('[data-open-form]');
+      k=courseButton && courseButton.getAttribute('data-open-form');
+    }
+    kurz.value=k || 'Skupina B - automat (17 900 Kč)';
+    if(formError) formError.classList.remove('show');
     modal.classList.add('open');
     document.body.style.overflow='hidden';
     if(window.trackGAEvent)window.trackGAEvent('begin_checkout',{course:k||null});
@@ -1020,14 +1013,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   document.querySelectorAll('[data-close-form]').forEach(function(b){b.addEventListener('click',closeForm)});
   modal.addEventListener('click',function(e){if(e.target===modal)closeForm()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeForm();closeMenu()}});
-  var obc=document.getElementById('obcSelect'),jine=document.getElementById('obcJine');
-  obc.addEventListener('change',function(){var on=obc.value==='Jiné';jine.hidden=!on;jine.querySelector('input').required=on});
+  var jine={hidden:true};
   form.addEventListener('submit',async function(e){
     e.preventDefault();
-    if(!document.getElementById('souhlas').checked){
-      alert(currentHeroLang==='en' ? 'Please confirm the solemn declaration.' : 'Pro odeslání přihlášky je nutné potvrdit čestné prohlášení.');
-      return;
-    }
+
     if(formError) formError.classList.remove('show');
     var originalSubmitText=modalSubmitBtn.textContent;
     modalSubmitBtn.disabled=true;
@@ -1037,7 +1026,8 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       data.append('_subject','Nová online přihláška · Autoškola PROUD');
       data.append('_template','table');
       var response=await fetch('https://formsubmit.co/ajax/info@autoskolaproud.cz',{method:'POST',headers:{Accept:'application/json'},body:data});
-      if(!response.ok) throw new Error('Form service returned '+response.status);
+      var result=await response.json();
+      if(!response.ok || (result.success!==true && result.success!=='true')) throw new Error('Form service rejected application');
       if(window.trackGAEvent)window.trackGAEvent('generate_lead',{course:kurz.value});
       modal.classList.add('sent');form.reset();jine.hidden=true;
     }catch(error){
