@@ -198,6 +198,18 @@ img{max-width:100%}
 .btn-ink{background:var(--ink);color:var(--paper)}.btn-ink:hover{background:var(--ink2);color:var(--paper)}
 .btn.lg{padding:17px 28px;font-size:16px}.btn.sm{padding:10px 18px;font-size:13px}
 .light .btn-volt:hover{background:#3FCFC8;border-color:#3FCFC8}
+/* Black Friday */
+.hero-bf-pill{display:inline-flex;align-items:center;gap:12px;margin-top:24px;padding:8px 16px;background:rgba(82,221,214,.1);border:1px solid rgba(82,221,214,.35);border-radius:999px;color:var(--paper);font-size:14px;text-decoration:none;transition:all .2s;max-width:fit-content}
+.hero-bf-pill:hover{background:rgba(82,221,214,.2);border-color:var(--volt);transform:translateY(-1px);color:var(--paper)}
+.hero-bf-pill .bf-tag{background:var(--volt);color:var(--ink);font-family:var(--m);font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 8px;border-radius:999px;text-transform:uppercase}
+.hero-bf-pill .bf-text{font-family:var(--d);font-weight:500}
+.btn-bf{background:linear-gradient(135deg,#131412 0%,#222521 100%);border:1px solid var(--volt);color:var(--volt);box-shadow:0 0 16px rgba(82,221,214,.2)}
+.btn-bf:hover{background:var(--volt);color:var(--ink);border-color:var(--volt);box-shadow:0 0 24px rgba(82,221,214,.4)}
+.bf-badge-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(82,221,214,.12);border:1px solid var(--volt-deep);color:var(--volt-deep);font-family:var(--m);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.tab[data-tab="black-friday"]{border-color:var(--volt-deep)!important;color:var(--volt-deep)!important;font-weight:600}
+.tab[data-tab="black-friday"].active{background:var(--volt)!important;border-color:var(--volt)!important;color:var(--ink)!important}
+.light .tab[data-tab="black-friday"]{border-color:var(--volt-deep)!important;color:var(--volt-deep)!important;font-weight:600}
+.light .tab[data-tab="black-friday"].active{background:var(--ink)!important;border-color:var(--ink)!important;color:var(--volt)!important}
 /* ticker */
 .annbar{position:fixed;top:0;left:0;right:0;z-index:70;height:40px;background:var(--bg2);border-bottom:1px solid var(--line);overflow:hidden;display:flex;align-items:center}
 .annbar-track{display:flex;white-space:nowrap;animation:annflow 40s linear infinite;font-family:var(--m);font-size:12px;letter-spacing:.05em;text-transform:uppercase;will-change:transform}
@@ -501,6 +513,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     <div>
       <div class="hero-meta"><span class="first" id="heroMetaFirst">1. čistě elektromobilní autoškola v ČR!</span><span id="heroMetaCities">Ostrava · Brno připravujeme</span></div>
       <h1 id="heroHeading">Jezděte v klidu<br>a bez řazení,<br>jezděte v <span>PROUDU</span>.</h1>
+      <a href="#courses" class="hero-bf-pill" id="heroBfPill">
+        <span class="bf-tag">⚡ BLACK FRIDAY</span>
+        <span class="bf-text">Sleva 1 500 Kč na všechny kurzy do konce listopadu →</span>
+      </a>
     </div>
     <aside class="hero-aside">
       <div class="hero-aside-top">
@@ -528,7 +544,8 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       </div>
       <p id="heroDesc">U nás učíme řídit pouze v elektromobilech značky <b>Hyundai Ioniq</b>. Každý elektromobil je z principu své konstrukce ryzí automat, takže spojku ani převodovku, se kterými mívají studenti při zkouškách problémy, zde zkrátka nenajdete. Proto vás s námi nečekají žádné trhané rozjezdy v křižovatkách, řev otáček ani smrad z výfuku. Jen klid a plná koncentrace na provoz. Díky individuálnímu přístupu je navíc rychlokurz samozřejmostí a máte ho již v základní ceně.</p>
       <div class="hero-actions">
-        <button class="btn btn-volt" id="heroApplyBtn" data-open-form="Skupina B - automat (17 900 Kč)">Online přihláška →</button>
+        <button class="btn btn-volt" id="heroApplyBtn" data-open-form="Black Friday - sleva 1 500 Kč (16 400 Kč)">Online přihláška →</button>
+        <a href="#courses" class="btn btn-bf" id="heroBfBtn">🏷️ Black Friday</a>
         <a href="#courses" class="btn btn-ghost" id="heroCoursesBtn">Kurzy a ceny</a>
       </div>
     </aside>
@@ -556,8 +573,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   <div class="wrap">
     <div class="head single"><div class="kicker"><span class="n">02</span>Kurzy &amp; ceny</div><h2 class="h2">Nabídka našich kurzů</h2></div>
     <div class="tabs scroll" data-tabs="course" role="tablist">
-      <button class="tab" data-tab="akce">Přiveď kamaráda</button>
-      <button class="tab active" data-tab="b">Skupina B - automat</button>
+      <button class="tab active" data-tab="black-friday">🏷️ Black Friday</button>
+      <!-- <button class="tab" data-tab="akce">Přiveď kamaráda</button> -->
+      <button class="tab" data-tab="b">Skupina B - automat</button>
       <button class="tab" data-tab="l17">L17 - automat</button>
       <button class="tab" data-tab="b-en">Group B - driving course in English</button>
       <button class="tab" data-tab="kondicni">Kondiční jízdy</button>
@@ -565,6 +583,37 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
       <button class="tab" data-tab="referenti">Školení řidičů referentů</button>
       <button class="tab" data-tab="pravidelne">Pravidelné školení řidičů</button>
     </div>
+
+    <article class="course-card panel" data-panel="course" data-id="black-friday">
+      <div class="code-badge">BLACK FRIDAY</div>
+      <div>
+        <div class="bf-badge-pill">🔥 Akce do 30. listopadu</div>
+        <h3>Black Friday v PROUDU</h3>
+        <div class="sub">akční vánoční sleva 1 500 Kč na všechny kurzy</div>
+        <p class="blurb">Využijte Black Friday v autoškole PROUD. Všechny kurzy objednané a zaplacené do konce tohoto listopadu, včetně těch se zahájením v roce 2027, máte se slevou 1 500 Kč. Tak neváhejte a vyřešte vánoční dárek ještě dnes!</p>
+        <ul class="dash-list">
+          <li><strong>Sleva 1 500 Kč</strong> z plné ceny kurzu</li>
+          <li>Platí i pro kurzy <strong>se zahájením v roce 2027</strong></li>
+          <li>Ideální vánoční dárek (dárkový poukaz vystavíme obratem)</li>
+          <li>Výcvik výhradně v moderním elektromobilu Hyundai Ioniq s automatem</li>
+          <li>Intenzivní rychlokurz (3–4 jízdy týdně) v základní ceně – za měsíc máte hotovo</li>
+          <li>Veškeré studijní materiály, testy i aplikace Moje autoškola v ceně</li>
+        </ul>
+        <button class="btn btn-volt lg" data-open-form="Black Friday - sleva 1 500 Kč (16 400 Kč)">Online přihláška →</button>
+      </div>
+      <div class="course-side">
+        <div class="meta-grid">
+          <div class="meta-cell"><div class="l">Hodin jízdy</div><div class="v">28 h</div></div>
+          <div class="meta-cell"><div class="l">Teorie</div><div class="v">7.5 h</div></div>
+          <div class="meta-cell"><div class="l">Akce platí do</div><div class="v">30. 11.</div></div>
+          <div class="meta-cell"><div class="l">Zahájení</div><div class="v">2026 i 2027</div></div>
+        </div>
+        <div class="price">
+          <span style="text-decoration:line-through;color:var(--muted-l);font-size:26px;margin-right:12px;font-family:var(--d)">17 900 Kč</span>
+          <span class="p">16 400</span><span class="cur">Kč</span>
+        </div>
+      </div>
+    </article>
 
     <article class="course-card panel" data-panel="course" data-id="akce" hidden>
       <div class="code-badge">AKCE</div>
@@ -576,7 +625,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
         <div class="price"><span class="p">16 900</span><span class="cur">Kč</span></div></div>
     </article>
 
-    <article class="course-card panel" data-panel="course" data-id="b">
+    <article class="course-card panel" data-panel="course" data-id="b" hidden>
       <div class="code-badge">Skupina B</div>
       <div><h3>Skupina B - automat</h3><div class="sub">osobní auto · automatická převodovka · elektromobil</div>
         <p class="blurb">Řidičský průkaz na osobní auto s harmonizačním kódem 78, tzn. omezení na vozidla s automatickou převodovkou. A jedině u nás pouze s elektromobilem Hyundai Ioniq. A jedině u nás rychlokurzem v základní ceně.</p>
@@ -698,7 +747,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     <div class="head single"><div class="kicker"><span class="n">06</span>Kde jezdíme</div><h2 class="h2">Naše pobočky</h2></div>
     <div class="tabs" data-tabs="city"><button class="tab active" data-tab="ostrava">Ostrava</button><button class="tab" data-tab="brno">Brno</button><button class="tab" data-tab="dalsi">Další města</button></div>
     <div class="card branch panel" data-panel="city" data-id="ostrava">
-      <div class="branch-main"><span class="branch-badge">Výuka &amp; Jízdy probíhají</span><h3>Ostrava</h3><div><span class="status">Kurz začíná 16. 11. 2026</span></div>
+      <div class="branch-main"><span class="branch-badge">Výuka &amp; Jízdy probíhají</span><h3>Ostrava</h3><div><span class="status">Kurz začíná 16. 12. 2026</span></div>
         <p>Jízdy probíhají po celé Ostravě a přímo v trasách zkušebních komisařů, tzn. Moravská Ostrava, Přívoz, Slezská Ostrava a Vítkovice. Vyzkoušíte si jízdu po Rudné, Místecké i na dálnici. Naučíte se, jak zvládnout zaparkovat v centru i v Nové Karolině. Rádi přivítáme zájemce z blízkého (Výškovice, Hrabůvka, Dubina, Poruba) i vzdáleného (Rychvald, Bohumín, Hlučín, Vratimov, Klimkovice, Krásné Pole) okolí.</p>
         <div class="addr"><div class="l">Adresa / Zázemí</div><div class="v">Havlíčkovo nábřeží 2728/38, 702 00 Ostrava (u zastávky Most Pionýrů)</div></div></div>
       <ul class="check-list"><li>Jízdy v trasách zkušebních komisařů - centrum, Přívoz, Vítkovice, Slezská</li><li>Výborná dostupnost pro celou Ostravu i okolí (Krásné Pole, Rychvald, Bohumín, Hlučín)</li><li>Trénink na Rudné, Místecké, dálnici D1 i v parkovacím domě Nová Karolina</li><li>Start jízd z parkoviště před učebnou na Havlíčkově nábřeží v Ostravě</li><li>Magistrát města Ostravy a zkušební komisař jen 3 minuty chůze</li></ul>
@@ -786,7 +835,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
         <p style="color:var(--muted);margin:20px 0 0;max-width:36ch;line-height:1.6">1. čistě elektromobilní autoškola v ČR!</p>
         <div style="display:flex;gap:10px;margin-top:20px"><a href="https://www.instagram.com/autoskola_proud/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost sm">Instagram</a><a href="https://www.facebook.com/autoskolaproud" target="_blank" rel="noopener noreferrer" class="btn btn-ghost sm">Facebook</a></div></div>
       <div class="foot-col"><h4>Kontakt</h4><a href="tel:+420603213178">+420 603 213 178</a><a href="mailto:info@autoskolaproud.cz">info@autoskolaproud.cz</a><span style="color:var(--muted);margin-top:8px">Havlíčkovo nábřeží 2728/38<br>702 00 Ostrava</span></div>
-      <div class="foot-col"><h4>Kurzy</h4><a href="#courses">Přiveď kamaráda</a><a href="#courses">Skupina B - automat</a><a href="#courses">L17 - automat</a><a href="#courses">Group B - driving course in English</a><a href="#courses">Kondiční jízdy</a><a href="#courses">Autoškola nanečisto</a><a href="#courses">Školení řidičů referentů</a><a href="#courses">Pravidelné školení řidičů</a><a href="#">Dárkový voucher</a></div>
+      <div class="foot-col"><h4>Kurzy</h4><a href="#courses" id="footBfLink" style="color:var(--volt);font-weight:600">🏷️ Black Friday (-1 500 Kč)</a><a href="#courses">Skupina B - automat</a><a href="#courses">L17 - automat</a><a href="#courses">Group B - driving course in English</a><a href="#courses">Kondiční jízdy</a><a href="#courses">Autoškola nanečisto</a><a href="#courses">Školení řidičů referentů</a><a href="#courses">Pravidelné školení řidičů</a><a href="#">Dárkový voucher</a></div>
       <div class="foot-col"><h4>Specializace &amp; výcvik</h4><a href="/autoskola-automat-ostrava.html">Autoškola s automatem</a><a href="/elektricka-autoskola-ostrava.html">Elektrická autoškola</a><a href="/rychlokurz-autoskola-ostrava.html">Rychlokurz za 1 měsíc</a><a href="/kondicni-jizdy-ostrava.html">Kondiční jízdy Ostrava</a><a href="/testy-autoskola-online.html">Testy do autoškoly online</a><a href="/skripta-obsluha-a-udrzba-vozidel.html">Skripta údržby vozidel (C, D)</a><a href="/lekarsky-posudek.html">Lékařský posudek (PDF)</a></div>
     </div>
     <div class="foot-bottom"><div>© 2026 MARTIN SAMEC - AUTOŠKOLA PROUD · IČO 29664853</div><div>made in Ostrava · powered by 100% obnovitelnou energií</div></div>
@@ -800,7 +849,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     <div class="success"><div class="ok">✓</div><h4 id="successTitle">Žádost byla úspěšně odeslána!</h4><p id="successDesc">Děkujeme za vyplnění. Potvrzení jsme zaznamenali a ozveme se vám do 24 hodin s dalším postupem a prvním termínem jízdy.</p><button class="btn btn-volt lg" data-close-form id="successBtn">Zavřít formulář</button></div>
     <form id="appForm">
       <div class="fgrid">
-        <label class="field" style="grid-column:1 / -1" id="fCourseLabel">Vybraný kurz *<select name="kurz" id="kurzSelect"><option>Skupina B - automat (17 900 Kč)</option><option>Přiveď kamaráda (16 900 Kč)</option><option>L17 - automat (17 900 Kč)</option><option>Group B - driving course in English (19 900 Kč)</option><option>Kondiční jízdy (500 Kč / 45 min)</option><option>Školení řidičů referentů</option><option>Pravidelné školení řidičů</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
+        <label class="field" style="grid-column:1 / -1" id="fCourseLabel">Vybraný kurz *<select name="kurz" id="kurzSelect"><option selected>Black Friday - sleva 1 500 Kč (16 400 Kč)</option><option>Skupina B - automat (17 900 Kč)</option><option>Přiveď kamaráda (16 900 Kč)</option><option>L17 - automat (17 900 Kč)</option><option>Group B - driving course in English (19 900 Kč)</option><option>Kondiční jízdy (500 Kč / 45 min)</option><option>Školení řidičů referentů</option><option>Pravidelné školení řidičů</option><option>Autoškola nanečisto (ZDARMA)</option></select></label>
         <label class="field" id="fNameLabel">Jméno *<input type="text" name="jmeno" required placeholder="Jan" autocomplete="given-name" id="fNameInput"></label>
         <label class="field" id="fSurnameLabel">Příjmení *<input type="text" name="prijmeni" required placeholder="Novák" autocomplete="family-name" id="fSurnameInput"></label>
         <label class="field" id="fPhoneLabel">Telefon *<input type="tel" name="telefon" required placeholder="+420 603 213 178" autocomplete="tel" id="fPhoneInput"></label>
@@ -819,8 +868,8 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
 (function(){
   // ticker
   var now = new Date();
-  var capacity = (now >= new Date(2026, 9, 23)) ? '3/5' : '0/5';
-  var unit='<div class="ann-unit"><span style="color:var(--muted)">Nejbližší kurzy</span><span class="dot"></span><span><b>Ostrava</b> <span class="sep">·</span> začátek 16. 11. 2026</span><span class="dot dot-muted"></span><span><b>Brno</b> <span class="sep">·</span> připravujeme</span><span class="dot"></span></div>';
+  var capacity = (now >= new Date(2026, 11, 11)) ? '3/5' : '0/5';
+  var unit='<div class="ann-unit"><span style="color:var(--volt);font-weight:700">🏷️ Black Friday: sleva 1 500 Kč do 30. 11.</span><span class="dot"></span><span style="color:var(--muted)">Nejbližší kurzy</span><span class="dot"></span><span><b>Ostrava</b> <span class="sep">·</span> začátek 16. 12. 2026</span><span class="dot dot-muted"></span><span><b>Brno</b> <span class="sep">·</span> připravujeme</span><span class="dot"></span></div>';
   document.getElementById('ticker').innerHTML=unit+unit+unit+unit;
   // nav scroll
   var nav=document.getElementById('nav');
@@ -851,7 +900,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     ["Co přesně je Autoškola nanečisto?","Nejste si jistí, zda výcvik zvládnete? Chcete se nejprve seznámit s učitelem Martinem a vozidlem, než se pustíte do shánění potvrzení od lékaře a vyplňování přihlášky? Přijďte se k nám zcela zdarma a bez závazků podívat, jak to u nás chodí, sednout si do Ioniqu a vše probrat. Stačí nám zavolat na +420 603 213 178."],
     ["Kde přesně probíhají jízdy a výuka v Ostravě?","Učebnu máme na Havlíčkově nábřeží 2728/38 (hned u Mostu Pionýrů a řeky Ostravice), kde také začínají jízdy. Magistrát města Ostravy a zkušební komisaři jsou jen 3 minuty chůze od nás. Trénujeme po celé Ostravě v reálných trasách zkoušek – centrum, Poruba a Krásné Pole, Výškovice, Jih, Slezská Ostrava, podzemní garáže Nová Karolina i rychlostní komunikace Rudná, Místecká a D1."],
     ["Jak funguje teorie a plánování jízd?","V PROUDU fungujeme moderně a plně online. Veškeré studijní materiály, testy i přihlašování k jednotlivým jízdám máte v aplikaci Moje autoškola, kterou používáme pro učitele i pro žáky. Vše si pohodlně plánujete z mobilu."],
-    ["Kdy začíná nejbližší kurz a kolik je volných míst?","Nejbližší ostravský kurz začíná 16. 11. 2026. Kapacita každého běhu je omezena na maximálně 5 studentů (aktuálně zbývá kapacita "+capacity+"), abychom každému zaručili maximální péči, návaznost jízd a dokončení do jednoho měsíce."],
+    ["Kdy začíná nejbližší kurz a kolik je volných míst?","Nejbližší ostravský kurz začíná 16. 12. 2026. Kapacita každého běhu je omezena na maximálně 5 studentů (aktuálně zbývá kapacita "+capacity+"), abychom každému zaručili maximální péči, návaznost jízd a dokončení do jednoho měsíce."],
     ["Co když u závěrečné zkoušky neuspěju?","Nemusíte mít obavy – díky klidnému výcviku na automatu naši žáci zvládají jízdy s vysokou úspěšností. V případě potřeby opravné zkoušky zaplatíte pouze správní poplatek magistrátu a v PROUDU vám dáme doplňkovou jízdu zdarma pro osvěžení před opravným termínem."]
   ];
   var fl=document.getElementById('faqList');
@@ -955,7 +1004,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
     if(modalKicker) modalKicker.textContent = isEn ? 'Course enquiry' : 'Nezávazná přihláška';
     if(modalTitle) modalTitle.textContent = isEn ? 'Register your interest in a course' : 'Nezávazná přihláška na kurz';
     if(fBranchLabel && fBranchLabel.childNodes[0]) fBranchLabel.childNodes[0].nodeValue = isEn ? 'Branch (City) *' : 'Pobočka (Město) *';
-    if(pobockaSelect) pobockaSelect.options[0].text = isEn ? 'Ostrava (starting Nov 16, 2026)' : 'Ostrava (začátek 16. 11. 2026)';
+    if(pobockaSelect) pobockaSelect.options[0].text = isEn ? 'Ostrava (starting Dec 16, 2026)' : 'Ostrava (začátek 16. 12. 2026)';
     if(fCourseLabel && fCourseLabel.childNodes[0]) fCourseLabel.childNodes[0].nodeValue = isEn ? 'Selected course *' : 'Vybraný kurz *';
     if(fNameLabel && fNameLabel.childNodes[0]) fNameLabel.childNodes[0].nodeValue = isEn ? 'First name *' : 'Jméno *';
     if(fNameInput) fNameInput.placeholder = isEn ? 'John' : 'Jan';
@@ -1013,6 +1062,19 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(56px,
   document.querySelectorAll('[data-close-form]').forEach(function(b){b.addEventListener('click',closeForm)});
   modal.addEventListener('click',function(e){if(e.target===modal)closeForm()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeForm();closeMenu()}});
+
+  // Black Friday tab openers
+  var openBfTab = function(){
+    var bfTab = document.querySelector('[data-tab="black-friday"]');
+    if(bfTab) bfTab.click();
+  };
+  var heroBfBtn = document.getElementById('heroBfBtn');
+  if(heroBfBtn) heroBfBtn.addEventListener('click', openBfTab);
+  var heroBfPill = document.getElementById('heroBfPill');
+  if(heroBfPill) heroBfPill.addEventListener('click', openBfTab);
+  var footBfLink = document.getElementById('footBfLink');
+  if(footBfLink) footBfLink.addEventListener('click', openBfTab);
+
   var jine={hidden:true};
   form.addEventListener('submit',async function(e){
     e.preventDefault();
